@@ -1,0 +1,67 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "LevelObject.fcc" as levelobject
+import Resources from "EditorGenLib.fcc"
+import "./PlayerConfig.fcg" as playerConfig
+import "Workflow.fcc" as workflow
+import "./GlobalRole.fcg" as globalRole
+
+graph PlayerNameTag {
+    nameTag entity<LevelObject>
+    imposterNameTag entity<LevelObject>
+
+
+
+    event OnPhaseStart(phase entity<Phase>) {
+        var phaseIndex = phase<Phase>.PhaseIndex
+        if phaseIndex == phaseEnum.DAY {
+            InitAllNameTag()
+        } else if phaseIndex == phaseEnum.NIGHT {
+            TurnOffNameTag()
+        }
+    }
+
+    
+    func InitNameTag() {
+        CreateLevelObject(out var createdEntity, Vector3{0, 0, 0},Resources.LevelObject[EResource_LevelObject.Text])
+        nameTag = createdEntity
+        nameTag<TextEntity>.FollowTarget = thisEntity<Player>
+        nameTag<TextEntity>.Offset = Vector3{0, 1.7, 0}
+        nameTag<TextEntity>.IsBillboard = true
+        nameTag<TextEntity>.TextKey = thisEntity<Player>.NickName
+        nameTag<TextEntity>.FontSize = 24
+        if thisEntity<playerConfig>.isImposter {
+            nameTag<TextEntity>.VisiblePlayersList = globalEntity<globalRole>.HumanList
+        }
+        
+    }
+
+    func InitImposterNameTag() {
+        if thisEntity<playerConfig>.isImposter {
+            CreateLevelObject(out var createdEntity, Vector3{0, 0, 0},Resources.LevelObject[EResource_LevelObject.Text])
+            imposterNameTag = createdEntity
+            imposterNameTag<TextEntity>.FollowTarget = thisEntity<Player>
+            imposterNameTag<TextEntity>.Offset = Vector3{0, 1.7, 0}
+            imposterNameTag<TextEntity>.IsBillboard = true
+            imposterNameTag<TextEntity>.TextKey = thisEntity<Player>.NickName
+            imposterNameTag<TextEntity>.FontSize = 24
+            imposterNameTag<TextEntity>.Color = ColorRGB(255,0,0)
+            imposterNameTag<TextEntity>.IsIgnoreDepth = true
+            imposterNameTag<TextEntity>.VisiblePlayersList = globalEntity<globalRole>.imposterList
+            
+        }
+    }
+
+    func InitAllNameTag() {
+        InitNameTag()
+        InitImposterNameTag()
+    }
+
+    func DisplayNameTag() {
+    
+    }
+
+    func TurnOffNameTag() {
+        DeleteEntity(nameTag)
+        DeleteEntity(imposterNameTag)
+    }}

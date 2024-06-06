@@ -1,0 +1,31 @@
+{
+ "OptionalResourceNames": [
+  "WS_VFX_BLOODBALL",
+  "T_34_M_WS_ICON_SQUARE",
+  "UI_BG_line_1pix"
+ ],
+ "ItemIds": [
+  117,
+  224,
+  87
+ ],
+ "ResourcePackageInfo": {
+  "DataFormatVersion": 0,
+  "BuildinPackages": [
+   {
+    "Name": "BuiltIn",
+    "UUID": "BuiltIn",
+    "ShareType": "Private",
+    "PackageType": "FFBuildinResource",
+    "UseableType": "ClientOnly",
+    "Version": "1.0.0",
+    "DataFormatVersion": 1
+   }
+  ]
+ },
+ "NotNecessaryResData": {
+  "CSSharedItemID": [
+   203000312
+  ]
+ }
+}

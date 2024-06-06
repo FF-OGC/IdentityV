@@ -1,0 +1,11 @@
+import "StdLibrary.fcc" as std
+import "EditorGenLib.fcc" as editorGenLib 
+import "Hud.fcc" as hud 
+
+graph HUDButton {
+    event OnClick(trigger entity<Player>) {
+        LogInfo("[HUDButton] OnClick player = " + trigger +
+                ", thisEntity = " + thisEntity)  
+        DispatchEvent(HUD_ButtonClicked, thisEntity<HudWidget>.HostHudEntity, List<object>{thisEntity, trigger})                                
+    }
+}

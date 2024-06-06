@@ -1,0 +1,51 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "./GlobalRole.fcg" as globalRole
+import "Player.fcc" as player
+import "Workflow.fcc" as workflow
+
+graph GlobalWinCond {
+    
+    imposterWin bool
+    humanWin bool
+    jesterWin bool    
+
+    func CheckWin() {
+        imposterWin = CheckImposterWin()
+        humanWin = CheckHumanWin()
+
+        if imposterWin || humanWin {
+            SetGameNextPhase(phaseEnum.END)
+        }
+    }
+
+    func CheckImposterWin() bool {
+        return CheckKillAllHuman()
+    }
+
+    func CheckHumanWin() bool {
+        return CheckKillAllImposter() || CheckCompleteTask()
+    }
+
+
+    func CheckKillAllImposter() bool {
+        for key,player in globalEntity<globalRole>.imposterList {
+            if player<Player>.State == PlayerStateType.Alive {
+                return false
+            }
+        }
+        return true
+    }
+
+    func CheckKillAllHuman() bool {
+        for key,player in globalEntity<globalRole>.HumanList {
+            if player<Player>.State == PlayerStateType.Alive {
+                return false
+            }
+        }
+        return true
+    }
+
+    func CheckCompleteTask() bool {
+    }
+}

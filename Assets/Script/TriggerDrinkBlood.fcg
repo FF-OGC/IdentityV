@@ -1,0 +1,45 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "Physics.fcc" as physics
+import "LevelObject.fcc" as levelobject
+import "List.fcc" as list
+import "./PlayerImposter.fcg" as playerImposter
+import "./PlayerConfig.fcg" as playerConfig
+import "Workflow.fcc" as Workflow
+
+graph TriggerDrinkBlood {
+    inTrigger bool = false
+
+    event OnPhaseStart(phase entity<Phase>) {
+        var phaseIndex = phase<Phase>.PhaseIndex
+        if phaseIndex == phaseEnum.DAY {
+        }
+    }
+
+    event OnPlayerEnterTrigger(player entity<Player>) {
+        if player<playerConfig>.isImposter {
+            inTrigger = true
+        }
+    }
+
+    event OnPlayerLeaveTrigger(player entity<Player>) {
+        inTrigger = false
+    }
+
+    // async func DrinkBlood(player entity<Player>) {
+    //     var requiredTime = 2
+    //     var time = 0
+    //     while inTrigger {
+    //         if time >= requiredTime {
+    //             SetActive(GetChildren(thisEntity)[0],false)
+    //             player<playerImposter>.DrinkBlood()
+    //         }
+    //         time +=1
+    //         WaitForSeconds(1000)
+    //     }
+    // }
+
+    // func ResetBlood() {
+    //     SetActive(GetChildren(thisEntity)[0],true)
+    // }
+}

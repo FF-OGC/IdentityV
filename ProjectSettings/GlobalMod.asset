@@ -1,0 +1,126 @@
+{
+  "_tag": {
+    "type": "ff.global",
+    "resourceId": "Global"
+  },
+  "_entityId": "TmrnznQG",
+  "children": [],
+  "prefabVariant": null,
+  "activeValue": {
+    "selfValue": true,
+    "valueTag": "activeValue"
+  },
+  "unlockedValue": {
+    "selfValue": true,
+    "valueTag": "unlockedValue"
+  },
+  "editorLockValue": false,
+  "editorVisibleValue": true,
+  "modId": 39,
+  "DisableReconnect": false,
+  "RecommendStartGameNumber": 4,
+  "EnableHalfwayJoin": false,
+  "EnableHalfwayJoinEffectTime": true,
+  "HalfwayJoinEffectTime": 120,
+  "HalfwayJoinNumber": 5,
+  "HalfwayJoinNumberLimit": true,
+  "EnableFreeQuit": false,
+  "AllowHangUpTime": 20,
+  "EnableRuntimeDynamicNavMesh": false,
+  "EnableHackCheck": false,
+  "modOpen": true,
+  "ecaProps": {
+    "Global": {
+      "PlayerRoundRankingRuleScoreType": [],
+      "PlayerRoundRankingRuleSortType": [],
+      "TeamRoundRankingRuleScoreType": [],
+      "TeamRoundRankingRuleSortType": [],
+      "MVPRuleScoreType": [],
+      "MVPRuleScoreWeight": [],
+      "RoundRankToScoreMap": [],
+      "ScoreTypeToShowResult": [],
+      "TeamRankAccumulateScoreType": 0,
+      "TeamRankAccumulateScoreOrder": 0,
+      "PlayerRankAccumulateScoreType": 0,
+      "PlayerRankAccumulateScoreOrder": 0,
+      "EcoRoundMoney": 0,
+      "EcoKillMoney": 0,
+      "EcoWinMoney": 0,
+      "CoinHudShow": false,
+      "SkyboxEnv": null,
+      "CustomMatchResult": false
+    },
+    "Entity": {},
+    "Component": {}
+  },
+  "globalGraphs": [
+    {
+      "fileId": "zann4vtteoq-ls2vvezu-3jhwdhkq35u",
+      "filePath": "Assets\\Script\\Global.fcg",
+      "_tag": {
+        "type": "GFileRefer"
+      },
+      "fileType": "ugcscript"
+    },
+    {
+      "fileId": "a20zwbywn9-ls2z7nd9-fsh4c7wnul",
+      "filePath": "Assets\\ECA\\Resource.eca",
+      "_tag": {
+        "type": "GFileRefer"
+      },
+      "fileType": "eca"
+    },
+    {
+      "fileId": "1415e97xuh8-ls46ekfp-ogegoxq71d",
+      "filePath": "Assets\\Script\\GlobalTask.fcg",
+      "_tag": {
+        "type": "GFileRefer"
+      },
+      "fileType": "ugcscript"
+    },
+    {
+      "fileId": "hj4c5w1pool-ls4atjjo-ruy28h1o59f",
+      "filePath": "Assets\\Script\\GlobalConfig.fcg",
+      "_tag": {
+        "type": "GFileRefer"
+      },
+      "fileType": "ugcscript"
+    },
+    {
+      "fileId": "v5ydbgkgk2r-ls4asrto-uiyssorpuog",
+      "filePath": "Assets\\Script\\GlobalRole.fcg",
+      "_tag": {
+        "type": "GFileRefer"
+      },
+      "fileType": "ugcscript"
+    },
+    {
+      "fileId": "2sj32wviljm-ls9u36eg-lknzdbv6y",
+      "filePath": "Assets\\Script\\GlobalAction.fcg",
+      "_tag": {
+        "type": "GFileRefer"
+      },
+      "fileType": "ugcscript"
+    },
+    {
+      "fileId": "vjh2c8ggvqe-lsn2uyhv-fdtasf4zohr",
+      "filePath": "Assets\\Script\\GlobalWinCond.fcg",
+      "_tag": {
+        "type": "GFileRefer"
+      },
+      "fileType": "ugcscript"
+    },
+    {
+      "fileId": "m6tm8cgj5u-lx19626y-zgnrk74skp8",
+      "filePath": "Assets\\Script\\GlobalLoop.fcg",
+      "_tag": {
+        "type": "GFileRefer"
+      },
+      "fileType": "ugcscript"
+    }
+  ],
+  "_entityName": "T_43_YU_WS_MODULE_GLOBAL",
+  "showSwitch": false,
+  "PriorityFullStartMatch": true
+}
+//"{FE:{"v":"1.8.3020133","c":{"FF":4404},"s":100}

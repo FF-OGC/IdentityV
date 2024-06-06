@@ -1,0 +1,74 @@
+{
+  "_tag": {
+    "type": "EditorGenSymbolSetting"
+  },
+  "_entityId": "41gC6Ild",
+  "GenSymbol": {
+    "Components": {},
+    "Events": {
+      "signal_61382734": {
+        "label": "HUD_ButtonClicked",
+        "params": {}
+      },
+      "signal_95382460": {
+        "label": "Generator_OnFinish",
+        "params": {}
+      }
+    },
+    "Graphs": {
+      "gx0drqr0nyg-ls2vy1vd-kpbl01060mp": {
+        "label": "Global",
+        "vars": {},
+        "funcs": {}
+      },
+      "a20zwbywn9-ls2z7nd9-fsh4c7wnul": {
+        "label": "Resource",
+        "vars": {
+          "v80HQ50CC": {
+            "label": "zombieSpawn"
+          }
+        },
+        "funcs": {
+          "5[+Ht2}t(ZnN7z10fb0g": {
+            "label": "getZombieSpawn2"
+          }
+        }
+      },
+      "kw58dhdazk-lso3zc77-tqg3buw2qt": {
+        "label": "TriggerBlood",
+        "vars": {},
+        "funcs": {}
+      }
+    },
+    "Enums": {
+      "CustomEnum65296515": {
+        "label": "phaseEnum",
+        "members": {
+          "E71294799": {
+            "label": "START"
+          },
+          "E97946429": {
+            "label": "PREPARERATION"
+          },
+          "E92389116": {
+            "label": "DAY"
+          },
+          "E51035216": {
+            "label": "NIGHT"
+          },
+          "E96502832": {
+            "label": "END"
+          },
+          "E29084393": {
+            "label": "IN_PROGRESS"
+          },
+          "E94269904": {
+            "label": "END_ROUND"
+          }
+        }
+      }
+    }
+  },
+  "children": []
+}
+//"{FE:{"v":"1.8.3020133","c":{"FF":4404},"s":100}

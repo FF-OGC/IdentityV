@@ -1,0 +1,208 @@
+{
+  "_tag": {
+    "type": "ResourceRegisteration"
+  },
+  "_entityId": "Xa7iwBp1",
+  "Resource": {
+    "ui": {
+      "id": "ui",
+      "label": "UI",
+      "scriptName": "UI",
+      "children": [
+        {
+          "refer": {
+            "fileId": "79dcp1pv5af-lsmxodqk-49bofd9wrm",
+            "filePath": "Assets\\UI\\imposterEffect.ui",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "ui"
+          },
+          "scriptName": "imposterScreenEffect",
+          "children": []
+        },
+        {
+          "refer": {
+            "fileId": "rihrq3u9cdc-lsn04ew4-ojvmy32r3qc",
+            "filePath": "Assets\\UI\\humanScreenEffect.ui",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "ui"
+          },
+          "scriptName": "nightScreenEffect",
+          "children": []
+        },
+        {
+          "refer": {
+            "fileId": "at8h39m27yq-lwes8d3f-ibtkmfl6tt",
+            "filePath": "Assets\\UI\\fixing.ui",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "ui"
+          },
+          "scriptName": "FIXING",
+          "children": [
+            {
+              "id": "vlRfiNrv",
+              "scriptName": "BAR"
+            },
+            {
+              "id": "RYfIVkUI",
+              "scriptName": "SKILLCHECK"
+            },
+            {
+              "id": "H1lgOAIR",
+              "scriptName": "ARROW"
+            },
+            {
+              "id": "yLekednN",
+              "scriptName": "PIVOT_SKILLCHECK"
+            },
+            {
+              "id": "JNgmVxQr",
+              "scriptName": "PIVOT_PROGRESS"
+            },
+            {
+              "id": "NgvL1TD6",
+              "scriptName": "PROGRESS_BAR"
+            },
+            {
+              "id": "SdvJR1UY",
+              "scriptName": "CURRENT_PROGRESS"
+            },
+            {
+              "id": "PxZDlSse",
+              "scriptName": "BTN_SKILLCHECK"
+            }
+          ]
+        }
+      ]
+    },
+    "scene": {
+      "id": "scene",
+      "label": "Scene",
+      "scriptName": "Scene",
+      "children": [
+        {
+          "refer": {
+            "fileId": "slvvp51auf-ls30iyu7-wklxu46ssae",
+            "filePath": "Assets\\Scene\\Bermuda.scene",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "scene"
+          },
+          "scriptName": "main",
+          "children": []
+        }
+      ]
+    },
+    "prefab": {
+      "id": "prefab",
+      "label": "Prefab",
+      "scriptName": "Prefab",
+      "children": []
+    },
+    "ugcscript": {
+      "id": "ugcscript",
+      "label": "UGCScript",
+      "scriptName": "UGCScript",
+      "children": []
+    },
+    "ugcscriptclient": {
+      "id": "ugcscriptclient",
+      "children": []
+    },
+    "eca": {
+      "id": "eca",
+      "children": []
+    },
+    "ecaclient": {
+      "id": "ecaclient",
+      "children": []
+    },
+    "texture": {
+      "id": "texture",
+      "children": []
+    },
+    "effecttype": {
+      "id": "effecttype",
+      "children": []
+    },
+    "sound": {
+      "id": "sound",
+      "children": []
+    },
+    "fitem": {
+      "id": "fitem",
+      "children": []
+    },
+    "fScenePrefab": {
+      "id": "fScenePrefab",
+      "children": [
+        {
+          "refer": {
+            "fileId": "150d8a69-8ec4-4ac6-9137-6c6298ecb4d9_223",
+            "filePath": "lib://ffmod/ffOptionID_3/option_9/se_223",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "fScenePrefab"
+          },
+          "scriptName": "Icon"
+        },
+        {
+          "refer": {
+            "fileId": "150d8a69-8ec4-4ac6-9137-6c6298ecb4d9_222",
+            "filePath": "lib://ffmod/ffOptionID_3/option_9/se_222",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "fScenePrefab"
+          },
+          "scriptName": "Text"
+        }
+      ]
+    },
+    "clothskin": {
+      "id": "clothskin",
+      "children": [
+        {
+          "refer": {
+            "fileId": "Cloth_203000312",
+            "filePath": "lib://ffSkin/ffCloth/203000312",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "clothskin"
+          },
+          "scriptName": "Imposter"
+        }
+      ]
+    },
+    "weaponskin": {
+      "id": "weaponskin",
+      "children": []
+    },
+    "vehicleskin": {
+      "id": "vehicleskin",
+      "children": []
+    },
+    "emoteskin": {
+      "id": "emoteskin",
+      "children": []
+    },
+    "csv": {
+      "id": "csv",
+      "children": []
+    },
+    "internalhudtype": {
+      "id": "internalhudtype",
+      "children": []
+    }
+  },
+  "children": []
+}
+//"{FE:{"v":"1.8.3020133","c":{"FF":4404},"s":100}

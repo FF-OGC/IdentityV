@@ -1,0 +1,29 @@
+import "Camera.fcc" as camera
+import "Workflow.fcc" as workflow
+import "AI.fcc" as ai
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "./GlobalRole.fcg" as globalRole
+import "Hud.fcc" as hud
+import Resources from "EditorGenLib.fcc"
+
+graph PlayerScreenEffect {
+
+    screenEffect entity<CustomHud>
+
+
+
+    func SetImposterScreenEffect() {
+        CreateCustomHud(out var hud, thisEntity<Player>,Resources.UI[EResource_UI.imposterScreenEffect] as CustomHudID)
+        if screenEffect != nil {
+            DeleteEntity(screenEffect)
+        }
+        screenEffect = hud
+    }
+
+    func RemoveScreenEffect() {
+        DeleteEntity(screenEffect)
+    }
+
+
+}

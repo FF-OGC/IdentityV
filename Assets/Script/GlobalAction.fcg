@@ -1,0 +1,13 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "Player.fcc" as player
+
+graph GlobalAction {
+    //
+    
+    func Meeting()  {
+        for key,player in GetAllPlayers() {
+            Teleport(player, Vector3{0, 0, 0}, Vector3{0, 0, 0})
+        }
+    }
+}

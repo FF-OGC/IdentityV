@@ -1,0 +1,28 @@
+€
+4NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllckh1bWFuLmZjZw==
+ˆ
+
+Workflow.fcc:39:0OnPhaseStartó"*&:$./Assets/Script/PlayerHuman.fcg:9:23*¿
+$./Assets/Script/PlayerHuman.fcg:10:8Invoke DefLocalVarÔ"':%./Assets/Script/PlayerHuman.fcg:10:12"ÃÀ
+%./Assets/Script/PlayerHuman.fcg:10:37Invoke GetReplicationDataÑ"hf
+%./Assets/Script/PlayerHuman.fcg:10:25Invoke GetLocalVarÖ"&:$./Assets/Script/PlayerHuman.fcg:9:23"ˆØ¼şÿÿÿÿÿÿ€"ˆ€Hÿÿÿÿÿÿÿÿÿ*í
+$./Assets/Script/PlayerHuman.fcg:11:8Invoke ProcessCtlIfé"³°
+%./Assets/Script/PlayerHuman.fcg:11:22Invoke Compare¤"ig
+%./Assets/Script/PlayerHuman.fcg:11:11Invoke GetLocalVarÖ"':%./Assets/Script/PlayerHuman.fcg:10:12"("(âH"³°
+%./Assets/Script/PlayerHuman.fcg:12:29Invoke Compare¤"ig
+%./Assets/Script/PlayerHuman.fcg:12:18Invoke GetLocalVarÖ"':%./Assets/Script/PlayerHuman.fcg:10:12"("(ĞH"³°
+%./Assets/Script/PlayerHuman.fcg:13:29Invoke Compare¤"ig
+%./Assets/Script/PlayerHuman.fcg:13:18Invoke GetLocalVarÖ"':%./Assets/Script/PlayerHuman.fcg:10:12"("(üH*9
+%./Assets/Script/PlayerHuman.fcg:11:11	CodeBlockó"*9
+%./Assets/Script/PlayerHuman.fcg:12:18	CodeBlockó"*‰
+%./Assets/Script/PlayerHuman.fcg:13:18	CodeBlockó"*N
+%./Assets/Script/PlayerHuman.fcg:14:12Invoke WaitForNextFrameğHÿÿÿÿÿÿÿÿÿHÿÿÿÿÿÿÿÿÿB"ê
+$./Assets/Script/PlayerHuman.fcg:18:4Checkó"*±
+$./Assets/Script/PlayerHuman.fcg:19:8Invoke ProcessCtlReturnî"ìé
+%./Assets/Script/PlayerHuman.fcg:19:39Invoke GetGraphPropertyÓ"CA
+%./Assets/Script/PlayerHuman.fcg:19:15Invoke ThisEntityNHª"6:4NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllckNvbmZpZy5mY2c="':%./Assets/Script/PlayerConfig.fcg:10:4H"E
+$./Assets/Script/PlayerHuman.fcg:22:4CallMeetingó"Hÿÿÿÿÿÿÿÿÿ"m
+$./Assets/Script/PlayerHuman.fcg:26:4Voteó"+':%./Assets/Script/PlayerHuman.fcg:26:14BHÿÿÿÿÿÿÿÿÿ"@
+$./Assets/Script/PlayerHuman.fcg:30:4DoTaskó"Hÿÿÿÿÿÿÿÿÿ"D
+$./Assets/Script/PlayerHuman.fcg:34:4
+ReportBodyó"Hÿÿÿÿÿÿÿÿÿ*PlayerHuman0

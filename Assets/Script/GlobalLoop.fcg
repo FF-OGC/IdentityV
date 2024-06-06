@@ -1,0 +1,31 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+
+
+graph GlobalLoop {
+    _loopCount int = 1
+    _isLooping bool = true
+
+    event OnAwake() {
+        _loopCount = 1
+        while(_isLooping){
+            WaitForSeconds(1000)
+            LogInfo("[GlobalLoop] LoopCount: " + _loopCount)
+            _loopCount += 1
+        }
+    }
+
+
+    func SetIsLooping(isLooping bool){
+        LogInfo("[GlobalLoop] isLooping: " + isLooping)
+        _isLooping = isLooping
+    }
+
+    func GetLoopCount() int{
+        return _loopCount
+    }
+    
+    func GetIsLooping() bool{
+        return _isLooping
+    }
+}

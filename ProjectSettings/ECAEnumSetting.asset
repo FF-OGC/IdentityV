@@ -1,0 +1,65 @@
+{
+  "_tag": {
+    "type": "ECAEnumSetting"
+  },
+  "_entityId": "vFaJfMVo",
+  "enumCount": 0,
+  "enumDefines": {
+    "CustomEnum65296515": {
+      "label": "phaseEnum",
+      "key": "CustomEnum65296515",
+      "type": "Int",
+      "info": [
+        {
+          "label": "START",
+          "key": "E71294799",
+          "type": "Int",
+          "value": 512
+        },
+        {
+          "label": "PREPARERATION",
+          "key": "E97946429",
+          "type": "Int",
+          "value": 1506
+        },
+        {
+          "label": "DAY",
+          "key": "E92389116",
+          "type": "Int",
+          "value": 3152
+        },
+        {
+          "label": "NIGHT",
+          "key": "E51035216",
+          "type": "Int",
+          "value": 3964
+        },
+        {
+          "label": "END",
+          "key": "E96502832",
+          "type": "Int",
+          "value": 4057
+        },
+        {
+          "label": "IN_PROGRESS",
+          "key": "E29084393",
+          "type": "Int",
+          "value": 1118
+        },
+        {
+          "label": "END_ROUND",
+          "key": "E94269904",
+          "value": 1622,
+          "type": "Int"
+        }
+      ],
+      "isCustom": true,
+      "isDirty": false
+    }
+  },
+  "enumNameMap": {
+    "phaseEnum": "CustomEnum65296515"
+  },
+  "children": []
+}
+//"{FE:{"v":"1.8.2990853","c":{"FF":4404},"s":100}

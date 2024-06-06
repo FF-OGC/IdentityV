@@ -1,0 +1,58 @@
+import "StdLibrary.fcc" as StdLib
+import "EditorGenLib.fcc" as EditorLib
+import Resources from "EditorGenLib.fcc"
+import "./Generator.fcg" as Generator
+import "./PlayerFixingHUD.fcg" as PlayerFixingHUD
+import "Math.fcc" as Math
+import "./GlobalLoop.fcg" as GlobalLoop
+
+
+graph PlayerFix {
+
+    _SelectedGenerator entity<Entity>
+    _inTrigger bool
+    _FixingSpeed float = 1
+    _Fixing bool = false
+    _Start int = 0
+    DELAY_EACH_SKILL_CHECK int = 1
+    
+    event OnAwake() {
+
+    }
+
+    func SetGenerator(generator entity<Entity>) {
+        _SelectedGenerator = generator
+    }
+
+    func SetInTrigger(value bool) {
+        _inTrigger = value
+    }
+    
+    func SetStartTime(time int) {
+        _Start = time
+    }
+
+    async func FixGenerator() {
+        _Start = globalEntity<GlobalLoop>.GetLoopCount()
+
+        while _inTrigger && _SelectedGenerator<Generator>._CurrentPhase != 2 {
+            start SkillCheck()
+            start _SelectedGenerator<Generator>.AddProgress(_FixingSpeed)
+            thisEntity<PlayerFixingHUD>.UpdateProgress()
+            WaitForSeconds(1000)
+        }
+    }
+
+    async func SkillCheck() {
+
+        var currentTime = globalEntity<GlobalLoop>.GetLoopCount() - _Start
+
+        if currentTime > DELAY_EACH_SKILL_CHECK {
+            var random = RandomFloat(0, 1)
+            if random <= _SelectedGenerator<Generator>._SkillCheckChance {
+                thisEntity<PlayerFixingHUD>.DisplaySkillCheckHUD()
+            }
+        }
+    }
+
+}

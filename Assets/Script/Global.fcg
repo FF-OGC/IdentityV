@@ -1,0 +1,23 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "AI.fcc" as AI 
+import "Workflow.fcc" as workflow 
+import "Player.fcc" as player 
+import "LevelObject.fcc" as levelobject 
+import Resource from "EditorGenLib.fcc"
+import "./GlobalRole.fcg" as globalRole
+import "Combat.fcc" as combat
+import "./GlobalAction.fcg" as globalAction
+import "./GlobalWinCond.fcg" as globalWinCond
+
+graph Global {
+    event OnPhaseStart(phase entity<Phase>) {
+        var phaseIndex = phase<Phase>.PhaseIndex
+        if phaseIndex == phaseEnum.PREPARERATION {
+            thisEntity<globalRole>.SetRole()
+        }
+        
+    }
+
+
+}

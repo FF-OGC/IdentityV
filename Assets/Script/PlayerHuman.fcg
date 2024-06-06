@@ -1,0 +1,43 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "Workflow.fcc" as workflow 
+import "ChatChannel.fcc" as ChatChannel
+import "./PlayerConfig.fcg" as PlayerConfig
+
+graph PlayerHuman {
+
+    event OnPhaseStart(phase entity<Phase>) {
+        var phaseIndex = phase<Phase>.PhaseIndex
+        if phaseIndex == phaseEnum.PREPARERATION {
+        } else if phaseIndex == phaseEnum.DAY {
+        } else if phaseIndex == phaseEnum.NIGHT{
+            WaitForNextFrame()
+        }
+    }
+    
+    func Check() bool{
+        return thisEntity<PlayerConfig>.isHuman 
+    }
+
+    func CallMeeting() {
+
+    }
+
+    func Vote(player Player) {
+
+    }
+
+    func DoTask() {
+
+    }
+
+    func ReportBody() {
+
+    }
+
+
+
+    
+
+
+}

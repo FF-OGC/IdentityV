@@ -1,0 +1,10 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+
+graph GlobalTask{
+    completeRate int
+    
+    func AddCompleteRate(rate int) {
+        completeRate += rate
+    }
+}

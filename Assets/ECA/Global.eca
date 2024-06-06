@@ -1,0 +1,55 @@
+{
+  "blocks": {
+    "languageVersion": 0,
+    "blocks": [
+      {
+        "type": "prs",
+        "id": "tQJDqi9oVH0H*XU!4r-G",
+        "x": 458,
+        "y": 198,
+        "fields": {
+          "P": "RunSpeedScale:Player",
+          "O": "UK"
+        },
+        "inputs": {
+          "H": {
+            "shadow": {
+              "type": "tys",
+              "id": "pPlY8ITU{|=0}%*2@T+W",
+              "extraState": "Component"
+            },
+            "block": {
+              "type": "tya",
+              "id": "cqXbeH3]lRmE0v~S~RoY",
+              "fields": {
+                "T": "Player"
+              },
+              "inputs": {
+                "V": {
+                  "shadow": {
+                    "type": "tys",
+                    "id": "aWe#/toawbz2?AqD]gy1",
+                    "extraState": "any"
+                  }
+                }
+              }
+            }
+          },
+          "V": {
+            "shadow": {
+              "type": "tys",
+              "id": "QKt@0Y@%Ej(z1VIwEL(I",
+              "extraState": "Float"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "graphData": {
+    "ownerType": "Entity",
+    "componentTypes": "Entity",
+    "isStatic": false
+  }
+}
+//"{FE:{"v":"1.8.3020133","c":{"FF":4404},"s":100}

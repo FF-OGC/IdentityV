@@ -1,0 +1,21 @@
+Ã
+<NeJf7T04Li9Bc3NldHMvU2NyaXB0L0dsb2JhbERheU5pZ2h0Q3ljbGUuZmNn
+˜
+
+Workflow.fcc:45:0OnPhaseStartó"3/:-./Assets/Script/GlobalDayNightCycle.fcg:12:23*Ý
+,./Assets/Script/GlobalDayNightCycle.fcg:13:8Invoke DefLocalVarÔ"/:-./Assets/Script/GlobalDayNightCycle.fcg:13:12"ÜÙ
+-./Assets/Script/GlobalDayNightCycle.fcg:13:37Invoke GetReplicationDataÑ"yw
+-./Assets/Script/GlobalDayNightCycle.fcg:13:25Invoke GetLocalVarÖ"/:-./Assets/Script/GlobalDayNightCycle.fcg:12:23"ˆØ¼þÿÿÿÿÿÿ€"ˆ€*Ö
+,./Assets/Script/GlobalDayNightCycle.fcg:14:8Invoke ProcessCtlIfé"ÉÆ
+-./Assets/Script/GlobalDayNightCycle.fcg:14:22Invoke Compare¤"yw
+-./Assets/Script/GlobalDayNightCycle.fcg:14:11Invoke GetLocalVarÖ"/:-./Assets/Script/GlobalDayNightCycle.fcg:13:12"("(Ð"ÉÆ
+-./Assets/Script/GlobalDayNightCycle.fcg:16:29Invoke Compare¤"yw
+-./Assets/Script/GlobalDayNightCycle.fcg:16:18Invoke GetLocalVarÖ"/:-./Assets/Script/GlobalDayNightCycle.fcg:13:12"("(ü*¸
+-./Assets/Script/GlobalDayNightCycle.fcg:14:11	CodeBlockó"*u
+-./Assets/Script/GlobalDayNightCycle.fcg:15:12Invoke SetDayö".:,./Assets/Script/GlobalDayNightCycle.fcg:22:4"*º
+-./Assets/Script/GlobalDayNightCycle.fcg:16:18	CodeBlockó"*w
+-./Assets/Script/GlobalDayNightCycle.fcg:17:12Invoke SetNightö".:,./Assets/Script/GlobalDayNightCycle.fcg:27:4"B"¢
+,./Assets/Script/GlobalDayNightCycle.fcg:22:4SetDayó"*X
+,./Assets/Script/GlobalDayNightCycle.fcg:23:8Invoke SetSkyboxTypeg":UGC_SKYENV_DAYHÿÿÿÿÿÿÿÿÿ"¦
+,./Assets/Script/GlobalDayNightCycle.fcg:27:4SetNightó"*Z
+,./Assets/Script/GlobalDayNightCycle.fcg:28:8Invoke SetSkyboxTypeg":UGC_SKYENV_NIGHTHÿÿÿÿÿÿÿÿÿ*GlobalDayNightCycle0

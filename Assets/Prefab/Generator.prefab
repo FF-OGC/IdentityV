@@ -1,0 +1,530 @@
+{
+  "_tag": {
+    "type": "Prefab"
+  },
+  "_entityId": "H02Nm3y0",
+  "children": [
+    {
+      "_tag": {
+        "type": "UGCSceneEntity",
+        "resourceId": "Primitive/Empty"
+      },
+      "_entityId": "GHtKVRZS",
+      "children": [
+        {
+          "_tag": {
+            "type": "SceneEditEntity",
+            "resourceId": "Primitive/Empty"
+          },
+          "_entityId": "QcN1Baqh",
+          "children": [],
+          "activeValue": {
+            "selfValue": true,
+            "valueTag": "activeValue"
+          },
+          "unlockedValue": {
+            "selfValue": true,
+            "valueTag": "unlockedValue"
+          },
+          "editorLockValue": false,
+          "editorVisibleValue": true,
+          "position": {
+            "x": -0.0002722740173339844,
+            "y": -0.009024769067764282,
+            "z": -0.007871627807617188
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "BTPath": [
+            null
+          ],
+          "visible": true,
+          "VisibilityLayer": 0,
+          "modelOptimization": 0,
+          "streamingLayer": "",
+          "attributes": [
+            2,
+            4
+          ],
+          "isTrigger": false,
+          "collidable": true,
+          "physicalLayer": 0,
+          "physicalMaterial": null,
+          "initialTypes": {},
+          "componentList": [],
+          "_filters": [],
+          "entityTagData": {
+            "tagPointers": []
+          },
+          "tempIndex": 1,
+          "itemID": 331,
+          "seParent": null,
+          "ecaScripts": [
+            null
+          ],
+          "ecaProps": {
+            "DummyLevelObject": {},
+            "LevelObject": {},
+            "Transform": {},
+            "Entity": {},
+            "Visibility": {},
+            "Collider": {}
+          },
+          "_entityName": "Futuristic Device A",
+          "prefabVariant": null
+        },
+        {
+          "_tag": {
+            "type": "SceneEditEntity",
+            "resourceId": "Primitive/Empty"
+          },
+          "_entityId": "D2GHc7DN",
+          "children": [],
+          "activeValue": {
+            "selfValue": false,
+            "valueTag": "activeValue"
+          },
+          "unlockedValue": {
+            "selfValue": true,
+            "valueTag": "unlockedValue"
+          },
+          "editorLockValue": false,
+          "editorVisibleValue": true,
+          "position": {
+            "x": 0.011368274688720703,
+            "y": 0.014666512608528137,
+            "z": -0.06672286987304688
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "BTPath": [
+            null
+          ],
+          "visible": true,
+          "VisibilityLayer": 0,
+          "modelOptimization": 0,
+          "streamingLayer": "",
+          "attributes": [
+            2,
+            4
+          ],
+          "isTrigger": false,
+          "collidable": true,
+          "physicalLayer": 0,
+          "physicalMaterial": null,
+          "initialTypes": {},
+          "componentList": [],
+          "_filters": [],
+          "entityTagData": {
+            "tagPointers": []
+          },
+          "tempIndex": 2,
+          "itemID": 297,
+          "seParent": null,
+          "ecaScripts": [
+            null
+          ],
+          "ecaProps": {
+            "DummyLevelObject": {},
+            "LevelObject": {},
+            "Transform": {},
+            "Entity": {},
+            "Visibility": {},
+            "Collider": {}
+          },
+          "_entityName": "Control Device",
+          "prefabVariant": null
+        },
+        {
+          "_tag": {
+            "type": "SceneEditEntity",
+            "resourceId": "Primitive/Empty"
+          },
+          "_entityId": "fjeSZ9wS",
+          "children": [],
+          "activeValue": {
+            "selfValue": true,
+            "valueTag": "activeValue"
+          },
+          "unlockedValue": {
+            "selfValue": true,
+            "valueTag": "unlockedValue"
+          },
+          "editorLockValue": false,
+          "editorVisibleValue": true,
+          "position": {
+            "x": 0.0017218589782714844,
+            "y": 0.016719043254852295,
+            "z": 0.008769989013671875
+          },
+          "scale": {
+            "x": 5,
+            "y": 5,
+            "z": 5
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "BTPath": [
+            null
+          ],
+          "visible": true,
+          "VisibilityLayer": 0,
+          "modelOptimization": 0,
+          "streamingLayer": "",
+          "attributes": [
+            2,
+            4
+          ],
+          "isTrigger": true,
+          "collidable": true,
+          "physicalLayer": 0,
+          "physicalMaterial": null,
+          "initialTypes": {},
+          "componentList": [],
+          "_filters": [
+            "node.withscript",
+            "game.related7"
+          ],
+          "entityTagData": {
+            "tagPointers": []
+          },
+          "tempIndex": 3,
+          "itemID": 117,
+          "seParent": null,
+          "ecaScripts": [
+            {
+              "fileId": "q6jubz433m9-lwynf13y-5xpdvuzrzkt",
+              "filePath": "Assets\\Script\\GeneratorTrigger.fcg",
+              "_tag": {
+                "type": "GFileRefer"
+              },
+              "fileType": "ugcscript"
+            }
+          ],
+          "ecaProps": {
+            "CustomizeTrigger": {},
+            "LevelObject": {},
+            "Transform": {},
+            "Entity": {},
+            "Visibility": {},
+            "Collider": {}
+          },
+          "_entityName": "Custom trigger",
+          "propsData": {
+            "scale": {
+              "x": 1,
+              "y": 1,
+              "z": 1
+            },
+            "_levelObjectID": 1
+          },
+          "prefabVariant": null
+        },
+        {
+          "_tag": {
+            "type": "SceneEditEntity",
+            "resourceId": "Primitive/Empty"
+          },
+          "_entityId": "0esfP9qc",
+          "children": [],
+          "activeValue": {
+            "selfValue": true,
+            "valueTag": "activeValue"
+          },
+          "unlockedValue": {
+            "selfValue": true,
+            "valueTag": "unlockedValue"
+          },
+          "editorLockValue": false,
+          "editorVisibleValue": true,
+          "position": {
+            "x": 0,
+            "y": 10,
+            "z": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 18,
+            "z": 1
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "BTPath": [
+            null
+          ],
+          "visible": true,
+          "VisibilityLayer": 0,
+          "modelOptimization": 0,
+          "streamingLayer": "",
+          "attributes": [
+            2,
+            4
+          ],
+          "isTrigger": false,
+          "collidable": true,
+          "physicalLayer": 0,
+          "physicalMaterial": null,
+          "initialTypes": {},
+          "componentList": [],
+          "_filters": [
+            "game.related9"
+          ],
+          "entityTagData": {
+            "tagPointers": []
+          },
+          "tempIndex": 4,
+          "itemID": 224,
+          "seParent": null,
+          "ecaScripts": [
+            null
+          ],
+          "ecaProps": {
+            "EffectEntityGenerator": {},
+            "ItemContainerGenerator": {},
+            "Entity": {},
+            "EffectEntity": {},
+            "Playable": {},
+            "Loopable": {},
+            "LevelObject": {},
+            "Transform": {},
+            "Visibility": {}
+          },
+          "_entityName": "Cylinder",
+          "propsData": {
+            "effectColor": {
+              "r": 149,
+              "g": 149,
+              "b": 149,
+              "a": 1
+            },
+            "effectTextureRef": null,
+            "playSpeed": 100,
+            "autoPlay": true,
+            "effectTypeResId": "",
+            "effectTexture": "",
+            "effectTypeRef": {
+              "fileId": "EffectType_UGC_T_34_LY_WS_VFX2",
+              "filePath": "lib://ffEffects/UGC_T_34_LY_WS_VFX2",
+              "_tag": {
+                "type": "GFileRefer"
+              },
+              "fileType": "effecttype"
+            },
+            "effectType": "UGC_T_34_LY_WS_VFX2"
+          },
+          "prefabVariant": null
+        },
+        {
+          "_tag": {
+            "type": "SceneEditEntity",
+            "resourceId": "Primitive/Empty"
+          },
+          "_entityId": "WKse6h5h",
+          "children": [],
+          "activeValue": {
+            "selfValue": false,
+            "valueTag": "activeValue"
+          },
+          "unlockedValue": null,
+          "editorLockValue": false,
+          "editorVisibleValue": true,
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "scale": {
+            "x": 5,
+            "y": 5,
+            "z": 5
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "BTPath": [
+            null
+          ],
+          "visible": true,
+          "VisibilityLayer": 0,
+          "modelOptimization": 0,
+          "streamingLayer": "",
+          "attributes": [
+            2,
+            4
+          ],
+          "isTrigger": false,
+          "collidable": true,
+          "physicalLayer": 0,
+          "physicalMaterial": null,
+          "initialTypes": {},
+          "componentList": [],
+          "_filters": [
+            "game.related9"
+          ],
+          "entityTagData": {
+            "tagPointers": []
+          },
+          "tempIndex": 5,
+          "itemID": 224,
+          "seParent": null,
+          "ecaScripts": [
+            null
+          ],
+          "ecaProps": {
+            "EffectEntityGenerator": {},
+            "ItemContainerGenerator": {},
+            "Entity": {},
+            "EffectEntity": {},
+            "Playable": {},
+            "Loopable": {},
+            "LevelObject": {},
+            "Transform": {},
+            "Visibility": {}
+          },
+          "_entityName": "Visual effects (1)",
+          "propsData": {
+            "effectColor": {
+              "r": 149,
+              "g": 149,
+              "b": 149,
+              "a": 1
+            },
+            "effectTextureRef": null,
+            "playSpeed": 70,
+            "autoPlay": true,
+            "effectTypeResId": "",
+            "effectTexture": "",
+            "effectTypeRef": {
+              "fileId": "EffectType_UGC_T_34_LY_WS_VFX4",
+              "filePath": "lib://ffEffects/UGC_T_34_LY_WS_VFX4",
+              "_tag": {
+                "type": "GFileRefer"
+              },
+              "fileType": "effecttype"
+            },
+            "effectType": "UGC_T_34_LY_WS_VFX4"
+          },
+          "prefabVariant": null
+        }
+      ],
+      "activeValue": {
+        "selfValue": true,
+        "valueTag": "activeValue"
+      },
+      "unlockedValue": {
+        "selfValue": true,
+        "valueTag": "unlockedValue"
+      },
+      "editorLockValue": false,
+      "editorVisibleValue": true,
+      "position": {
+        "x": 4.816446145375569,
+        "y": -0.18847651282946268,
+        "z": 14.716582934061686
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "BTPath": [
+        null
+      ],
+      "visible": true,
+      "VisibilityLayer": 0,
+      "modelOptimization": 0,
+      "streamingLayer": "",
+      "attributes": [
+        2,
+        4
+      ],
+      "isTrigger": false,
+      "collidable": true,
+      "physicalLayer": 0,
+      "physicalMaterial": null,
+      "initialTypes": {},
+      "componentList": [],
+      "_filters": [
+        "node.withscript"
+      ],
+      "entityTagData": {
+        "tagPointers": []
+      },
+      "materials": [
+        null
+      ],
+      "colliders": [],
+      "Rigidbody": {
+        "Type": 1,
+        "Mass": 1,
+        "CenterOfMass": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "UseGravity": false,
+        "Drag": 0.05,
+        "AngularDrag": 0.05
+      },
+      "isCreateAsEmpty": true,
+      "ecaScripts": [
+        {
+          "fileId": "a9ruuxj3vf7-lwynf13g-3c8gom4ukhb",
+          "filePath": "Assets\\Script\\Generator.fcg",
+          "_tag": {
+            "type": "GFileRefer"
+          },
+          "fileType": "ugcscript"
+        }
+      ],
+      "ecaProps": {
+        "CustomLevelObject": {},
+        "LevelObject": {},
+        "Transform": {},
+        "Entity": {},
+        "Visibility": {},
+        "MeshRender": {}
+      },
+      "entityVersion": 3,
+      "_entityName": "Generator",
+      "prefabVariant": null
+    }
+  ],
+  "prefabVariant": null,
+  "activeValue": null,
+  "unlockedValue": null,
+  "editorLockValue": false,
+  "editorVisibleValue": true,
+  "discriminator": "ISceneLike",
+  "_entityName": "Generator"
+}
+//"{FE:{"v":"1.8.3020133","c":{"FF":4404},"s":100}

@@ -1,0 +1,174 @@
+{
+ "GameName": "test",
+ "GameDesc": "",
+ "GameMode": 53,
+ "GroupMode": 0,
+ "TeamCount": 8,
+ "GameResourceCount": "5",
+ "GameTotalCost": "25",
+ "UpdateTime": "0",
+ "Tags": [
+  22
+ ],
+ "WorkshopBitMap": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+ "WorkshopIconMap": "",
+ "ModeSettings": {
+  "mode_data": "CgQIARgACgsIYxAAGAElAACAPwoLCAMQABgAJQAAAAAKDAgFEAAYj04lADwcRgoMCA8QABjIASUAAEhDCgwIEBAAGMgBJQAASEMKCwgREAAYACUAAAAACgsIExAAGGQlAADIQgoLCBQQABhkJQAAyEIKCwgVEAAYZCUAAMhCCgsIFhAAGGQlAADIQgoFCJcBEAAKBQiYARABCgQIBhgICgQIBxgBCgUImQEQAQoMCIcBEAAYBCUAAIBACgwIrwEQABgAJQAAAAAKDAiIARAAGAAlAAAAAAoMCIkBEAAYeCUAAPBCCgwIigEQARgAJQAAAAAKDAiLARAAGAUlAACgQAoMCIwBEAEYACUAAAAACgwIlAEQABgAJQAAAAAKDAiVARAAGBQlAACgQQoMCJYBEAAYACUAAAAACgwImwEQABgAJQAAAAAKDAicARAAGAAlAAAAAAoMCJ0BEAAYACUAAAAACgwIggEQARgAJQAAAAAKDAiPARABGAAlAAAAAAoMCKwBEAEYACUAAAAACgwIgQEQABgAJQAAAAAKDAirARAAGAElAACAPwoMCKoBEAAYACUAAAAACgsIEhAAGAAlAAAAAAoMCJABEAAYACUAAAAACgwIkQEQABgAJQAAAAAKDAiSARAAGAAlAAAAAAoMCI0BEAEYACUAAAAACgwIjgEQARgAJQAAAAAKCwgfEAEYACUAAAAACgwIpgEQABhkJQAAyEIKCwgeEAEYACUAAAAACgsIIRAAGGQlAADIQgoLCCIQABhkJQAAyEIKCwgjEAAYZCUAAMhCCgsIJBAAGGQlAADIQgoLCCUQABhkJQAAyEIKCwgmEAAYZCUAAMhCCgsIKBAAGGQlAADIQgoLCCkQABhkJQAAyEIKCwgqEAAYZCUAAMhCCgsIKxAAGGQlAADIQgoLCCwQABhkJQAAyEIKCwhgEAAYZCUAAMhCCgsIYRAAGGQlAADIQgoLCGIQABhkJQAAyEIKDAioARAAGGQlAADIQgoMCKcBEAAYZCUAAMhCCgwIngEQABhkJQAAyEIKCwhYEAEYACUAAAAACgsIWRABGAAlAAAAAAoLCF8QABhkJQAAyEIKCwggEAAYZCUAAMhCCgwIrQEQABhkJQAAyEI=",
+  "general_data": {
+   "max_hp": 200,
+   "max_ep": 200,
+   "start_ep": 0,
+   "auto_healing": false,
+   "damage": 100,
+   "receive_damage": 100,
+   "move_speed": 100,
+   "jump_height": 100,
+   "limited_ammo": true,
+   "enable_active_skill": true,
+   "enable_passive_skill": true,
+   "global_active_skill_cd_percent": 100,
+   "playerskill_transform_cd_percent": 100,
+   "playerskill_epchangetohp_cd_percent": 100,
+   "playerskill_healingdance_cd_percent": 100,
+   "playerskill_graffitimonitor_cd_percent": 100,
+   "playerskill_detective_cd_percent": 100,
+   "playerskill_epfastandupper_cd_percent": 100,
+   "playerskill_adddamagebycosthp_cd_percent": 0,
+   "playerskill_spaceshield_cd_percent": 100,
+   "playerskill_blowupicewall_cd_percent": 100,
+   "playerskill_tempincreasehp_cd_percent": 100,
+   "playerskill_addhpandrescure_cd_percent": 100,
+   "playerskill_dwshield_cd_percent": 100,
+   "playerskill_throwsilence_cd_percent": 100,
+   "playerskill_createflightbomb_cd_percent": 100,
+   "playerskill_markicewall_cd_percent": 100,
+   "playerskill_runspeedup_cd_percent": 100,
+   "unlimited_bullet": false,
+   "unlimited_gloowall": false,
+   "unlimited_throwables": false,
+   "playerskill_fireboyflame_cd_percent": 100,
+   "playerskill_immortality_cd_percent": 100,
+   "playerskill_teleporter_cd_percent": 100,
+   "playerskill_alokawakening_cd_percent": 100,
+   "playerskill_autopathbomb_cd_percent": 100
+  },
+  "version": 1,
+  "collision_matrix": [
+   1,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "global_gravity": {
+   "X": 0,
+   "Y": -9.8,
+   "Z": 0
+  },
+  "global_sleep_threshold": 0.005,
+  "global_default_physical_material_uuid": ""
+ },
+ "RuntimeDataLength": "10283",
+ "ProjectDataLength": "0",
+ "UserDataForCensorship": {
+  "CustomStrings": [
+   {
+    "StringList": [
+     ""
+    ],
+    "WordFilterType": 0,
+    "GraphID": "ig54lbxq32-ls2vupy4-rm53qvsyrvl",
+    "ID": "TmrnznQG"
+   }
+  ]
+ },
+ "MapID": 25,
+ "RuntimeDataMD5": "EpchH37/j2x1VoQSMbuwgQ==",
+ "ModeTemplateId": 0,
+ "SecEdit": false,
+ "PublicVersion": 107,
+ "OriginalWorkshopCode": "",
+ "GameNameKey": "",
+ "GameDescKey": "",
+ "LocData": [
+  {
+   "DefaultLang": "UGCLANGUAGE_ENGLISH",
+   "KeyList": [
+    {
+     "Key": "GAME_NAME"
+    },
+    {
+     "Key": "GAME_DESCRIPTION"
+    }
+   ]
+  }
+ ],
+ "RoomParams": "",
+ "OpenRoomLocDataMD5": "8QqSdtUqDpu/9YRV3AcJhw==",
+ "halfWayJoinRule": {
+  "RecommendStartGameNumber": 4,
+  "EnableHalfWayJoin": false,
+  "EnableHalfWayJoinEffectTime": true,
+  "HalfWayJoinEffectTime": 120,
+  "HalfWayJoinNumberLimit": true,
+  "HalfWayJoinNumber": 5,
+  "EnableHalfwaySubmitMatchStats": false,
+  "EnableQuickStartMatch": false
+ },
+ "SubDesc": "T_32_T_WS_ME_CUSTOM",
+ "notify_subscriber": false,
+ "AllBlocksCount": 1,
+ "AllWidgetsCount": 4,
+ "DebuggingTimes": 13,
+ "HudCount": 2,
+ "CustomResourceType": 0,
+ "CustomResourceCount": 0,
+ "ModIDList": [
+  7,
+  8,
+  10,
+  11,
+  12,
+  14,
+  17,
+  18,
+  23,
+  25,
+  27,
+  29,
+  31,
+  32,
+  33,
+  34,
+  39,
+  40,
+  42
+ ]
+}

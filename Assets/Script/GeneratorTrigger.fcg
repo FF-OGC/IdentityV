@@ -1,0 +1,54 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "Physics.fcc" as physics
+import "LevelObject.fcc" as levelobject
+import "List.fcc" as list
+import "./PlayerImposter.fcg" as playerImposter
+import "./PlayerConfig.fcg" as playerConfig
+import "Workflow.fcc" as Workflow
+import "./Generator.fcg" as Generator
+import "./PlayerFixingHUD.fcg" as PlayerFixingHUD
+import "./PlayerFix.fcg" as PlayerFix
+
+graph GeneratorTrigger {
+    Generator entity<Entity>
+
+    event OnAwake() {
+        WaitForNextFrame()
+        Generator = GetParent(thisEntity<Entity>)
+    }
+    
+    event OnPlayerEnterTrigger(player entity<Player>) {
+        Generator<Generator>.AppendPlayer(player)
+
+        if player<playerConfig>.isHuman {
+            LogInfo("Human entered Generator Trigger")
+            player<PlayerFix>.SetInTrigger(true)
+            player<PlayerFixingHUD>.SetGenerator(Generator)
+            player<PlayerFixingHUD>.DisplayFixingHUD()
+            player<PlayerFix>.SetGenerator(Generator)
+            player<PlayerFix>.FixGenerator()
+
+        } else if player<playerConfig>.isImposter {
+            LogInfo("Imposter entered Generator Trigger")
+        }
+
+
+    }
+
+    event OnPlayerLeaveTrigger(player entity<Player>) {
+        Generator<Generator>.RemovePlayer(player)
+
+        if player<playerConfig>.isHuman {
+            LogInfo("Human left Generator Trigger")
+            player<PlayerFixingHUD>.CloseFixingHUD()
+            player<PlayerFix>.SetInTrigger(false)
+
+        } else if player<playerConfig>.isImposter {
+            LogInfo("Imposter left Generator Trigger")
+
+        }
+    }
+    
+
+}

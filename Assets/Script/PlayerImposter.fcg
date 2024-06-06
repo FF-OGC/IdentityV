@@ -1,0 +1,159 @@
+import "Hud.fcc" as hud
+import "List.fcc" as list
+import "Items.fcc" as items
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "Workflow.fcc" as workflow 
+import "./PlayerConfig.fcg" as playerConfig
+import "Collection.fcc" as collection
+import Resources from "EditorGenLib.fcc"
+import "./PlayerScreenEffect.fcg" as playerScreenEffect
+import "ChatChannel.fcc" as ChatChannel
+import "Player.fcc" as Player
+import "Playable.fcc" as Playable
+import "Animation.fcc" as Animation
+import "Camera.fcc" as Camera
+
+graph PlayerImposter {
+    BLOOD_REQUIRE = 3
+    DELAY_HIT_TIME int = 3000
+
+    bloodLevel int = 0
+    _ImposterEffectAfterHit entity<EffectEntity>
+    _EffectAfterHitMotion entity<Entity>
+
+    event OnPhaseStart(phase entity<Phase>) {
+        var phaseIndex = phase<Phase>.PhaseIndex
+        if phaseIndex == phaseEnum.PREPARERATION {
+        } else if phaseIndex == phaseEnum.IN_PROGRESS {
+            Transform()
+        }
+    }
+
+    event OnStartFire() {
+        thisEntity<Player>.RunSpeedScale = 0
+        thisEntity<Player>.CrouchSpeedScale = 0
+        SetEffect()
+
+        WaitForSeconds(DELAY_HIT_TIME)
+
+        thisEntity<Player>.RunSpeedScale = 1
+        thisEntity<Player>.CrouchSpeedScale = 1
+        HideEffect()
+
+    }
+
+
+
+    func InitEffectAfterHit() {
+        CreateEffect(out var effect,thisEntity<Player>, EffectType.Line,LoopType.Loop,true)
+        _ImposterEffectAfterHit = effect
+        _ImposterEffectAfterHit<Transform>.Rotation = Vector3{0, 0, 180}
+        _ImposterEffectAfterHit<Transform>.Scale = Vector3{2, 2, 2}
+        CreateFollow(_ImposterEffectAfterHit, thisEntity<Player>, Vector3{0, 2, 0},CoordinateType.LocalPosition,out var followMotion, false)
+        _EffectAfterHitMotion = followMotion
+        SetActive(_ImposterEffectAfterHit,false)
+    }
+
+    func SetEffect() {
+        if !_ImposterEffectAfterHit {
+            InitEffectAfterHit()
+        }
+
+        SetActive(_ImposterEffectAfterHit,true)
+        Play(_EffectAfterHitMotion,false)
+    }
+
+    func HideEffect() {
+        SetActive(_ImposterEffectAfterHit,false)
+        Pause(_EffectAfterHitMotion)
+    }
+
+    
+
+    func Check() bool{
+        return thisEntity<playerConfig>.isImposter 
+    }
+
+    // func NormalTransform() {
+    //     SetCloth(thisEntity<Player>, Resources.Cloth[EResource_Cloth.Imposter] as ClothID)
+    // }
+
+    func SuperTransform() {
+        SetCloth(thisEntity<Player>, Resources.Cloth[EResource_Cloth.Imposter] as ClothID)
+        AddItemToPlayer(thisEntity<Player>,ItemIDType.Sickle,1, out var itemList)
+        thisEntity<Player>.HPMAX = 500
+        thisEntity<Player>.HP = 500
+        thisEntity<Player>.ShowDamageNum = false
+
+
+        GetEquipments(thisEntity<Player>,EquipmentSlot.MeleeWeapon,out var weapon, out var attachments)
+        weapon<Weapon>.RepeatFireInterval = DELAY_HIT_TIME/1000.0
+        SetCamera()
+    }
+
+    func Transform() {
+        if Check() {
+            thisEntity<playerScreenEffect>.SetImposterScreenEffect()
+            SuperTransform()
+        }
+    }
+
+    // func TransformBack() {
+    //     if Check() {
+    //         ResetCloth(thisEntity<Player>)
+    //         RemoveItem(thisEntity<Player>,ItemIDType.Sickle,1)
+    //     }
+    // }
+    
+    func Kill(){
+        if Check() {
+
+        }
+    }
+
+    // func DrinkBlood() {
+    //     if Check() {
+    //         if bloodLevel < BLOOD_REQUIRE {
+    //             bloodLevel ++
+    //         }
+    //     }
+    // }
+
+    // func ResetBloodLevel() {
+    //     if Check() {
+    //         bloodLevel = 0
+    //     }
+    // }
+
+    func SetCamera() {
+        if Check() {
+            CreateCamera(CameraType.FirstPerson, out var camera)
+            SwitchCamera(thisEntity<Player>,camera,CameraTransitionType.Default,0)
+        }
+    }
+
+    func LightsOff(){
+        if Check() {
+
+        }
+    }
+
+    func Sabotage() {
+        if Check() {
+
+        }
+    }
+
+    func Tele() {
+        if Check() {
+
+        }
+    }
+
+    func SetChatChannel() {
+        if Check() {
+            JoinChatChannel(thisEntity<Player> as entity<Player>,GetChatChannel(FreeChatChannel.Channel_1))
+        }
+    }
+}

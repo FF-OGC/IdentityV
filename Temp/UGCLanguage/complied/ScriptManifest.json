@@ -1,0 +1,192 @@
+{
+  "ScriptDepend": {
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L0dsb2JhbC5mY2c=": {
+      "Scripts": [
+        "NeJf7T04Li9Bc3NldHMvU2NyaXB0L0dsb2JhbFJvbGUuZmNn",
+        "NeJf7T04Li9Bc3NldHMvU2NyaXB0L0dsb2JhbEFjdGlvbi5mY2c=",
+        "NeJf7T04Li9Bc3NldHMvU2NyaXB0L0dsb2JhbFdpbkNvbmQuZmNn"
+      ],
+      "ComponentItems": [
+        65296515
+      ],
+      "PartialPropItems": {},
+      "EnumItems": [
+        65296515
+      ],
+      "EventItems": null
+    },
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L0dsb2JhbERheU5pZ2h0Q3ljbGUuZmNn": {
+      "Scripts": [
+        "NeJf7T04Li9Bc3NldHMvU2NyaXB0L0dsb2JhbFJvbGUuZmNn",
+        "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BMYXllclNjcmVlbkVmZmVjdC5mY2c="
+      ],
+      "ComponentItems": [
+        65296515
+      ],
+      "PartialPropItems": {},
+      "EnumItems": [
+        65296515
+      ],
+      "EventItems": null
+    },
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L0dsb2JhbFJvbGUuZmNn": {
+      "Scripts": [
+        "NeJf7T04Li9Bc3NldHMvU2NyaXB0L0dsb2JhbENvbmZpZy5mY2c=",
+        "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllckNvbmZpZy5mY2c="
+      ],
+      "ComponentItems": null,
+      "PartialPropItems": {},
+      "EnumItems": null,
+      "EventItems": null
+    },
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L0dsb2JhbFdpbkNvbmQuZmNn": {
+      "Scripts": [
+        "NeJf7T04Li9Bc3NldHMvU2NyaXB0L0dsb2JhbFJvbGUuZmNn"
+      ],
+      "ComponentItems": [
+        65296515
+      ],
+      "PartialPropItems": {},
+      "EnumItems": [
+        65296515
+      ],
+      "EventItems": null
+    },
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BMYXllclNjcmVlbkVmZmVjdC5mY2c=": {
+      "Scripts": [
+        "NeJf7T04Li9Bc3NldHMvU2NyaXB0L0dsb2JhbFJvbGUuZmNn"
+      ],
+      "ComponentItems": [
+        65296515,
+        835804
+      ],
+      "PartialPropItems": {},
+      "EnumItems": [
+        65296515,
+        835804
+      ],
+      "EventItems": null
+    },
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllci5mY2c=": {
+      "Scripts": null,
+      "ComponentItems": [
+        65296515
+      ],
+      "PartialPropItems": {},
+      "EnumItems": [
+        65296515
+      ],
+      "EventItems": null
+    },
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllck5hbWVUYWcuZmNn": {
+      "Scripts": [
+        "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllckNvbmZpZy5mY2c=",
+        "NeJf7T04Li9Bc3NldHMvU2NyaXB0L0dsb2JhbFJvbGUuZmNn"
+      ],
+      "ComponentItems": [
+        65296515
+      ],
+      "PartialPropItems": {},
+      "EnumItems": [
+        65296515
+      ],
+      "EventItems": null
+    },
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllckltcG9zdGVyLmZjZw==": {
+      "Scripts": [
+        "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllckNvbmZpZy5mY2c=",
+        "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllclNjcmVlbkVmZmVjdC5mY2c="
+      ],
+      "ComponentItems": [
+        65296515,
+        278837
+      ],
+      "PartialPropItems": {},
+      "EnumItems": [
+        65296515,
+        278837
+      ],
+      "EventItems": null
+    },
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllckplc3Rlci5mY2c=": {
+      "Scripts": [
+        "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllckNvbmZpZy5mY2c="
+      ],
+      "ComponentItems": null,
+      "PartialPropItems": {},
+      "EnumItems": null,
+      "EventItems": null
+    },
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllclNjcmVlbkVmZmVjdC5mY2c=": {
+      "Scripts": [
+        "NeJf7T04Li9Bc3NldHMvU2NyaXB0L0dsb2JhbFJvbGUuZmNn"
+      ],
+      "ComponentItems": [
+        65296515,
+        835804
+      ],
+      "PartialPropItems": {},
+      "EnumItems": [
+        65296515,
+        835804
+      ],
+      "EventItems": null
+    },
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllclNoZXJpZmYuZmNn": {
+      "Scripts": [
+        "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllckNvbmZpZy5mY2c="
+      ],
+      "ComponentItems": null,
+      "PartialPropItems": {},
+      "EnumItems": null,
+      "EventItems": null
+    },
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1RyaWdnZXJEcmlua0Jsb29kLmZjZw==": {
+      "Scripts": [
+        "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllckltcG9zdGVyLmZjZw==",
+        "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllckNvbmZpZy5mY2c="
+      ],
+      "ComponentItems": null,
+      "PartialPropItems": {},
+      "EnumItems": null,
+      "EventItems": null
+    }
+  },
+  "ModuleDepend": [
+    "StdLibrary",
+    "EditorGenLib",
+    "AI",
+    "Workflow",
+    "Player",
+    "LevelObject",
+    "Combat",
+    "List",
+    "Math",
+    "Scene",
+    "Camera",
+    "Hud",
+    "Items",
+    "Collection",
+    "Physics"
+  ],
+  "ForceExportScripts": {},
+  "GraphID2Path": {
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L0dsb2JhbC5mY2c=": "./Assets/Script/Global.fcg",
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L0dsb2JhbEFjdGlvbi5mY2c=": "./Assets/Script/GlobalAction.fcg",
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L0dsb2JhbENvbmZpZy5mY2c=": "./Assets/Script/GlobalConfig.fcg",
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L0dsb2JhbERheU5pZ2h0Q3ljbGUuZmNn": "./Assets/Script/GlobalDayNightCycle.fcg",
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L0dsb2JhbFJvbGUuZmNn": "./Assets/Script/GlobalRole.fcg",
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L0dsb2JhbFRhc2suZmNn": "./Assets/Script/GlobalTask.fcg",
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L0dsb2JhbFdpbkNvbmQuZmNn": "./Assets/Script/GlobalWinCond.fcg",
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BMYXllclNjcmVlbkVmZmVjdC5mY2c=": "./Assets/Script/PLayerScreenEffect.fcg",
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllci5mY2c=": "./Assets/Script/Player.fcg",
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllck5hbWVUYWcuZmNn": "./Assets/Script/PlayerNameTag.fcg",
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllck5vcm1hbC5mY2c=": "./Assets/Script/PlayerNormal.fcg",
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllckNvbmZpZy5mY2c=": "./Assets/Script/PlayerConfig.fcg",
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllckltcG9zdGVyLmZjZw==": "./Assets/Script/PlayerImposter.fcg",
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllckplc3Rlci5mY2c=": "./Assets/Script/PlayerJester.fcg",
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllclNjcmVlbkVmZmVjdC5mY2c=": "./Assets/Script/PlayerScreenEffect.fcg",
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllclNoZXJpZmYuZmNn": "./Assets/Script/PlayerSheriff.fcg",
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1RyaWdnZXJEcmlua0Jsb29kLmZjZw==": "./Assets/Script/TriggerDrinkBlood.fcg"
+  }
+}

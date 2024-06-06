@@ -1,0 +1,249 @@
+{
+  "ScriptDepend": {
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L0dlbmVyYXRvci5mY2c=": {
+      "Scripts": [
+        "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllckltcG9zdGVyLmZjZw==",
+        "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllckNvbmZpZy5mY2c=",
+        "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllckZpeGluZ0hVRC5mY2c="
+      ],
+      "ComponentItems": null,
+      "PartialPropItems": {},
+      "EnumItems": null,
+      "EventItems": [
+        100001
+      ]
+    },
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L0dlbmVyYXRvclRyaWdnZXIuZmNn": {
+      "Scripts": [
+        "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllckltcG9zdGVyLmZjZw==",
+        "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllckNvbmZpZy5mY2c=",
+        "NeJf7T04Li9Bc3NldHMvU2NyaXB0L0dlbmVyYXRvci5mY2c=",
+        "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllckZpeGluZ0hVRC5mY2c=",
+        "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllckZpeC5mY2c="
+      ],
+      "ComponentItems": null,
+      "PartialPropItems": {},
+      "EnumItems": null,
+      "EventItems": null
+    },
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L0dsb2JhbC5mY2c=": {
+      "Scripts": [
+        "NeJf7T04Li9Bc3NldHMvU2NyaXB0L0dsb2JhbFJvbGUuZmNn",
+        "NeJf7T04Li9Bc3NldHMvU2NyaXB0L0dsb2JhbEFjdGlvbi5mY2c=",
+        "NeJf7T04Li9Bc3NldHMvU2NyaXB0L0dsb2JhbFdpbkNvbmQuZmNn"
+      ],
+      "ComponentItems": [
+        200001
+      ],
+      "PartialPropItems": {},
+      "EnumItems": [
+        200001
+      ],
+      "EventItems": null
+    },
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L0dsb2JhbFJvbGUuZmNn": {
+      "Scripts": [
+        "NeJf7T04Li9Bc3NldHMvU2NyaXB0L0dsb2JhbENvbmZpZy5mY2c=",
+        "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllckNvbmZpZy5mY2c="
+      ],
+      "ComponentItems": null,
+      "PartialPropItems": {},
+      "EnumItems": null,
+      "EventItems": null
+    },
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L0dsb2JhbFdpbkNvbmQuZmNn": {
+      "Scripts": [
+        "NeJf7T04Li9Bc3NldHMvU2NyaXB0L0dsb2JhbFJvbGUuZmNn"
+      ],
+      "ComponentItems": [
+        200001
+      ],
+      "PartialPropItems": {},
+      "EnumItems": [
+        200001
+      ],
+      "EventItems": null
+    },
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L0hVREZpeGluZ0dlbmVyYXRvci5mY2c=": {
+      "Scripts": [
+        "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllckZpeGluZ0hVRC5mY2c="
+      ],
+      "ComponentItems": [
+        464470
+      ],
+      "PartialPropItems": {},
+      "EnumItems": [
+        464470
+      ],
+      "EventItems": null
+    },
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllci5mY2c=": {
+      "Scripts": null,
+      "ComponentItems": [
+        200001
+      ],
+      "PartialPropItems": {},
+      "EnumItems": [
+        200001
+      ],
+      "EventItems": null
+    },
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllck5hbWVUYWcuZmNn": {
+      "Scripts": [
+        "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllckNvbmZpZy5mY2c=",
+        "NeJf7T04Li9Bc3NldHMvU2NyaXB0L0dsb2JhbFJvbGUuZmNn"
+      ],
+      "ComponentItems": [
+        200001,
+        584488
+      ],
+      "PartialPropItems": {},
+      "EnumItems": [
+        200001,
+        584488
+      ],
+      "EventItems": null
+    },
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllckNvbmZpZy5mY2c=": {
+      "Scripts": [
+        "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllckh1bWFuLmZjZw==",
+        "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllckltcG9zdGVyLmZjZw=="
+      ],
+      "ComponentItems": null,
+      "PartialPropItems": {},
+      "EnumItems": null,
+      "EventItems": null
+    },
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllckZpeC5mY2c=": {
+      "Scripts": [
+        "NeJf7T04Li9Bc3NldHMvU2NyaXB0L0dlbmVyYXRvci5mY2c=",
+        "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllckZpeGluZ0hVRC5mY2c=",
+        "NeJf7T04Li9Bc3NldHMvU2NyaXB0L0dsb2JhbExvb3AuZmNn"
+      ],
+      "ComponentItems": null,
+      "PartialPropItems": {},
+      "EnumItems": null,
+      "EventItems": null
+    },
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllckZpeGluZ0hVRC5mY2c=": {
+      "Scripts": [
+        "NeJf7T04Li9Bc3NldHMvU2NyaXB0L0hVRFV0aWwuZmNn",
+        "NeJf7T04Li9Bc3NldHMvU2NyaXB0L0dlbmVyYXRvci5mY2c=",
+        "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllckZpeC5mY2c=",
+        "NeJf7T04Li9Bc3NldHMvU2NyaXB0L0dsb2JhbExvb3AuZmNn"
+      ],
+      "ComponentItems": [
+        627554,
+        464470
+      ],
+      "PartialPropItems": {},
+      "EnumItems": [
+        627554,
+        464470
+      ],
+      "EventItems": [
+        100001
+      ]
+    },
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllckh1bWFuLmZjZw==": {
+      "Scripts": [
+        "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllckNvbmZpZy5mY2c="
+      ],
+      "ComponentItems": [
+        200001
+      ],
+      "PartialPropItems": {},
+      "EnumItems": [
+        200001
+      ],
+      "EventItems": null
+    },
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllckltcG9zdGVyLmZjZw==": {
+      "Scripts": [
+        "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllckNvbmZpZy5mY2c=",
+        "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllclNjcmVlbkVmZmVjdC5mY2c="
+      ],
+      "ComponentItems": [
+        200001,
+        423564
+      ],
+      "PartialPropItems": {},
+      "EnumItems": [
+        200001,
+        423564
+      ],
+      "EventItems": null
+    },
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllclNjcmVlbkVmZmVjdC5mY2c=": {
+      "Scripts": [
+        "NeJf7T04Li9Bc3NldHMvU2NyaXB0L0dsb2JhbFJvbGUuZmNn"
+      ],
+      "ComponentItems": [
+        627554
+      ],
+      "PartialPropItems": {},
+      "EnumItems": [
+        627554
+      ],
+      "EventItems": null
+    },
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1RyaWdnZXJEcmlua0Jsb29kLmZjZw==": {
+      "Scripts": [
+        "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllckltcG9zdGVyLmZjZw==",
+        "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllckNvbmZpZy5mY2c="
+      ],
+      "ComponentItems": [
+        200001
+      ],
+      "PartialPropItems": {},
+      "EnumItems": [
+        200001
+      ],
+      "EventItems": null
+    }
+  },
+  "ModuleDepend": [
+    "StdLibrary",
+    "EditorGenLib",
+    "Physics",
+    "LevelObject",
+    "List",
+    "Workflow",
+    "Math",
+    "Hud",
+    "Items",
+    "Collection",
+    "ChatChannel",
+    "Player",
+    "Playable",
+    "Animation",
+    "Camera",
+    "PropertyFormula",
+    "AI",
+    "Combat"
+  ],
+  "ForceExportScripts": {},
+  "GraphID2Path": {
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L0dlbmVyYXRvci5mY2c=": "./Assets/Script/Generator.fcg",
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L0dlbmVyYXRvclRyaWdnZXIuZmNn": "./Assets/Script/GeneratorTrigger.fcg",
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L0dsb2JhbC5mY2c=": "./Assets/Script/Global.fcg",
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L0dsb2JhbEFjdGlvbi5mY2c=": "./Assets/Script/GlobalAction.fcg",
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L0dsb2JhbENvbmZpZy5mY2c=": "./Assets/Script/GlobalConfig.fcg",
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L0dsb2JhbExvb3AuZmNn": "./Assets/Script/GlobalLoop.fcg",
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L0dsb2JhbFJvbGUuZmNn": "./Assets/Script/GlobalRole.fcg",
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L0dsb2JhbFRhc2suZmNn": "./Assets/Script/GlobalTask.fcg",
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L0dsb2JhbFdpbkNvbmQuZmNn": "./Assets/Script/GlobalWinCond.fcg",
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L0hVREJ1dHRvbi5mY2c=": "./Assets/Script/HUDButton.fcg",
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L0hVREZpeGluZ0dlbmVyYXRvci5mY2c=": "./Assets/Script/HUDFixingGenerator.fcg",
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L0hVRFV0aWwuZmNn": "./Assets/Script/HUDUtil.fcg",
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllci5mY2c=": "./Assets/Script/Player.fcg",
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllck5hbWVUYWcuZmNn": "./Assets/Script/PlayerNameTag.fcg",
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllckNvbmZpZy5mY2c=": "./Assets/Script/PlayerConfig.fcg",
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllckZpeC5mY2c=": "./Assets/Script/PlayerFix.fcg",
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllckZpeGluZ0hVRC5mY2c=": "./Assets/Script/PlayerFixingHUD.fcg",
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllckh1bWFuLmZjZw==": "./Assets/Script/PlayerHuman.fcg",
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllckltcG9zdGVyLmZjZw==": "./Assets/Script/PlayerImposter.fcg",
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1BsYXllclNjcmVlbkVmZmVjdC5mY2c=": "./Assets/Script/PlayerScreenEffect.fcg",
+    "NeJf7T04Li9Bc3NldHMvU2NyaXB0L1RyaWdnZXJEcmlua0Jsb29kLmZjZw==": "./Assets/Script/TriggerDrinkBlood.fcg"
+  }
+}

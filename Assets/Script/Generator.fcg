@@ -1,0 +1,110 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "Physics.fcc" as physics
+import "LevelObject.fcc" as levelobject
+import "List.fcc" as list
+import "./PlayerImposter.fcg" as playerImposter
+import "./PlayerConfig.fcg" as playerConfig
+import "Workflow.fcc" as Workflow
+import "Math.fcc" as Math
+import "./PlayerFixingHUD.fcg" as playerFixingHUD
+
+graph Generator {
+    //Executed when entity is created
+    inTrigger bool = false
+    Generator_Phase1 entity<LevelObject>
+    Generator_Phase2 entity<LevelObject>
+    Generator_Trigger entity<LevelObject> 
+    Generator_Cylinder entity<LevelObject>
+    Generator_Effect entity<LevelObject>
+
+
+    _CurrentPhase = 0
+    _TotalProgress float = 50
+    _CurrentProgress float = 0
+    _SkillCheckChance float = 0.2
+    _SkillCheckPenalty = 10
+    _SkillCheckActive bool = false
+    _PlayerFixing float = 0
+    _FixingSpeed float = 1
+    _PlayerList List<entity<Player>> = List<entity<Player>>{}
+
+
+    event OnAwake() {
+        WaitForNextFrame()
+        Generator_Phase1 = GetChildren(thisEntity)[0] as entity<LevelObject>
+        Generator_Phase2 = GetChildren(thisEntity)[1] as entity<LevelObject>
+        Generator_Trigger = GetChildren(thisEntity)[2] as entity<LevelObject>
+        Generator_Cylinder = GetChildren(thisEntity)[3] as entity<LevelObject>
+        Generator_Effect = GetChildren(thisEntity)[4] as entity<LevelObject>
+    }
+
+    
+    func AppendPlayer(player entity<Player>) {
+        Append(_PlayerList, player)
+    }
+
+    async func RemovePlayer(player entity<Player>) {
+        Delete(_PlayerList, player)
+        if player<playerFixingHUD>._inSkillCheck {
+            FailSkillCheck()
+        }
+    }
+
+
+    async func AddProgress(progress float) {
+
+        if _CurrentPhase == 0 {
+            Generator_Cylinder<EffectEntity>.Color = #FFB400FF
+            _CurrentPhase = 1
+        }
+
+        if _CurrentPhase == 1 {
+            _CurrentProgress += progress
+            LogInfo("Current Progress: " + _CurrentProgress)
+            if _CurrentProgress >= _TotalProgress {
+                SwitchPhase()
+                return
+            }
+        }
+    }
+
+    async func FailSkillCheck() {
+        if _CurrentPhase != 2 {
+            _CurrentProgress -= _SkillCheckPenalty
+            if _CurrentProgress < 0 {
+                _CurrentProgress = 0
+            }
+
+            LogInfo("Generator_Effect: " + Generator_Effect)
+            SetActive(Generator_Effect, false)
+            WaitForSeconds(100)
+            SetActive(Generator_Effect, true)
+        }
+    }
+
+    func SkillCheck() {
+
+    }
+
+    func SwitchPhase() {
+        LogInfo("Switching Phase")
+        SetActive(Generator_Phase1, false)
+        SetActive(Generator_Phase2, true)
+        Generator_Cylinder<EffectEntity>.Color = #33FF00FF
+
+        _CurrentPhase = 2
+
+        for key, player in GetAllPlayers(){
+            DispatchEvent(Generator_OnFinish,player, List<object>{thisEntity<Entity>})
+        }
+        DispatchEvent(Generator_OnFinish,globalEntity, List<object>{thisEntity<Entity>})
+        
+    }
+
+    func SetInTrigger(value bool) {
+        inTrigger = value
+    }
+
+
+}

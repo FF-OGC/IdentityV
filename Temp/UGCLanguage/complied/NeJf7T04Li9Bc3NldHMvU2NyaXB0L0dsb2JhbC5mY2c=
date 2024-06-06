@@ -1,0 +1,17 @@
+§
+,NeJf7T04Li9Bc3NldHMvU2NyaXB0L0dsb2JhbC5mY2c=·‹
+Workflow.fcc:45:0OnPhaseStartÛ"&": ./Assets/Script/Global.fcg:14:23*ú
+./Assets/Script/Global.fcg:15:8Invoke DefLocalVar‘"": ./Assets/Script/Global.fcg:15:12"µ≤
+ ./Assets/Script/Global.fcg:15:37Invoke GetReplicationData—"_]
+ ./Assets/Script/Global.fcg:15:25Invoke GetLocalVar÷"": ./Assets/Script/Global.fcg:14:23"àÿº˛ˇˇˇˇˇˇÄ"àÄ*Ë
+./Assets/Script/Global.fcg:16:8Invoke ProcessCtlIfÈ"¢ü
+ ./Assets/Script/Global.fcg:16:22Invoke Compare§"_]
+ ./Assets/Script/Global.fcg:16:11Invoke GetLocalVar÷"": ./Assets/Script/Global.fcg:15:12"("(‚*á
+ ./Assets/Script/Global.fcg:16:11	CodeBlockÛ"*–
+ ./Assets/Script/Global.fcg:17:12Invoke SetRoleÙ":8
+ ./Assets/Script/Global.fcg:17:12Invoke ThisEntityêN"2:0NeJf7T04Li9Bc3NldHMvU2NyaXB0L0dsb2JhbFJvbGUuZmNn"%:#./Assets/Script/GlobalRole.fcg:22:4"BÖ“ˇ
+Combat.fcc:73:0OnPlayerDeadÛ"&": ./Assets/Script/Global.fcg:22:23*÷
+./Assets/Script/Global.fcg:23:8Invoke CheckWinÙ"97
+./Assets/Script/Global.fcg:23:8Invoke ThisEntityêN"6:4NeJf7T04Li9Bc3NldHMvU2NyaXB0L0dsb2JhbFdpbkNvbmQuZmNn"(:&./Assets/Script/GlobalWinCond.fcg:13:4"*”
+./Assets/Script/Global.fcg:24:8Invoke MeetingÙ"97
+./Assets/Script/Global.fcg:24:8Invoke ThisEntityêN"6:4NeJf7T04Li9Bc3NldHMvU2NyaXB0L0dsb2JhbEFjdGlvbi5mY2c="&:$./Assets/Script/GlobalAction.fcg:8:4"B*Global0

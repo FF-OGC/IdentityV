@@ -1,0 +1,24 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "Items.fcc" as items
+import "Collection.fcc" as collection
+import "./PlayerHuman.fcg" as PlayerHuman
+import "./PlayerImposter.fcg" as PlayerImposter
+
+graph PlayerConfig {
+    isImposter = false
+    isHuman = false
+
+    func SetImposter() {
+        isImposter = true
+        AddScript(thisEntity, PlayerImposter)
+    }
+
+    func SetHuman() {
+        isHuman = true
+        AddScript(thisEntity, PlayerHuman)
+    }
+
+    
+    
+}

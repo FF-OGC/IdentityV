@@ -1,0 +1,42 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "List.fcc" as list 
+import "./GlobalConfig.fcg" as GlobalConfig
+import "./PlayerConfig.fcg" as playerConfig
+
+graph GlobalRole {
+    imposterList List<entity<Player>>
+    HumanList List<entity<Player>>
+    Sheriff entity<Player>
+    Jester entity<Player>
+
+    event OnAwake() {
+        Init()
+    }
+
+    func Init() {
+        imposterList = List<entity<Player>>{}
+        HumanList = List<entity<Player>>{}
+    }
+
+    func SetRole() {
+        var playerList = GetAllPlayers()
+        Shuffle(playerList)
+        // Randomize all player list
+        var imposterNum = globalEntity<GlobalConfig>.GetImposterNum()
+        
+        // First {imposterNum} players are imposter
+        for key,player in playerList {
+            if key < imposterNum {
+                player<playerConfig>.SetImposter()
+                Append(imposterList,player)
+                
+            } else {
+        // Remain are Human
+                player<playerConfig>.SetHuman()
+                Append(HumanList,player)
+            }
+        }
+
+    }
+}

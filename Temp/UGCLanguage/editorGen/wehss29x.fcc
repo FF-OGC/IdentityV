@@ -1,0 +1,13 @@
+import "Economy.fcc" as Economy
+
+
+
+
+
+//TODO: export resources enum in package
+
+
+
+partial enum Economy.MoneyType {
+}
+

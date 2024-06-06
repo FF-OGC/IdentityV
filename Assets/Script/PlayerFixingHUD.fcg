@@ -1,0 +1,195 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "Hud.fcc" as hud
+import Resources from "EditorGenLib.fcc"
+import "./HUDUtil.fcg" as HUDUtil
+import "Math.fcc" as Math
+import "Playable.fcc" as Playable
+import "PropertyFormula.fcc" as PropertyFormula
+import "./Generator.fcg" as Generator
+import "./PlayerFix.fcg" as PlayerFix
+import "./GlobalLoop.fcg" as GlobalLoop
+
+
+graph PlayerFixingHUD {
+    _SelectedGenerator entity<Entity>
+
+    _FixingHUD entity<CustomHud>
+    _SkillCheckPivot entity<HudWidget>
+    _ProgressPivot entity<HudWidget>
+
+    _BarWidth int
+    _SkillCheckWidth int
+    _Bar entity<HudWidget>
+    _SkillCheck entity<HudWidget>
+    _Arrow entity<HudWidget>
+    _MinAccept int
+    _MaxAccept int
+    _inSkillCheck bool = false
+    _SkillCheckMotion entity<Tween>
+
+    _ProgressBar entity<HudWidget>
+    _CurrentProgressBar entity<HudWidget>
+    _ProgressMotion entity<Tween>
+    
+
+    event Generator_OnFinish(generator object) {
+        if generator<Generator> == _SelectedGenerator {
+            CloseFixingHUD()
+        }
+    }
+
+    func InitFixingHUD(){
+        if(_FixingHUD == nil){
+            _FixingHUD = HUDUtil.CreateCustomHUD(thisEntity<Player>, EResource_UI.FIXING, 4)
+            InitConfig()   
+            _FixingHUD<CustomHud>.Visibility = true
+            _SkillCheckPivot<HudWidget>.Active = false
+            _ProgressPivot<HudWidget>.Active = false
+        }
+    }
+
+    func SetGenerator(generator entity<Entity>) {
+        _SelectedGenerator = generator
+    }
+
+    func InitConfig() {
+        _Bar= GetFixingHUDWidget(EResource_UI_FIXING.BAR)
+        _SkillCheck= GetFixingHUDWidget(EResource_UI_FIXING.SKILLCHECK)
+        _Arrow = GetFixingHUDWidget(EResource_UI_FIXING.ARROW)
+        _BarWidth = _Bar<HudWidget>.Width
+        _SkillCheckWidth = _SkillCheck<HudWidget>.Width
+        _SkillCheckPivot = GetFixingHUDWidget(EResource_UI_FIXING.PIVOT_SKILLCHECK)
+
+        _ProgressBar = GetFixingHUDWidget(EResource_UI_FIXING.PROGRESS_BAR)
+        _CurrentProgressBar = GetFixingHUDWidget(EResource_UI_FIXING.CURRENT_PROGRESS)
+        _ProgressPivot = GetFixingHUDWidget(EResource_UI_FIXING.PIVOT_PROGRESS)
+
+    }
+
+    func UpdateProgress() {
+        var ratio = _ProgressBar<HudWidget>.Width / _SelectedGenerator<Generator>._TotalProgress
+        _CurrentProgressBar<HudWidget>.Width = Round(_SelectedGenerator<Generator>._CurrentProgress * ratio)
+    }
+
+    func DisplayFixingHUD(){
+        InitFixingHUD()
+        ResetFixingHUD()
+
+        if (_SelectedGenerator<Generator>._CurrentPhase != 2) {
+            SetSkillCheckHUD()
+            if(!_ProgressPivot<HudWidget>.Active){
+                _ProgressPivot<HudWidget>.Active = true
+            }
+        }
+    }
+
+    async func CloseFixingHUD(){
+        if(_ProgressPivot<HudWidget>.Active){
+            _ProgressPivot<HudWidget>.Active = false
+            CloseSkillCheckHUD()
+        }
+    }
+
+    func DeleteFixingHUD(){
+        DeleteEntity(_FixingHUD)
+    }
+
+    async func ToggleFixingHUD(){
+        if(_FixingHUD<CustomHud>.Visibility){
+            // _FixingHUD<CustomHud>.Visibility = false
+            CloseFixingHUD()
+        } else {
+            // _FixingHUD<CustomHud>.Visibility = true
+            DisplayFixingHUD()
+        }
+    }
+
+
+// Skill Check
+
+
+
+    func SetSkillCheckHUD() {
+        if !_inSkillCheck {
+            _MinAccept = SetSkillCheckPos()
+            _MaxAccept = _MinAccept + _SkillCheckWidth
+            var curve = CreateTweenCurve(List<float>{0,0,1,1})
+
+            if (_SkillCheckMotion != nil) {
+                Play(_SkillCheckMotion, true)
+            } else {
+                CreateTween(_Arrow<HudWidget>,HudWidget.AnchorPosition,Vector3{0, -23, 0},Vector3{_BarWidth, -23, 0},TweenStyle.PingPong,curve,2000,out var motion, true)
+                _SkillCheckMotion = motion
+            }
+        }
+    }
+
+    func SetSkillCheckPos() int{
+        var min = 0
+        var max = _BarWidth - _SkillCheckWidth
+        var pos = RandomInt(min, max)
+        _SkillCheck<HudWidget>.AnchorPosition = Vector3{pos, 0, 0}
+        LogInfo("SkillCheckPos: " + pos)
+        LogInfo("SkillCheckRealPos" + _SkillCheck<HudWidget>.AnchorPosition)
+        return pos
+    }
+
+    async func SelectSkillCheck() {
+        var value = _Arrow<HudWidget>.AnchorPosition.X
+
+        LogInfo("SkillCheckPos: " + value)
+        LogInfo("MinAccept: " + _MinAccept)
+        LogInfo("MaxAccept: " + _MaxAccept)
+
+        if(value >= _MinAccept && value <= _MaxAccept){
+            LogInfo("Success")
+        } else {
+            LogInfo("Fail")
+            _SelectedGenerator<Generator>.FailSkillCheck()
+        }
+
+        CloseSkillCheckHUD()
+    }
+
+
+    async func DisplaySkillCheckHUD() {
+        if(!_inSkillCheck){
+            SetSkillCheckHUD()
+            _SkillCheckPivot<HudWidget>.Active = true
+            _inSkillCheck = true
+
+            var time = 0
+            var max_time = 6
+            while(_SkillCheckPivot<HudWidget>.Active){
+                time+=1
+                if(time > max_time){
+                    CloseSkillCheckHUD()
+                    _SelectedGenerator<Generator>.FailSkillCheck()
+                }
+                WaitForSeconds(1000)
+            }
+        }
+    }
+
+    async func CloseSkillCheckHUD() {
+        if(_SkillCheckPivot<HudWidget>.Active){
+            Pause(_SkillCheckMotion)
+            _SkillCheckPivot<HudWidget>.Active = false
+            _inSkillCheck = false
+            thisEntity<PlayerFix>.SetStartTime(globalEntity<GlobalLoop>.GetLoopCount())
+        }
+    }
+
+    func ResetFixingHUD(){
+        
+    }
+
+
+
+
+    func GetFixingHUDWidget(eResourceUIFixing string) entity<HudWidget>{
+        return GetWidgetFromCustomHud(thisEntity<Player>, _FixingHUD, Resources.UI_FIXING[eResourceUIFixing])
+    }
+
+}

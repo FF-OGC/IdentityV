@@ -1,0 +1,272 @@
+{
+  "_tag": {
+    "type": "Prefab"
+  },
+  "_entityId": "ARHonpGN",
+  "children": [
+    {
+      "_tag": {
+        "type": "SceneEditEntity",
+        "resourceId": "Primitive/Empty"
+      },
+      "_entityId": "bEyxuY8N",
+      "children": [
+        {
+          "_tag": {
+            "type": "SceneEditEntity",
+            "resourceId": "Primitive/Empty"
+          },
+          "_entityId": "HTlTJr16",
+          "children": [],
+          "activeValue": {
+            "selfValue": true,
+            "valueTag": "activeValue"
+          },
+          "unlockedValue": {
+            "selfValue": true,
+            "valueTag": "unlockedValue"
+          },
+          "editorLockValue": false,
+          "editorVisibleValue": true,
+          "position": {
+            "x": 0,
+            "y": 0.75,
+            "z": 0
+          },
+          "scale": {
+            "x": 0.25,
+            "y": 0.25,
+            "z": 0.25
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "BTPath": [
+            null
+          ],
+          "visible": true,
+          "VisibilityLayer": 0,
+          "modelOptimization": 0,
+          "streamingLayer": "",
+          "attributes": [
+            2,
+            4
+          ],
+          "isTrigger": false,
+          "collidable": true,
+          "physicalLayer": 0,
+          "physicalMaterial": null,
+          "initialTypes": {},
+          "componentList": [],
+          "tempIndex": 1,
+          "itemID": 224,
+          "seParent": null,
+          "ecaScripts": [
+            null
+          ],
+          "ecaProps": {
+            "EffectEntityGenerator": {},
+            "ItemContainerGenerator": {},
+            "Entity": {},
+            "EffectEntity": {},
+            "Transform": {},
+            "Playable": {},
+            "Visibility": {},
+            "Loopable": {},
+            "LevelObject": {}
+          },
+          "entityTagData": {
+            "tagPointers": []
+          },
+          "_entityName": "Visual effects",
+          "propsData": {
+            "effectTypeResId": "",
+            "effectTexture": "",
+            "playSpeed": 100,
+            "effectTextureRef": null,
+            "effectColor": {
+              "r": 203,
+              "g": 30,
+              "b": 30,
+              "a": 1
+            },
+            "autoPlay": true,
+            "effectTypeRef": {
+              "fileId": "EffectType_WS_VFX_BLOODBALL",
+              "filePath": "lib://ffEffects/WS_VFX_BLOODBALL",
+              "_tag": {
+                "type": "GFileRefer"
+              },
+              "fileType": "effecttype"
+            },
+            "effectType": "InGame/SceneEdit/WS_VFX_bloodball"
+          },
+          "_filters": [
+            "game.related9"
+          ],
+          "prefabVariant": null
+        },
+        {
+          "_tag": {
+            "type": "SceneEditEntity",
+            "resourceId": "Primitive/Empty"
+          },
+          "_entityId": "BujNJpUL",
+          "children": [],
+          "activeValue": {
+            "selfValue": true,
+            "valueTag": "activeValue"
+          },
+          "unlockedValue": {
+            "selfValue": true,
+            "valueTag": "unlockedValue"
+          },
+          "editorLockValue": false,
+          "editorVisibleValue": true,
+          "position": {
+            "x": 0.0014998912811279297,
+            "y": -5.960464477539063e-8,
+            "z": 0.0004999972879886627
+          },
+          "scale": {
+            "x": 0.6000000238418579,
+            "y": 0.6000000238418579,
+            "z": 0.6000000238418579
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "BTPath": [
+            null
+          ],
+          "visible": true,
+          "VisibilityLayer": 0,
+          "modelOptimization": 0,
+          "streamingLayer": "",
+          "attributes": [
+            2,
+            4
+          ],
+          "isTrigger": false,
+          "collidable": true,
+          "physicalLayer": 0,
+          "physicalMaterial": null,
+          "initialTypes": {},
+          "componentList": [],
+          "tempIndex": 2,
+          "itemID": 87,
+          "seParent": null,
+          "ecaScripts": [
+            null
+          ],
+          "ecaProps": {
+            "DummyLevelObject": {},
+            "LevelObject": {},
+            "Transform": {},
+            "Entity": {},
+            "Visibility": {},
+            "Collider": {}
+          },
+          "entityTagData": {
+            "tagPointers": []
+          },
+          "_entityName": "Stone Lantern",
+          "_filters": [],
+          "prefabVariant": null
+        }
+      ],
+      "activeValue": {
+        "selfValue": true,
+        "valueTag": "activeValue"
+      },
+      "unlockedValue": {
+        "selfValue": true,
+        "valueTag": "unlockedValue"
+      },
+      "editorLockValue": false,
+      "editorVisibleValue": true,
+      "position": {
+        "x": 5.36,
+        "y": -0.2999998927116394,
+        "z": -0.12
+      },
+      "scale": {
+        "x": 2,
+        "y": 2,
+        "z": 2
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "BTPath": [
+        null
+      ],
+      "visible": true,
+      "VisibilityLayer": 0,
+      "modelOptimization": 0,
+      "streamingLayer": "",
+      "attributes": [
+        2,
+        4
+      ],
+      "isTrigger": false,
+      "collidable": true,
+      "physicalLayer": 0,
+      "physicalMaterial": null,
+      "initialTypes": {},
+      "componentList": [],
+      "tempIndex": 3,
+      "itemID": 117,
+      "seParent": null,
+      "ecaScripts": [
+        {
+          "fileId": "073ugdh7vaqc-lso48a06-ummxu8eyiij",
+          "filePath": "Assets\\Script\\TriggerDrinkBlood.fcg",
+          "_tag": {
+            "type": "GFileRefer"
+          },
+          "fileType": "ugcscript"
+        }
+      ],
+      "ecaProps": {
+        "CustomizeTrigger": {},
+        "LevelObject": {},
+        "Transform": {},
+        "Entity": {},
+        "Visibility": {},
+        "Collider": {}
+      },
+      "entityTagData": {
+        "tagPointers": []
+      },
+      "_entityName": "Custom trigger",
+      "propsData": {
+        "scale": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "_levelObjectID": 1
+      },
+      "_filters": [
+        "node.withscript",
+        "game.related7"
+      ],
+      "prefabVariant": null
+    }
+  ],
+  "prefabVariant": null,
+  "activeValue": null,
+  "unlockedValue": null,
+  "editorLockValue": false,
+  "editorVisibleValue": true,
+  "discriminator": "ISceneLike",
+  "_entityName": "Custom trigger"
+}
+//"{FE:{"v":"1.8.2974973","c":{"FF":4404},"s":100}

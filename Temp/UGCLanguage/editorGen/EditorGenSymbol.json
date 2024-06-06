@@ -1,0 +1,274 @@
+{
+  "NameSpace": {
+    "Name": "NeJf7T04",
+    "ID": 0,
+    "UIDSeed": 100001
+  },
+  "FileSpaces": [
+    {
+      "Path": "EditorGenLib.fcc",
+      "Symbol": {
+        "Components": [
+          {
+            "Name": "HudButtonWidget",
+            "ID": 41,
+            "Props": []
+          },
+          {
+            "Name": "phaseEnum",
+            "Props": [],
+            "ID": 200001
+          },
+          {
+            "Name": "EResource_UI",
+            "ID": 627554,
+            "Props": []
+          },
+          {
+            "Name": "EResource_Scene",
+            "ID": 735785,
+            "Props": []
+          },
+          {
+            "Name": "EResource_Prefab",
+            "ID": 712257,
+            "Props": []
+          },
+          {
+            "Name": "EResource_FCG",
+            "ID": 462702,
+            "Props": []
+          },
+          {
+            "Name": "EResource_FCGC",
+            "ID": 947209,
+            "Props": []
+          },
+          {
+            "Name": "EResource_ECA",
+            "ID": 992477,
+            "Props": []
+          },
+          {
+            "Name": "EResource_ECAC",
+            "ID": 567565,
+            "Props": []
+          },
+          {
+            "Name": "EResource_Texture",
+            "ID": 309252,
+            "Props": []
+          },
+          {
+            "Name": "EResource_Effect",
+            "ID": 10174,
+            "Props": []
+          },
+          {
+            "Name": "EResource_Sound",
+            "ID": 994436,
+            "Props": []
+          },
+          {
+            "Name": "EResource_Item",
+            "ID": 217713,
+            "Props": []
+          },
+          {
+            "Name": "EResource_LevelObject",
+            "ID": 584488,
+            "Props": []
+          },
+          {
+            "Name": "EResource_Cloth",
+            "ID": 423564,
+            "Props": []
+          },
+          {
+            "Name": "EResource_WeaponSkin",
+            "ID": 287906,
+            "Props": []
+          },
+          {
+            "Name": "EResource_VehicleSkin",
+            "ID": 17972,
+            "Props": []
+          },
+          {
+            "Name": "EResource_Emote",
+            "ID": 599184,
+            "Props": []
+          },
+          {
+            "Name": "EResource_CSV",
+            "ID": 883984,
+            "Props": []
+          },
+          {
+            "Name": "EResource_InternalHud",
+            "ID": 629343,
+            "Props": []
+          },
+          {
+            "Name": "EResource_Scene_main",
+            "ID": 313045,
+            "Props": []
+          },
+          {
+            "Name": "EResource_UI_imposterScreenEffect",
+            "ID": 156991,
+            "Props": []
+          },
+          {
+            "Name": "EResource_UI_nightScreenEffect",
+            "ID": 893115,
+            "Props": []
+          },
+          {
+            "Name": "EResource_UI_FIXING",
+            "ID": 464470,
+            "Props": []
+          }
+        ],
+        "Events": [
+          {
+            "ID": 100000,
+            "Name": "HUD_ButtonClicked"
+          },
+          {
+            "ID": 100001,
+            "Name": "Generator_OnFinish"
+          }
+        ],
+        "Graphs": [
+          {
+            "ID": "NeJf7T04.gx0drqr0nyg-ls2vy1vd-kpbl01060mp",
+            "Name": "Global",
+            "Props": [],
+            "Funcs": []
+          },
+          {
+            "ID": "NeJf7T04.a20zwbywn9-ls2z7nd9-fsh4c7wnul",
+            "Name": "Resource",
+            "Props": [
+              {
+                "ID": "v80HQ50CC",
+                "Name": "zombieSpawn"
+              }
+            ],
+            "Funcs": []
+          },
+          {
+            "ID": "NeJf7T04.kw58dhdazk-lso3zc77-tqg3buw2qt",
+            "Name": "TriggerBlood",
+            "Props": [],
+            "Funcs": []
+          },
+          {
+            "ID": "EDITOR_GEN_RESOURCE_REGISTERATION_ID6qjb8eglr",
+            "Name": "Resources",
+            "Props": [
+              {
+                "ID": "EDITOR_GEN_Resourceui",
+                "Name": "UI"
+              },
+              {
+                "ID": "EDITOR_GEN_Resourcescene",
+                "Name": "Scene"
+              },
+              {
+                "ID": "EDITOR_GEN_Resourceprefab",
+                "Name": "Prefab"
+              },
+              {
+                "ID": "EDITOR_GEN_Resourcefcg",
+                "Name": "FCG"
+              },
+              {
+                "ID": "EDITOR_GEN_Resourcefcgc",
+                "Name": "FCGC"
+              },
+              {
+                "ID": "EDITOR_GEN_Resourceeca",
+                "Name": "ECA"
+              },
+              {
+                "ID": "EDITOR_GEN_Resourceecac",
+                "Name": "ECAC"
+              },
+              {
+                "ID": "EDITOR_GEN_Resourceicon",
+                "Name": "Texture"
+              },
+              {
+                "ID": "EDITOR_GEN_Resourceeffect",
+                "Name": "Effect"
+              },
+              {
+                "ID": "EDITOR_GEN_Resourcesound",
+                "Name": "Sound"
+              },
+              {
+                "ID": "EDITOR_GEN_Resourceitem",
+                "Name": "Item"
+              },
+              {
+                "ID": "EDITOR_GEN_ResourcelevelObject",
+                "Name": "LevelObject"
+              },
+              {
+                "ID": "EDITOR_GEN_Resourcecloth",
+                "Name": "Cloth"
+              },
+              {
+                "ID": "EDITOR_GEN_ResourceweaponSkin",
+                "Name": "WeaponSkin"
+              },
+              {
+                "ID": "EDITOR_GEN_ResourcevehicleSkin",
+                "Name": "VehicleSkin"
+              },
+              {
+                "ID": "EDITOR_GEN_Resourceemote",
+                "Name": "Emote"
+              },
+              {
+                "ID": "EDITOR_GEN_Resourcecsv",
+                "Name": "CSV"
+              },
+              {
+                "ID": "EDITOR_GEN_ResourceinternalHud",
+                "Name": "InternalHud"
+              },
+              {
+                "ID": "Editor_Gen_Resource_Scene_main",
+                "Name": "Scene_main"
+              },
+              {
+                "ID": "Editor_Gen_Resource_UI_imposterScreenEffect",
+                "Name": "UI_imposterScreenEffect"
+              },
+              {
+                "ID": "Editor_Gen_Resource_UI_nightScreenEffect",
+                "Name": "UI_nightScreenEffect"
+              },
+              {
+                "ID": "Editor_Gen_Resource_UI_FIXING",
+                "Name": "UI_FIXING"
+              }
+            ],
+            "Funcs": []
+          }
+        ]
+      }
+    },
+    {
+      "Path": "wehss29x.fcc",
+      "Symbol": {
+        "Components": [],
+        "Events": [],
+        "Graphs": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+import "Hud.fcc" as Hud
+import "StdLibrary.fcc" as StdLibrary
+import "Collection.fcc" as Collection
+import "Economy.fcc" as Economy
+
+
+
+// Button control
+partial component HudButtonWidget {
+}
+
+
+// phaseEnum, type: Int
+enum phaseEnum {
+    // START
+    START = 512
+
+    // PREPARERATION
+    PREPARERATION = 1506
+
+    // DAY
+    DAY = 3152
+
+    // NIGHT
+    NIGHT = 3964
+
+    // END
+    END = 4057
+
+    // IN_PROGRESS
+    IN_PROGRESS = 1118
+
+    // END_ROUND
+    END_ROUND = 1622
+
+}
+
+enum EResource_UI {
+    imposterScreenEffect = "imposterScreenEffect"
+    nightScreenEffect = "nightScreenEffect"
+    FIXING = "FIXING"
+}
+enum EResource_Scene {
+    main = "main"
+}
+enum EResource_LevelObject {
+    Icon = "Icon"
+    Text = "Text"
+}
+enum EResource_Cloth {
+    Imposter = "Imposter"
+}
+enum EResource_UI_FIXING {
+    BAR = "BAR"
+    SKILLCHECK = "SKILLCHECK"
+    ARROW = "ARROW"
+    PIVOT_SKILLCHECK = "PIVOT_SKILLCHECK"
+    PIVOT_PROGRESS = "PIVOT_PROGRESS"
+    PROGRESS_BAR = "PROGRESS_BAR"
+    CURRENT_PROGRESS = "CURRENT_PROGRESS"
+    BTN_SKILLCHECK = "BTN_SKILLCHECK"
+}
+// HUD_ButtonClicked(button HudButtonWidget, player Player)
+[platform_server]
+event HUD_ButtonClicked( param1 entity<HudButtonWidget>,  param2 entity<Player>)
+
+// Generator_OnFinish(generator Object)
+[platform_server]
+event Generator_OnFinish( param1 object)
+
+
+// Assets\ECA\Global.eca
+[platform_server]
+declare graph Global {
+}
+
+// Assets\ECA\Resource.eca
+[platform_server]
+declare graph Resource {
+    // zombieSpawn
+    zombieSpawn object
+
+}
+
+// Assets\ECA\TriggerBlood.eca
+[platform_server]
+declare graph TriggerBlood {
+}
+
+declare static graph Resources {
+    UI Map<EResource_UI, CustomHudID>
+    Scene Map<EResource_Scene, string>
+    LevelObject Map<EResource_LevelObject, LevelObjectID>
+    Cloth Map<EResource_Cloth, ClothID>
+
+
+
+    UI_FIXING Map<EResource_UI_FIXING, CustomHudWidgetID>
+}
+partial enum Economy.MoneyType {
+}
+
