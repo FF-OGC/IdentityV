@@ -13,39 +13,86 @@ import "Player.fcc" as Player
 import "Playable.fcc" as Playable
 import "Animation.fcc" as Animation
 import "Camera.fcc" as Camera
+import "Hostility.fcc" as Hostility
+import "Physics.fcc" as Physics
+import "LevelObject.fcc" as LevelObject
+import "./GlobalRole.fcg" as GlobalRole
+import "Math.fcc" as Math
+import "./PlayerHuman.fcg" as PlayerHuman
+import "Combat.fcc" as Combat
+import "./GlobalGeneratorManager.fcg" as GlobalGeneratorManager
+import "./GlobalPrisonManager.fcg" as GlobalPrisonManager
 
 graph PlayerImposter {
     BLOOD_REQUIRE = 3
-    DELAY_HIT_TIME int = 3000
+    DELAY_HIT_TIME int = 1000
+    RUN_SPEED_SCALE = 1.25
+    HEARTBEAT_RANGE = 20.0
+    HIT_ANGLE = 180
 
     bloodLevel int = 0
     _ImposterEffectAfterHit entity<EffectEntity>
+    _HitEffect entity<EffectEntity>
     _EffectAfterHitMotion entity<Entity>
+
+    
 
     event OnPhaseStart(phase entity<Phase>) {
         var phaseIndex = phase<Phase>.PhaseIndex
         if phaseIndex == phaseEnum.PREPARERATION {
         } else if phaseIndex == phaseEnum.IN_PROGRESS {
+            DispatchEvent(Player_ChooseAbility,thisEntity,List<object>{AbilityEnum.TELE})
             Transform()
+            start SetHeartBeat()
         }
     }
 
+    event Imposter_ChangeImposter(player entity<Player>) {
+
+        DispatchEvent(Player_ChooseAbility,thisEntity,List<object>{AbilityEnum.TELE})
+        Transform()
+        start SetHeartBeat()
+    }
+
     event OnStartFire() {
-        thisEntity<Player>.RunSpeedScale = 0
-        thisEntity<Player>.CrouchSpeedScale = 0
-        SetEffect()
+        if globalEntity<Global>.CurrentPhaseIndex == phaseEnum.IN_PROGRESS {
+            Hit()
 
-        WaitForSeconds(DELAY_HIT_TIME)
+            thisEntity<Player>.RunSpeedScale = 0.5
+            thisEntity<Player>.CrouchSpeedScale = 0.5
+            SetEffect()
 
-        thisEntity<Player>.RunSpeedScale = 1
-        thisEntity<Player>.CrouchSpeedScale = 1
-        HideEffect()
+            WaitForSeconds(DELAY_HIT_TIME)
+
+            thisEntity<Player>.RunSpeedScale = RUN_SPEED_SCALE
+            thisEntity<Player>.CrouchSpeedScale = RUN_SPEED_SCALE
+            HideEffect()
+        }
 
     }
+
+    async func SetHeartBeat() {
+        while true {
+            for key, player in  globalEntity<GlobalRole>.HumanList {
+                if Distance(player<Player>.Position,thisEntity<Player>.Position) <= HEARTBEAT_RANGE {
+                    player<PlayerHuman>.PlayHeartBeat()
+                } else {
+                    player<PlayerHuman>.DeleteHeartBeat()
+                }
+            }
+            WaitForSeconds(1000)    
+        }
+   
+    }
+
+
 
 
 
     func InitEffectAfterHit() {
+        if _ImposterEffectAfterHit != nil{
+            return
+        }
         CreateEffect(out var effect,thisEntity<Player>, EffectType.Line,LoopType.Loop,true)
         _ImposterEffectAfterHit = effect
         _ImposterEffectAfterHit<Transform>.Rotation = Vector3{0, 0, 180}
@@ -61,7 +108,7 @@ graph PlayerImposter {
         }
 
         SetActive(_ImposterEffectAfterHit,true)
-        Play(_EffectAfterHitMotion,false)
+        Play(_EffectAfterHitMotion,true)
     }
 
     func HideEffect() {
@@ -82,14 +129,16 @@ graph PlayerImposter {
     func SuperTransform() {
         SetCloth(thisEntity<Player>, Resources.Cloth[EResource_Cloth.Imposter] as ClothID)
         AddItemToPlayer(thisEntity<Player>,ItemIDType.Sickle,1, out var itemList)
+        var weapon = itemList[0]
         thisEntity<Player>.HPMAX = 500
         thisEntity<Player>.HP = 500
-        thisEntity<Player>.ShowDamageNum = false
-
-
-        GetEquipments(thisEntity<Player>,EquipmentSlot.MeleeWeapon,out var weapon, out var attachments)
-        weapon<Weapon>.RepeatFireInterval = DELAY_HIT_TIME/1000.0
-        SetCamera()
+        thisEntity<Player>.RunSpeedScale = RUN_SPEED_SCALE
+        thisEntity<Player>.WeaponDamageRate = 0
+        thisEntity<Player>.IsSkipStaggerAnimation = true
+        
+        weapon<Weapon>.RepeatFireInterval = DELAY_HIT_TIME/1000
+        
+        // SetCamera()
     }
 
     func Transform() {
@@ -106,11 +155,6 @@ graph PlayerImposter {
     //     }
     // }
     
-    func Kill(){
-        if Check() {
-
-        }
-    }
 
     // func DrinkBlood() {
     //     if Check() {
@@ -128,8 +172,10 @@ graph PlayerImposter {
 
     func SetCamera() {
         if Check() {
-            CreateCamera(CameraType.FirstPerson, out var camera)
-            SwitchCamera(thisEntity<Player>,camera,CameraTransitionType.Default,0)
+            var camera = thisEntity<Player>.CurrentCamera
+            camera<CameraConfig>.CameraType = CameraType.FirstPerson
+            camera<CameraConfig>.FOV = 90
+            camera<CameraConfig>.Offset = Vector3{5, 5, 5}
         }
     }
 
@@ -156,4 +202,55 @@ graph PlayerImposter {
             JoinChatChannel(thisEntity<Player> as entity<Player>,GetChatChannel(FreeChatChannel.Channel_1))
         }
     }
+
+    func InitHitEffect() {
+        if _HitEffect == nil {
+            CreateEffect(out var hitEffect,nil,"UGC_T_37_WZY_WS_VFX4" as EffectType,LoopType.Once,true)
+            _HitEffect = hitEffect
+            _HitEffect<Transform>.Scale = Vector3{5, 5, 5}
+            _HitEffect<EffectEntity>.Color = #FF0000FF
+        }
+    }
+
+    async func PlayHitEffect() {
+        InitHitEffect()
+        _HitEffect<Transform>.Position = thisEntity<Player>.Position
+        var angle = thisEntity<Player>.Forward
+        _HitEffect<Transform>.Rotation = angle
+        SetActive(_HitEffect,true)
+        WaitForSeconds(700)
+        SetActive(_HitEffect,false)
+    }
+
+    async func Hit() {
+        // SphereCast(3,thisEntity<Player>.Position,thisEntity<Player>.Forward,1, List<int>{}, false, out var hitEntites)
+        // BoxCast(Vector3{2, 2, 2},thisEntity<Player>.Position,Vector3{0, 0, 0},thisEntity<Player>.Forward,1, List<int>{}, true, out var hitEntites)
+        // LogInfo("Hit Entities: " + hitEntites)
+
+        start PlayHitEffect()
+
+        for key, player in globalEntity<GlobalRole>.HumanList {
+            if globalEntity<GlobalPrisonManager>.IsPrisoner(player) {
+                return
+            }
+
+            if Distance(player<Player>.Position,thisEntity<Player>.Position) <= 3 {
+                var targetDirection = player<Player>.Position - thisEntity<Player>.Position
+                var angle = Angel(thisEntity<Player>.Forward, targetDirection)
+                if angle >= -HIT_ANGLE && angle <= HIT_ANGLE {
+                    player<Player>.HP -= 100
+                    if player<Player>.HP <= 0 {
+                        Kill(player)
+                    }
+                    LogInfo("Hit Player: " + player)
+                    DispatchEvent(Player_ReceiveDamage,player,List<object>{player,100})
+                    DispatchEvent(Player_ReceiveDamage,globalEntity,List<object>{player,100})
+                }
+
+                
+            }
+        }
+    }
+
+
 }

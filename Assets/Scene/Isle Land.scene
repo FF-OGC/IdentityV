@@ -145,7 +145,7 @@
           "entityTagData": {
             "tagPointers": []
           },
-          "tempIndex": 1,
+          "tempIndex": 332,
           "itemID": 331,
           "seParent": null,
           "ecaScripts": [
@@ -214,7 +214,7 @@
           "entityTagData": {
             "tagPointers": []
           },
-          "tempIndex": 2,
+          "tempIndex": 333,
           "itemID": 297,
           "seParent": null,
           "ecaScripts": [
@@ -254,7 +254,7 @@
           },
           "scale": {
             "x": 5,
-            "y": 5,
+            "y": 2,
             "z": 5
           },
           "rotation": {
@@ -286,7 +286,7 @@
           "entityTagData": {
             "tagPointers": []
           },
-          "tempIndex": 3,
+          "tempIndex": 334,
           "itemID": 117,
           "seParent": null,
           "ecaScripts": [
@@ -341,7 +341,7 @@
           },
           "scale": {
             "x": 1,
-            "y": 18,
+            "y": 25,
             "z": 1
           },
           "rotation": {
@@ -372,7 +372,7 @@
           "entityTagData": {
             "tagPointers": []
           },
-          "tempIndex": 4,
+          "tempIndex": 335,
           "itemID": 224,
           "seParent": null,
           "ecaScripts": [
@@ -468,7 +468,7 @@
           "entityTagData": {
             "tagPointers": []
           },
-          "tempIndex": 5,
+          "tempIndex": 336,
           "itemID": 224,
           "seParent": null,
           "ecaScripts": [
@@ -739,7 +739,7 @@
             },
             "scale": {
               "x": 5,
-              "y": 5,
+              "y": 2,
               "z": 5
             },
             "rotation": {
@@ -817,7 +817,7 @@
             },
             "scale": {
               "x": 1,
-              "y": 18,
+              "y": 25,
               "z": 1
             },
             "rotation": {
@@ -1117,7 +1117,7 @@
           "entityTagData": {
             "tagPointers": []
           },
-          "tempIndex": 6,
+          "tempIndex": 337,
           "itemID": 331,
           "seParent": null,
           "ecaScripts": [
@@ -1186,7 +1186,7 @@
           "entityTagData": {
             "tagPointers": []
           },
-          "tempIndex": 7,
+          "tempIndex": 338,
           "itemID": 297,
           "seParent": null,
           "ecaScripts": [
@@ -1226,7 +1226,7 @@
           },
           "scale": {
             "x": 5,
-            "y": 5,
+            "y": 2,
             "z": 5
           },
           "rotation": {
@@ -1258,7 +1258,7 @@
           "entityTagData": {
             "tagPointers": []
           },
-          "tempIndex": 8,
+          "tempIndex": 339,
           "itemID": 117,
           "seParent": null,
           "ecaScripts": [
@@ -1313,7 +1313,7 @@
           },
           "scale": {
             "x": 1,
-            "y": 18,
+            "y": 25,
             "z": 1
           },
           "rotation": {
@@ -1344,7 +1344,7 @@
           "entityTagData": {
             "tagPointers": []
           },
-          "tempIndex": 9,
+          "tempIndex": 340,
           "itemID": 224,
           "seParent": null,
           "ecaScripts": [
@@ -1440,7 +1440,7 @@
           "entityTagData": {
             "tagPointers": []
           },
-          "tempIndex": 10,
+          "tempIndex": 341,
           "itemID": 224,
           "seParent": null,
           "ecaScripts": [
@@ -1796,7 +1796,7 @@
             },
             "scale": {
               "x": 5,
-              "y": 5,
+              "y": 2,
               "z": 5
             },
             "rotation": {
@@ -1874,7 +1874,7 @@
             },
             "scale": {
               "x": 1,
-              "y": 18,
+              "y": 25,
               "z": 1
             },
             "rotation": {
@@ -2056,15 +2056,15 @@
   },
   "mainCameraTransfrom": {
     "position": {
-      "x": 32.024234771728516,
-      "y": 2.068704128265381,
-      "z": -2.4248600006103516
+      "x": -0.7004873156547546,
+      "y": 12.548832893371582,
+      "z": 31.430967330932617
     },
     "rotation": {
-      "x": 6.9999284744262695,
-      "y": 176.49969482421875,
-      "z": 0
+      "x": 21.699907302856445,
+      "y": 177.69955444335938,
+      "z": -2.871539628301889e-8
     }
   }
 }
-//"{FE:{"v":"1.8.3020133","c":{"FF":4404},"s":100}
+//"{FE:{"v":"1.8.3021207","c":{"FF":4404},"s":100}

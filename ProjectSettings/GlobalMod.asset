@@ -18,7 +18,7 @@
   "editorVisibleValue": true,
   "modId": 39,
   "DisableReconnect": false,
-  "RecommendStartGameNumber": 4,
+  "RecommendStartGameNumber": 5,
   "EnableHalfwayJoin": false,
   "EnableHalfwayJoinEffectTime": true,
   "HalfwayJoinEffectTime": 120,
@@ -117,10 +117,58 @@
         "type": "GFileRefer"
       },
       "fileType": "ugcscript"
+    },
+    {
+      "fileId": "ztk7tuasibp-lx2nuxfp-m7f9ydp8fil",
+      "filePath": "Assets\\Script\\GlobalGeneratorManager.fcg",
+      "_tag": {
+        "type": "GFileRefer"
+      },
+      "fileType": "ugcscript"
+    },
+    {
+      "fileId": "hr4rm9utg2f-lx2q10zy-79qatlzt9mt",
+      "filePath": "Assets\\Script\\GlobalSpawns.fcg",
+      "_tag": {
+        "type": "GFileRefer"
+      },
+      "fileType": "ugcscript"
+    },
+    {
+      "fileId": "4hg14pujtyb-lx4doezn-4f3n1b13b32",
+      "filePath": "Assets\\Script\\GlobalPrisonManager.fcg",
+      "_tag": {
+        "type": "GFileRefer"
+      },
+      "fileType": "ugcscript"
+    },
+    {
+      "fileId": "p71kg2easgd-lxbhmul3-2me1y1wq9x8",
+      "filePath": "Assets\\Script\\GlobalGateManager.fcg",
+      "_tag": {
+        "type": "GFileRefer"
+      },
+      "fileType": "ugcscript"
+    },
+    {
+      "fileId": "gn3zb9rnnhl-lxcpdmfm-d2ikk26ceqk",
+      "filePath": "Assets\\Script\\GlobalAbilityManager.fcg",
+      "_tag": {
+        "type": "GFileRefer"
+      },
+      "fileType": "ugcscript"
+    },
+    {
+      "fileId": "g3eoye2e6sa-lxifrr3a-wis4wmdjze8",
+      "filePath": "Assets\\Script\\GlobalPlayerStateManager.fcg",
+      "_tag": {
+        "type": "GFileRefer"
+      },
+      "fileType": "ugcscript"
     }
   ],
   "_entityName": "T_43_YU_WS_MODULE_GLOBAL",
   "showSwitch": false,
   "PriorityFullStartMatch": true
 }
-//"{FE:{"v":"1.8.3020133","c":{"FF":4404},"s":100}
+//"{FE:{"v":"1.8.3021207","c":{"FF":4404},"s":100}

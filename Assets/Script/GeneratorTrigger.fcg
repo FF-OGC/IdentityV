@@ -9,6 +9,8 @@ import "Workflow.fcc" as Workflow
 import "./Generator.fcg" as Generator
 import "./PlayerFixingHUD.fcg" as PlayerFixingHUD
 import "./PlayerFix.fcg" as PlayerFix
+import "./PlayerSabotage.fcg" as PlayerSabotage
+import "./PlayerImposterSabotageHUD.fcg" as PlayerImposterSabotageHUD
 
 graph GeneratorTrigger {
     Generator entity<Entity>
@@ -23,14 +25,21 @@ graph GeneratorTrigger {
 
         if player<playerConfig>.isHuman {
             LogInfo("Human entered Generator Trigger")
+            DispatchEvent(Player_StartFixing,globalEntity,List<object>{player,Generator})
             player<PlayerFix>.SetInTrigger(true)
             player<PlayerFixingHUD>.SetGenerator(Generator)
             player<PlayerFixingHUD>.DisplayFixingHUD()
             player<PlayerFix>.SetGenerator(Generator)
-            player<PlayerFix>.FixGenerator()
+            start player<PlayerFix>.FixGenerator()
+        
 
         } else if player<playerConfig>.isImposter {
             LogInfo("Imposter entered Generator Trigger")
+            if Generator<Generator>._CurrentPhase == 1 && !Generator<Generator>._IsDamaged{
+                player<PlayerSabotage>.SetGenerator(Generator)
+                player<PlayerImposterSabotageHUD>.DisplaySabotageHUD()
+            }
+                
         }
 
 
@@ -40,13 +49,16 @@ graph GeneratorTrigger {
         Generator<Generator>.RemovePlayer(player)
 
         if player<playerConfig>.isHuman {
+            DispatchEvent(Player_StopFixing,globalEntity,List<object>{player,Generator})
             LogInfo("Human left Generator Trigger")
-            player<PlayerFixingHUD>.CloseFixingHUD()
+            start player<PlayerFixingHUD>.CloseFixingHUD()
             player<PlayerFix>.SetInTrigger(false)
+            
 
         } else if player<playerConfig>.isImposter {
             LogInfo("Imposter left Generator Trigger")
-
+            player<PlayerImposterSabotageHUD>.CloseSabotageHUD()
+            start player<PlayerFixingHUD>.CloseFixingHUD()
         }
     }
     

@@ -55,11 +55,39 @@
       ],
       "isCustom": true,
       "isDirty": false
+    },
+    "CustomEnum53142074": {
+      "label": "AbilityEnum",
+      "key": "CustomEnum53142074",
+      "type": "String",
+      "info": [
+        {
+          "label": "RUN",
+          "key": "E47575154",
+          "type": "String",
+          "value": "ABILITY_RUN"
+        },
+        {
+          "label": "SCAN",
+          "key": "E78725606",
+          "type": "String",
+          "value": "ABILITY_SCAN"
+        },
+        {
+          "label": "TELE",
+          "key": "E43478367",
+          "value": "ABILITY_TELE",
+          "type": "String"
+        }
+      ],
+      "isCustom": true,
+      "isDirty": false
     }
   },
   "enumNameMap": {
-    "phaseEnum": "CustomEnum65296515"
+    "phaseEnum": "CustomEnum65296515",
+    "AbilityEnum": "CustomEnum53142074"
   },
   "children": []
 }
-//"{FE:{"v":"1.8.2990853","c":{"FF":4404},"s":100}
+//"{FE:{"v":"1.8.3021207","c":{"FF":4404},"s":100}

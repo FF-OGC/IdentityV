@@ -1,0 +1,58 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "Hud.fcc" as hud
+import Resources from "EditorGenLib.fcc"
+import "./HUDUtil.fcg" as HUDUtil
+import "Math.fcc" as Math
+import "Playable.fcc" as Playable
+import "PropertyFormula.fcc" as PropertyFormula
+import "./Generator.fcg" as Generator
+import "./PlayerFix.fcg" as PlayerFix
+import "./GlobalLoop.fcg" as GlobalLoop
+import "./GlobalRole.fcg" as GlobalRole
+
+
+graph _ImposterSabotageHUD {
+
+    _ImposterSabotageHUD entity<CustomHud>
+ 
+    
+
+    func InitSabotageHUD(){
+        if(_ImposterSabotageHUD == nil){
+            _ImposterSabotageHUD = HUDUtil.CreateCustomHUD(thisEntity<Player>, EResource_UI.SABOTAGE, 4)
+            _ImposterSabotageHUD<CustomHud>.Visibility = false
+        }
+    }
+
+
+    func DisplaySabotageHUD(){
+        InitSabotageHUD()
+        _ImposterSabotageHUD<CustomHud>.Visibility = true
+    }
+
+    func CloseSabotageHUD(){
+        _ImposterSabotageHUD<CustomHud>.Visibility = false
+    }
+
+    func DeleteSabotageHUD(){
+        DeleteEntity(_ImposterSabotageHUD)
+    }
+
+    func ToggleSabotageHUD(){
+        if(_ImposterSabotageHUD<CustomHud>.Visibility){
+            // _ImposterSabotageHUD<CustomHud>.Visibility = false
+            CloseSabotageHUD()
+        } else {
+            // _ImposterSabotageHUD<CustomHud>.Visibility = true
+            DisplaySabotageHUD()
+        }
+    }
+
+
+
+    func GetSabotageHUDWidget(eResourceUISabotage string) entity<HudWidget>{
+        return GetWidgetFromCustomHud(thisEntity<Player>, _ImposterSabotageHUD, Resources.UI_SABOTAGE[eResourceUISabotage])
+    }
+
+}

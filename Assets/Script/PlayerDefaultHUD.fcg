@@ -1,0 +1,71 @@
+import "List.fcc" as List
+import "Workflow.fcc" as Workflow
+import "Hud.fcc" as Hud
+import "StdLibrary.fcc" as StdLib
+import "EditorGenLib.fcc" as EditorLib
+import Resources from "EditorGenLib.fcc"
+
+graph PlayerDefaultHUD {
+
+    _HeartBeatEffect entity<HeartbeatEffectHud>
+    _NotificationHUD entity<InternalHud>
+
+    event OnPhaseStart(phase entity<Phase>) {
+        var phaseIndex = phase<Phase>.PhaseIndex
+
+        if phaseIndex == phaseEnum.IN_PROGRESS {
+            WaitForNextFrame()
+            DisplayTimer(phase)
+        }
+    }
+
+    async func DisplayEscapeHUD() {
+        CreateInternalHud(out var escapeHUD,thisEntity<Player>,InternalHudType.ResultBannerHud)
+        escapeHUD<ResultBannerHud>.Result = 1
+        escapeHUD<ResultBannerHud>.Visibility = true
+        WaitForSeconds(3000)
+        escapeHUD<ResultBannerHud>.Visibility = false
+    }
+
+    async func DisplayDefeatHUD() {
+        CreateInternalHud(out var escapeHUD,thisEntity<Player>,InternalHudType.ResultBannerHud)
+        escapeHUD<ResultBannerHud>.Result = 2
+        escapeHUD<ResultBannerHud>.Visibility = true
+        WaitForSeconds(3000)
+        escapeHUD<ResultBannerHud>.Visibility = false
+    }
+
+    func DisplayTimer(phaseEntity entity<Phase>) {
+        CreateInternalHud(out var timer, thisEntity<Player>,InternalHudType.PhaseCountDownHud)
+        timer<PhaseCountDownHud>.Duration = phaseEntity<Phase>.PhaseDuration / 1000
+        timer<PhaseCountDownHud>.BaseTime = globalEntity<Global>.GameTime / 1000
+        timer<PhaseCountDownHud>.Visibility = true
+        
+    }
+
+    func InitHearBeatEffect() {
+        if _HeartBeatEffect == nil {
+            CreateInternalHud(out var heartbeat, thisEntity<Player>,InternalHudType.HeartbeatEffectHud)
+            _HeartBeatEffect = heartbeat as entity<HeartbeatEffectHud>
+            _HeartBeatEffect<HeartbeatEffectHud>.Color = #FF0000FF
+        }
+    }
+
+    func DisplayHeartBeatEffect() {
+        // InitHearBeatEffect()
+        // _HeartBeatEffect<HeartbeatEffectHud>.Visibility = true
+        InitHearBeatEffect()
+    }
+
+    func CloseHeartBeatEffect() {
+        // _HeartBeatEffect<HeartbeatEffectHud>.Visibility = false
+        DeleteEntity(_HeartBeatEffect)
+    }
+
+
+
+    // func DisplayObjective() {
+    //     CreateInternalHud(out var objective, thisEntity<Player>,InternalHudType.MatchInfoSubTitleHud)
+    //     _ObjectiveHUD = objective
+    // }
+}

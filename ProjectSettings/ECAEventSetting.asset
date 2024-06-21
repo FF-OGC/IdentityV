@@ -38,13 +38,212 @@
       "propCount": 1,
       "apiTargetV2": "server",
       "key": "signal_95382460"
+    },
+    "signal_68282106": {
+      "name": "Global_OnFinishTask",
+      "enitityType": "Entity",
+      "typeID": 100002,
+      "props": [],
+      "propCount": 0,
+      "apiTargetV2": "server",
+      "key": "signal_68282106"
+    },
+    "signal_87832494": {
+      "name": "Player_Escape",
+      "enitityType": "Entity",
+      "typeID": 100004,
+      "props": [
+        {
+          "name": "player",
+          "value": "Player",
+          "key": 1
+        }
+      ],
+      "propCount": 1,
+      "apiTargetV2": "server",
+      "key": "signal_87832494"
+    },
+    "signal_87018098": {
+      "name": "IMPOSTER_KILLEDALL",
+      "enitityType": "Entity",
+      "typeID": 100005,
+      "props": [],
+      "propCount": 0,
+      "apiTargetV2": "server",
+      "key": "signal_87018098"
+    },
+    "signal_62331693": {
+      "name": "Player_FailSkillCheck",
+      "enitityType": "Entity",
+      "typeID": 100006,
+      "props": [
+        {
+          "name": "generator",
+          "value": "Object",
+          "key": 1
+        }
+      ],
+      "propCount": 1,
+      "apiTargetV2": "server",
+      "key": "signal_62331693"
+    },
+    "signal_98263690": {
+      "name": "Player_ChooseAbility",
+      "enitityType": "Player",
+      "typeID": 100003,
+      "props": [
+        {
+          "name": "ability",
+          "value": "Object",
+          "key": 1
+        }
+      ],
+      "propCount": 1,
+      "apiTargetV2": "server",
+      "key": "signal_98263690"
+    },
+    "signal_67677916": {
+      "name": "Player_UseAbility",
+      "enitityType": "Entity",
+      "typeID": 100007,
+      "props": [],
+      "propCount": 1,
+      "apiTargetV2": "server",
+      "key": "signal_67677916"
+    },
+    "signal_25338273": {
+      "name": "Player_EnterPrison",
+      "enitityType": "Entity",
+      "typeID": 100008,
+      "props": [
+        {
+          "name": "player",
+          "value": "Player",
+          "key": 1
+        }
+      ],
+      "propCount": 1,
+      "apiTargetV2": "server",
+      "key": "signal_25338273"
+    },
+    "signal_30540874": {
+      "name": "Player_EscapePrison",
+      "enitityType": "Entity",
+      "typeID": 100009,
+      "props": [
+        {
+          "name": "player",
+          "value": "Player",
+          "key": 1
+        }
+      ],
+      "propCount": 1,
+      "apiTargetV2": "server",
+      "key": "signal_30540874"
+    },
+    "signal_69420190": {
+      "name": "Player_ReceiveDamage",
+      "enitityType": "Entity",
+      "typeID": 100010,
+      "props": [
+        {
+          "name": "player",
+          "value": "Object",
+          "key": 1
+        },
+        {
+          "name": "damage",
+          "value": "Int",
+          "key": 2
+        }
+      ],
+      "propCount": 2,
+      "apiTargetV2": "server",
+      "key": "signal_69420190"
+    },
+    "signal_97717269": {
+      "name": "Global_EscapedAll",
+      "enitityType": "Entity",
+      "typeID": 100012,
+      "props": [],
+      "propCount": 0,
+      "apiTargetV2": "server",
+      "key": "signal_97717269"
+    },
+    "signal_59804305": {
+      "name": "Imposter_ChangeImposter",
+      "enitityType": "Entity",
+      "typeID": 100011,
+      "props": [
+        {
+          "name": "imposter",
+          "value": "Player",
+          "key": 1
+        }
+      ],
+      "propCount": 1,
+      "apiTargetV2": "server",
+      "key": "signal_59804305"
+    },
+    "signal_68740890": {
+      "name": "Player_StartFixing",
+      "enitityType": "Entity",
+      "typeID": 100013,
+      "props": [
+        {
+          "name": "player",
+          "value": "Player",
+          "key": 1
+        },
+        {
+          "name": "generator",
+          "value": "any",
+          "key": 2
+        }
+      ],
+      "propCount": 2,
+      "apiTargetV2": "server",
+      "key": "signal_68740890"
+    },
+    "signal_76731559": {
+      "name": "Player_StopFixing",
+      "enitityType": "Entity",
+      "typeID": 100014,
+      "props": [
+        {
+          "name": "player",
+          "value": "Player",
+          "key": 1
+        },
+        {
+          "name": "generator",
+          "value": "any",
+          "key": 2
+        }
+      ],
+      "propCount": 2,
+      "apiTargetV2": "server",
+      "key": "signal_76731559"
     }
   },
   "customName": {
     "HUD_ButtonClicked": "signal_61382734",
-    "Generator_OnFinish": "signal_95382460"
+    "Generator_OnFinish": "signal_95382460",
+    "Global_OnFinishTask": "signal_68282106",
+    "Player_Escape": "signal_87832494",
+    "IMPOSTER_KILLEDALL": "signal_87018098",
+    "Player_FailSkillCheck": "signal_62331693",
+    "Player_ChooseAbility": "signal_98263690",
+    "Player_UseAbility": "signal_67677916",
+    "Player_EnterPrison": "signal_25338273",
+    "Player_EscapePrison": "signal_30540874",
+    "Player_ReceiveDamage": "signal_69420190",
+    "Global_EscapedAll": "signal_97717269",
+    "Imposter_ChangeImposter": "signal_59804305",
+    "Player_StartFixing": "signal_68740890",
+    "Player_StopFixing": "signal_76731559"
   },
   "customEventRelatMap": {},
   "children": []
 }
-//"{FE:{"v":"1.8.3020133","c":{"FF":4404},"s":100}
+//"{FE:{"v":"1.8.3021207","c":{"FF":4404},"s":100}

@@ -1,1 +1,76 @@
-{}
+{
+ "PackageList": [
+  {
+   "PackageUUID": "wehss29x.AutoCommon_qZC7wUI3",
+   "FileList": [
+    {
+     "SubFileID": "Client",
+     "SHA1": "XqNdSnwpu2PKn/Si1pNSVYqpQiA=",
+     "FileSize": 62269,
+     "URL": "https://dl-rct-craftland.freefiremobile.com/bcf6ba28-8e95-11ee-aa3f-0242ac150006_10000003_1_res1",
+     "PlatformRequireMask": 7
+    },
+    {
+     "SubFileID": "Server",
+     "SHA1": "pG5PT51rRgL2wJHVZzP55nHBZFk=",
+     "FileSize": 24315,
+     "URL": "https://dl-rct-craftland.freefiremobile.com/bcf6ba28-8e95-11ee-aa3f-0242ac150006_10000003_1_res2",
+     "PlatformRequireMask": 8
+    }
+   ]
+  },
+  {
+   "PackageUUID": "NeJf7T04.ColliderCommon_XwuEidQV",
+   "FileList": [
+    {
+     "SubFileID": "Client",
+     "SHA1": "5uRWia773I8Tw4T1tsCQh6IIBjE=",
+     "FileSize": 258,
+     "URL": "http://localhost:8081/packages/NeJf7T04.ColliderCommon_XwuEidQV/Client",
+     "PlatformRequireMask": 7
+    },
+    {
+     "SubFileID": "Server",
+     "SHA1": "5uRWia773I8Tw4T1tsCQh6IIBjE=",
+     "FileSize": 258,
+     "URL": "http://localhost:8081/packages/NeJf7T04.ColliderCommon_XwuEidQV/Server",
+     "PlatformRequireMask": 8
+    }
+   ],
+   "DownloadPriority": 0
+  },
+  {
+   "PackageUUID": "NeJf7T04.ColliderCommon_xQ1Regrt",
+   "FileList": [
+    {
+     "SubFileID": "Client",
+     "SHA1": "2rgOQJ89aFXRTcYArxzZQh+VVIk=",
+     "FileSize": 214,
+     "URL": "http://localhost:8081/packages/NeJf7T04.ColliderCommon_xQ1Regrt/Client",
+     "PlatformRequireMask": 7
+    },
+    {
+     "SubFileID": "Server",
+     "SHA1": "2rgOQJ89aFXRTcYArxzZQh+VVIk=",
+     "FileSize": 214,
+     "URL": "http://localhost:8081/packages/NeJf7T04.ColliderCommon_xQ1Regrt/Server",
+     "PlatformRequireMask": 8
+    }
+   ],
+   "DownloadPriority": 0
+  },
+  {
+   "PackageUUID": "NeJf7T04.AutoServer_j8F3H6X0",
+   "FileList": [
+    {
+     "SubFileID": "Server",
+     "SHA1": "SLwpOnUSNS0xnj/E1TWj8b0U/Tw=",
+     "FileSize": 375,
+     "URL": "http://localhost:8081/packages/NeJf7T04.AutoServer_j8F3H6X0/Server",
+     "PlatformRequireMask": 8
+    }
+   ],
+   "DownloadPriority": 0
+  }
+ ]
+}

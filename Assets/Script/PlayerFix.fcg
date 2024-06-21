@@ -34,13 +34,14 @@ graph PlayerFix {
 
     async func FixGenerator() {
         _Start = globalEntity<GlobalLoop>.GetLoopCount()
-
+        _SelectedGenerator<Generator>.DisplayFixingEffect()
         while _inTrigger && _SelectedGenerator<Generator>._CurrentPhase != 2 {
             start SkillCheck()
             start _SelectedGenerator<Generator>.AddProgress(_FixingSpeed)
             thisEntity<PlayerFixingHUD>.UpdateProgress()
             WaitForSeconds(1000)
         }
+        _SelectedGenerator<Generator>.CloseFixingEffect()
     }
 
     async func SkillCheck() {

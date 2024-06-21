@@ -228,78 +228,6 @@
       },
       {
         "type": "a",
-        "id": "efU?DX2$Fjk#Jg}.1(6T",
-        "x": -798,
-        "y": 44,
-        "extraState": {
-          "X": 444,
-          "L": [
-            5,
-            1,
-            2,
-            -1,
-            3,
-            4,
-            6
-          ],
-          "T": "CreatePlayablePosFollow",
-          "OT": null
-        },
-        "fields": {
-          "P5": {
-            "name": "Position Following Motion Entity",
-            "type": "PlayablePosFollow"
-          }
-        },
-        "inputs": {
-          "P1": {
-            "shadow": {
-              "type": "tys",
-              "id": "=l@8^z}i/sm_qKmGyk1*",
-              "extraState": "Entity"
-            }
-          },
-          "P2": {
-            "shadow": {
-              "type": "tys",
-              "id": "q$/V[Vp5O6.-qp_dB$Iu",
-              "extraState": "Entity"
-            }
-          },
-          "P3": {
-            "shadow": {
-              "type": "ipv",
-              "id": "1S}BujApn}ckK7G/!wq]",
-              "fields": {
-                "V1": 0,
-                "V2": 0,
-                "V3": 0
-              }
-            }
-          },
-          "P4": {
-            "shadow": {
-              "type": "ipe",
-              "id": "3nd(U6m{,GQWG=4v?X);",
-              "extraState": "CoordinateType",
-              "fields": {
-                "I": ""
-              }
-            }
-          },
-          "P6": {
-            "shadow": {
-              "type": "ipb",
-              "id": "s9zl$x~C.c:zR#_V~S1v",
-              "fields": {
-                "V": "F"
-              }
-            }
-          }
-        }
-      },
-      {
-        "type": "a",
         "id": "~;7X3y=WBZ.gvrg=%aYt",
         "x": -821,
         "y": 168,
@@ -457,6 +385,383 @@
         "fields": {
           "I": ""
         }
+      },
+      {
+        "type": "a",
+        "id": "FAjQ}Br)Nwy5*M:,z2DZ",
+        "x": -456,
+        "y": 295,
+        "extraState": {
+          "X": 389,
+          "L": [
+            1,
+            2
+          ],
+          "T": "CreateCamera",
+          "OT": null
+        },
+        "fields": {
+          "P2": {
+            "name": "Camera entity",
+            "type": "CameraConfig"
+          }
+        },
+        "inputs": {
+          "P1": {
+            "shadow": {
+              "type": "ipe",
+              "id": "T?%c@h7Y$JXR1fg`n=qR",
+              "extraState": "CameraType",
+              "fields": {
+                "I": ""
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "prs",
+        "id": "].yp!e{U{CJ%cLu{/}?$",
+        "x": -59,
+        "y": -33,
+        "fields": {
+          "P": "",
+          "O": "UK"
+        },
+        "inputs": {
+          "H": {
+            "shadow": {
+              "type": "tys",
+              "id": "%2So?o?:O)Sf`~Vne{K=",
+              "extraState": "Component"
+            },
+            "block": {
+              "type": "tya",
+              "id": "tf/GN4-!:eebf(2~4}Z9",
+              "fields": {
+                "T": "MoveObject"
+              },
+              "inputs": {
+                "V": {
+                  "shadow": {
+                    "type": "tys",
+                    "id": "kW2Q1O8/_zcu~9EM;dzI",
+                    "extraState": "any"
+                  }
+                }
+              }
+            }
+          },
+          "V": {
+            "shadow": {
+              "type": "tys",
+              "id": "Ic~Sa.cmAosC,hh@eR39",
+              "extraState": ""
+            }
+          }
+        }
+      },
+      {
+        "type": "a",
+        "id": "764(RjzEIo-A!7wrBW1C",
+        "x": -769,
+        "y": 409,
+        "extraState": {
+          "X": 32,
+          "L": [
+            1,
+            2,
+            3
+          ],
+          "T": "CreateInternalHud",
+          "OT": null
+        },
+        "fields": {
+          "P1": {
+            "name": "Parameter name",
+            "type": "TipHud"
+          }
+        },
+        "inputs": {
+          "P2": {
+            "shadow": {
+              "type": "tys",
+              "id": "lGk!OKwlB}0k9uM`xdO,",
+              "extraState": "Player"
+            }
+          },
+          "P3": {
+            "shadow": {
+              "type": "pih",
+              "id": ")t?!hfSTv%Hh#t;$Xxl=",
+              "fields": {
+                "V": "InternalHud_TipHud"
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "a",
+        "id": "efU?DX2$Fjk#Jg}.1(6T",
+        "x": -798,
+        "y": 44,
+        "extraState": {
+          "X": 444,
+          "L": [
+            5,
+            1,
+            2,
+            -1,
+            3,
+            4,
+            6
+          ],
+          "T": "CreatePlayablePosFollow",
+          "OT": null
+        },
+        "fields": {
+          "P5": {
+            "name": "Position Following Motion Entity",
+            "type": "PlayablePosFollow"
+          }
+        },
+        "inputs": {
+          "P1": {
+            "shadow": {
+              "type": "tys",
+              "id": "=l@8^z}i/sm_qKmGyk1*",
+              "extraState": "Entity"
+            }
+          },
+          "P2": {
+            "shadow": {
+              "type": "tys",
+              "id": "q$/V[Vp5O6.-qp_dB$Iu",
+              "extraState": "Entity"
+            }
+          },
+          "P3": {
+            "shadow": {
+              "type": "ipv",
+              "id": "1S}BujApn}ckK7G/!wq]",
+              "fields": {
+                "V1": 0,
+                "V2": 0,
+                "V3": 0
+              }
+            }
+          },
+          "P4": {
+            "shadow": {
+              "type": "ipe",
+              "id": "3nd(U6m{,GQWG=4v?X);",
+              "extraState": "CoordinateType",
+              "fields": {
+                "I": ""
+              }
+            }
+          },
+          "P6": {
+            "shadow": {
+              "type": "ipb",
+              "id": "s9zl$x~C.c:zR#_V~S1v",
+              "fields": {
+                "V": "F"
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "v3g",
+        "id": "EaMZJt=?ma^UO,v6WMiH",
+        "x": -1513,
+        "y": 221,
+        "extraState": {
+          "P": "X"
+        },
+        "fields": {
+          "P": "X"
+        },
+        "inputs": {
+          "V": {
+            "shadow": {
+              "type": "ipv",
+              "id": "tkXOa$[*iRV5tPT{se/j",
+              "fields": {
+                "V1": 0,
+                "V2": 0,
+                "V3": 0
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "v3op",
+        "id": "$X@i]vVAo*b:hQL]n-$|",
+        "x": -821,
+        "y": -335,
+        "extraState": {
+          "O": "IncludedAngle"
+        },
+        "fields": {
+          "O": "IncludedAngle"
+        },
+        "inputs": {
+          "V1": {
+            "shadow": {
+              "type": "ipv",
+              "id": "P*9%?VQ=^Z$Vl@hB+s@*",
+              "fields": {
+                "V1": 0,
+                "V2": 0,
+                "V3": 0
+              }
+            }
+          },
+          "V2": {
+            "shadow": {
+              "type": "ipv",
+              "id": "#QF8)nC8wx3VeJk4W7xe",
+              "fields": {
+                "V1": 0,
+                "V2": 0,
+                "V3": 0
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "a",
+        "id": "pq(^,g2T9$ziPv6.1kW*",
+        "x": 701,
+        "y": 527,
+        "extraState": {
+          "X": 49,
+          "L": [
+            1,
+            2,
+            3
+          ],
+          "T": "CreateLevelObject",
+          "OT": null
+        },
+        "fields": {
+          "P1": {
+            "name": "Object entity",
+            "type": "IconEntity"
+          }
+        },
+        "inputs": {
+          "P2": {
+            "shadow": {
+              "type": "ipv",
+              "id": "u[AqgRgbU)ADqQt$I3#F",
+              "fields": {
+                "V1": 0,
+                "V2": 0,
+                "V3": 0
+              }
+            }
+          },
+          "P3": {
+            "shadow": {
+              "type": "pkdc",
+              "id": "z)BdVsj_N=ax,.n4?IkN",
+              "fields": {
+                "V": "150d8a69-8ec4-4ac6-9137-6c6298ecb4d9_223"
+              }
+            }
+          }
+        },
+        "next": {
+          "block": {
+            "type": "prs",
+            "id": "%`~!3Ix1oqS;x;9j{2uk",
+            "fields": {
+              "P": "",
+              "O": "UK"
+            },
+            "inputs": {
+              "H": {
+                "shadow": {
+                  "type": "tys",
+                  "id": "Jl9AD|u?-p7!7mSIgw[d",
+                  "extraState": "Component"
+                },
+                "block": {
+                  "type": "lcg",
+                  "id": "S?S8}EWf5il4DZ)7Uis%",
+                  "extraState": "pq(^,g2T9$ziPv6.1kW*P1",
+                  "fields": {
+                    "VR": "Object entity"
+                  }
+                }
+              },
+              "V": {
+                "shadow": {
+                  "type": "tys",
+                  "id": "W%sZGF)A}3+$Dp!)f51%",
+                  "extraState": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "prs",
+        "id": "t2JWFtS3vHZPQjqD7;}:",
+        "x": -761,
+        "y": 524,
+        "fields": {
+          "P": "",
+          "O": "UK"
+        },
+        "inputs": {
+          "H": {
+            "shadow": {
+              "type": "tys",
+              "id": "w$Uz]Y%hI0{i5$af4kQy",
+              "extraState": "Component"
+            },
+            "block": {
+              "type": "tya",
+              "id": "6/XQ;gs?BHTU}CX0g,h+",
+              "fields": {
+                "T": "TipHud"
+              },
+              "inputs": {
+                "V": {
+                  "shadow": {
+                    "type": "tys",
+                    "id": "RYf?LU0TH8@DthdR3{|#",
+                    "extraState": "any"
+                  }
+                }
+              }
+            }
+          },
+          "V": {
+            "shadow": {
+              "type": "tys",
+              "id": "I(q(f-4?nigUxY59%u#t",
+              "extraState": ""
+            }
+          }
+        }
+      },
+      {
+        "type": "pin",
+        "id": "EdNle5|ey;[moQs}k)|b",
+        "x": -1000,
+        "y": 350,
+        "fields": {
+          "V": "b063b0439839b3d97a8fd2aa6a57ef8b"
+        }
       }
     ]
   },
@@ -474,4 +779,4 @@
     "isStatic": false
   }
 }
-//"{FE:{"v":"1.8.3020133","c":{"FF":4404},"s":100}
+//"{FE:{"v":"1.8.3021207","c":{"FF":4404},"s":100}

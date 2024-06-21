@@ -1,0 +1,14 @@
+import "StdLibrary.fcc" as StdLib
+import "EditorGenLib.fcc" as EditorLib
+import Resources from "EditorGenLib.fcc"
+import "./PlayerImposterSabotageHUD.fcg" as PlayerImposterSabotageHUD
+import "./PlayerSabotage.fcg" as PlayerSabotage
+
+graph HUDSabotage {
+    event HUD_ButtonClicked(button entity<HudButtonWidget>, player entity<Player>) {
+        if button == player<PlayerImposterSabotageHUD>.GetSabotageHUDWidget(EResource_UI_SABOTAGE.BTN_SABOTAGE) {
+            player<PlayerImposterSabotageHUD>.CloseSabotageHUD()
+            start player<PlayerSabotage>.Sabotage()
+        }
+    }
+}

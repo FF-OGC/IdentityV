@@ -1,12 +1,14 @@
 {
-  "name": "test",
+  "name": "Identity",
   "nameLocKey": "",
   "description": "",
   "descriptionLocKey": "",
   "subTitleId": 22,
   "showTags": [],
   "typeTags": [
-    22
+    22,
+    98,
+    83
   ],
   "showNewTag": false,
   "customShot": null,
@@ -318,6 +320,6 @@
   },
   "energyThreshold": 0.005,
   "phymatDefault": null,
-  "debuggingTimes": 218
+  "debuggingTimes": 686
 }
-//"{FE:{"v":"1.8.3020133","c":{"FF":4404},"s":100}
+//"{FE:{"v":"1.8.3021207","c":{"FF":4404},"s":100}

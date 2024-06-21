@@ -1,0 +1,46 @@
+import "LevelObject.fcc" as LevelObject
+import "StdLibrary.fcc" as StdLib
+import "EditorGenLib.fcc" as EditorLib
+import Resources from "EditorGenLib.fcc"
+import "./Gate.fcg" as Gate
+import "./PlayerGateHUD.fcg" as PlayerGateHUD
+import "./PlayerGate.fcg" as PlayerGate
+import "./PlayerConfig.fcg" as PlayerConfig
+import "./GlobalGeneratorManager.fcg" as GlobalGeneratorManager
+
+graph GateTrigger {
+    Gate entity<Entity>
+    HasInit bool
+
+
+    event OnPlayerEnterTrigger(player entity<Player>) {
+        if player<PlayerConfig>.isImposter {
+            return
+        }
+
+        if !globalEntity<GlobalGeneratorManager>.GetIsFinished() {
+            return
+        }
+
+
+        InitGateTrigger()
+        player<PlayerGateHUD>.SetGate(Gate)
+        player<PlayerGate>.SetInTrigger(true)
+        player<PlayerGateHUD>.DisplayGateHUD()
+        start player<PlayerGate>.OpenGate()
+        
+    }
+
+    event OnPlayerLeaveTrigger(player entity<Player>) {
+        player<PlayerGate>.SetInTrigger(false)
+        player<PlayerGateHUD>.CloseGateHUD()
+    }
+
+    func InitGateTrigger() {
+        if (HasInit) {
+            return
+        }
+        Gate = GetParent(thisEntity)
+        HasInit = true
+    }
+}

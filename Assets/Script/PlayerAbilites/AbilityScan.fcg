@@ -1,0 +1,65 @@
+import "LevelObject.fcc" as LevelObject
+import "Physics.fcc" as Physics
+import "StdLibrary.fcc" as StdLib
+import "EditorGenLib.fcc" as EditorLib
+import Resources from "EditorGenLib.fcc"
+import "../GlobalRole.fcg" as GlobalRole
+import "Math.fcc" as Math
+import "Playable.fcc" as Playable
+import "List.fcc" as List
+import "SafeZone.fcc" as SafeZone
+import "../PlayerAbilityBtnHUD.fcg" as PlayerAbilityBtnHUD
+
+graph AbilityScan{
+
+    DURAION = 5000
+    RADIUS = 40
+
+    _IconList List<entity<IconEntity>> = List<entity<IconEntity>>{}
+    _FollowingMotion List<PositionFollow> = List<PositionFollow>{}
+    _hasInit = false
+
+
+    event Player_UseAbility() {
+       LogInfo("Player use Scan")
+       Scan()
+       start thisEntity<PlayerAbilityBtnHUD>.StartCD()
+    }
+
+    async func Scan() {
+        InitScan()
+        for key, player in globalEntity<GlobalRole>.HumanList {
+            if Distance(player<Player>.Position, thisEntity<Player>.Position) <= RADIUS {
+                start PlayIcon(_IconList[key])
+            }
+        }
+    }
+
+    func InitScan() {
+        if _hasInit {
+            return
+        }
+
+        for key, player in globalEntity<GlobalRole>.HumanList {
+            CreateLevelObject(out var icon,Vector3{0, 0, 0},DynamicCreateItemID.IconObject)
+            icon<IconEntity>.IconResID = IconType.Aim as SpriteID
+            icon<IconEntity>.IsAlwaysInScreen = true
+            icon<IconEntity>.IsIgnoreDepth = true
+            icon<IconEntity>.Color = #FF0000FF
+            icon<IconEntity>.VisiblePlayersList = List<entity<Player>>{thisEntity<Player>}
+            icon<IconEntity>.FollowTarget = player
+            icon<IconEntity>.Offset = Vector3{0, 1.8, 0}
+            SetActive(icon, false)
+            
+            Append(_IconList, icon)
+        }
+        _hasInit = true
+    }
+
+    async func PlayIcon(icon entity<IconEntity>) {
+        SetActive(icon,true)
+        WaitForSeconds(DURAION)
+        SetActive(icon,false)
+    }
+    
+}

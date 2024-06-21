@@ -5,10 +5,10 @@
       {
         "type": "prs",
         "id": "tQJDqi9oVH0H*XU!4r-G",
-        "x": 458,
-        "y": 198,
+        "x": 15,
+        "y": 371,
         "fields": {
-          "P": "RunSpeedScale:Player",
+          "P": "IgnoreDepth:IconEntity",
           "O": "UK"
         },
         "inputs": {
@@ -19,19 +19,10 @@
               "extraState": "Component"
             },
             "block": {
-              "type": "tya",
-              "id": "cqXbeH3]lRmE0v~S~RoY",
+              "type": "lcg",
+              "id": "Upj/NC|uUs|xRT}(+3L^",
               "fields": {
-                "T": "Player"
-              },
-              "inputs": {
-                "V": {
-                  "shadow": {
-                    "type": "tys",
-                    "id": "aWe#/toawbz2?AqD]gy1",
-                    "extraState": "any"
-                  }
-                }
+                "VR": "Music entity"
               }
             }
           },
@@ -39,7 +30,388 @@
             "shadow": {
               "type": "tys",
               "id": "QKt@0Y@%Ej(z1VIwEL(I",
-              "extraState": "Float"
+              "extraState": ""
+            }
+          }
+        }
+      },
+      {
+        "type": "prg",
+        "id": "*)esWO7zIWchcul20VzJ",
+        "x": 292,
+        "y": 457,
+        "extraState": {
+          "X": 1,
+          "T": "Int"
+        },
+        "fields": {
+          "P": "TeamSeq:Team"
+        },
+        "inputs": {
+          "H": {
+            "shadow": {
+              "type": "tys",
+              "id": "yY/r-c=[Fujo8?#z5!5y",
+              "extraState": "Component"
+            },
+            "block": {
+              "type": "tya",
+              "id": "/H^q.x4]D.Cq}([Iqgv%",
+              "fields": {
+                "T": "Team"
+              },
+              "inputs": {
+                "V": {
+                  "shadow": {
+                    "type": "tys",
+                    "id": "F2LPJ3E*Oi8vBFx4QdS9",
+                    "extraState": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "a",
+        "id": "cp$A2b?}tn/z1/=-f/}5",
+        "x": 423,
+        "y": 548,
+        "extraState": {
+          "X": 49,
+          "L": [
+            1,
+            2,
+            3
+          ],
+          "T": "CreateLevelObject",
+          "OT": null
+        },
+        "fields": {
+          "P1": {
+            "name": "Object entity",
+            "type": "IconEntity"
+          }
+        },
+        "inputs": {
+          "P2": {
+            "shadow": {
+              "type": "ipv",
+              "id": ".ruG:g{2|%N`2m0L7?[7",
+              "fields": {
+                "V1": 0,
+                "V2": 0,
+                "V3": 0
+              }
+            }
+          },
+          "P3": {
+            "shadow": {
+              "type": "pkdc",
+              "id": "joO=$1jnR9@[R*%!]m[[",
+              "fields": {
+                "V": "150d8a69-8ec4-4ac6-9137-6c6298ecb4d9_223"
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "a",
+        "id": ".JuOg#RXA^;@lt(CJ=xb",
+        "x": 13,
+        "y": 152,
+        "extraState": {
+          "X": 53,
+          "L": [
+            1,
+            2
+          ],
+          "T": "NotifyPlaySound",
+          "OT": null
+        },
+        "inputs": {
+          "P1": {
+            "shadow": {
+              "type": "tys",
+              "id": "F_kKa},CJ*lkT|rs122z",
+              "extraState": "Player"
+            }
+          },
+          "P2": {
+            "shadow": {
+              "type": "psd",
+              "id": "FS^S%fWe[)JlnyU#Z/?T",
+              "fields": {
+                "V": ""
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "v3op",
+        "id": "p#;L23}^:|wY@+XQ!Sjs",
+        "x": 430,
+        "y": 80,
+        "extraState": {
+          "O": "Distance"
+        },
+        "fields": {
+          "O": "Distance"
+        },
+        "inputs": {
+          "V1": {
+            "shadow": {
+              "type": "ipv",
+              "id": "QJc=bNx)E;.=u|mWMBoj",
+              "fields": {
+                "V1": 0,
+                "V2": 0,
+                "V3": 0
+              }
+            }
+          },
+          "V2": {
+            "shadow": {
+              "type": "ipv",
+              "id": ".?+xjx5a(R4d`e_{QEdN",
+              "fields": {
+                "V1": 0,
+                "V2": 0,
+                "V3": 0
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "tya",
+        "id": "cqXbeH3]lRmE0v~S~RoY",
+        "x": 716,
+        "y": 265,
+        "fields": {
+          "T": "IconEntity"
+        },
+        "inputs": {
+          "V": {
+            "shadow": {
+              "type": "tys",
+              "id": "aWe#/toawbz2?AqD]gy1",
+              "extraState": "any"
+            }
+          }
+        }
+      },
+      {
+        "type": "a",
+        "id": "@Yp9M=$01m+%f$m)_@`{",
+        "x": 59,
+        "y": 251,
+        "extraState": {
+          "X": 742,
+          "L": [
+            1,
+            2,
+            3,
+            -1,
+            4,
+            5
+          ],
+          "T": "CreateSoundEntityV3",
+          "OT": null
+        },
+        "fields": {
+          "P1": {
+            "name": "Music entity",
+            "type": "SoundEntity"
+          }
+        },
+        "inputs": {
+          "P2": {
+            "shadow": {
+              "type": "tys",
+              "id": "kU7!k:Xz#Y8XKa$:qi!I",
+              "extraState": "Player"
+            }
+          },
+          "P3": {
+            "shadow": {
+              "type": "psd",
+              "id": "~L@06*QTN|:eb03ytUPX",
+              "fields": {
+                "V": ""
+              }
+            }
+          },
+          "P4": {
+            "shadow": {
+              "type": "ipe",
+              "id": "3%.BD/uL5`d_gM4wt!ED",
+              "extraState": "AnimationOverrideLoopType",
+              "fields": {
+                "I": ""
+              }
+            }
+          },
+          "P5": {
+            "shadow": {
+              "type": "ipb",
+              "id": "d3uO[+#=wyjE[ACq+e6(",
+              "fields": {
+                "V": "F"
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "v3op",
+        "id": "L]+Ir~!p+(K[==^}|qT6",
+        "x": -486,
+        "y": 33,
+        "extraState": {
+          "O": "IncludedAngle"
+        },
+        "fields": {
+          "O": "IncludedAngle"
+        },
+        "inputs": {
+          "V1": {
+            "shadow": {
+              "type": "ipv",
+              "id": "$Kp@+VHF8f,6jaxhiMwQ",
+              "fields": {
+                "V1": 0,
+                "V2": 0,
+                "V3": 0
+              }
+            }
+          },
+          "V2": {
+            "shadow": {
+              "type": "ipv",
+              "id": "[=o0-3z}qTa`KVk2y#oQ",
+              "fields": {
+                "V1": 0,
+                "V2": 0,
+                "V3": 0
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "a",
+        "id": "g;wA,lOIHOr7?3?@ySXp",
+        "x": -695,
+        "y": 242,
+        "extraState": {
+          "X": 32,
+          "L": [
+            1,
+            2,
+            3
+          ],
+          "T": "CreateInternalHud",
+          "OT": null
+        },
+        "fields": {
+          "P1": {
+            "name": "Parameter name",
+            "type": "PlayerHeadHud"
+          }
+        },
+        "inputs": {
+          "P2": {
+            "shadow": {
+              "type": "tys",
+              "id": "fqi`G]G71V/=NWf,@]p4",
+              "extraState": "Player"
+            }
+          },
+          "P3": {
+            "shadow": {
+              "type": "pih",
+              "id": "d6Mwfn)T8]OIAOV(k3~o",
+              "fields": {
+                "V": "InternalHud_PlayerHeadHud"
+              }
+            }
+          }
+        },
+        "next": {
+          "block": {
+            "type": "prs",
+            "id": "Wr5)DEr^ZK*`N;w6Np8a",
+            "fields": {
+              "P": "",
+              "O": "UK"
+            },
+            "inputs": {
+              "H": {
+                "shadow": {
+                  "type": "tys",
+                  "id": "*yQs;%UV:oBI,?mOqrfL",
+                  "extraState": "Component"
+                },
+                "block": {
+                  "type": "lcg",
+                  "id": "^e-9N*t9450rB*?%!2tm",
+                  "extraState": "g;wA,lOIHOr7?3?@ySXpP1",
+                  "fields": {
+                    "VR": "Parameter name"
+                  }
+                }
+              },
+              "V": {
+                "shadow": {
+                  "type": "tys",
+                  "id": "Sdp(i2*3tU*U2|^Ov=uZ",
+                  "extraState": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "a",
+        "id": "HVz(+y02cykE37@,4HQw",
+        "x": -395,
+        "y": 521,
+        "extraState": {
+          "X": 32,
+          "L": [
+            1,
+            2,
+            3
+          ],
+          "T": "CreateInternalHud",
+          "OT": null
+        },
+        "fields": {
+          "P1": {
+            "name": "Parameter name",
+            "type": "InternalHud"
+          }
+        },
+        "inputs": {
+          "P2": {
+            "shadow": {
+              "type": "tys",
+              "id": "[#cF?MB](Ia`5q7WQrTG",
+              "extraState": "Player"
+            }
+          },
+          "P3": {
+            "shadow": {
+              "type": "pih",
+              "id": "-2c01.U)QrGZXoIWrat[",
+              "fields": {
+                "V": ""
+              }
             }
           }
         }
@@ -52,4 +424,4 @@
     "isStatic": false
   }
 }
-//"{FE:{"v":"1.8.3020133","c":{"FF":4404},"s":100}
+//"{FE:{"v":"1.8.3021207","c":{"FF":4404},"s":100}

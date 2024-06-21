@@ -1,0 +1,25 @@
+import "StdLibrary.fcc" as StdLib
+import "EditorGenLib.fcc" as EditorLib
+import Resources from "EditorGenLib.fcc"
+import "./Generator.fcg" as Generator
+import "./PlayerImposterSabotageHUD.fcg" as PlayerImposterSabotageHUD
+
+graph PlayerSabotage {
+    
+    _SelectedGenerator entity<Entity>
+
+    event OnAwake() {
+
+    }
+
+    func SetGenerator(generator entity<Entity>) {
+        _SelectedGenerator = generator
+    }
+
+    async func Sabotage() {
+        _SelectedGenerator<Generator>.Sabotage()
+        
+    }
+
+    
+}

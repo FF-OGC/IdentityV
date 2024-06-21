@@ -1,0 +1,39 @@
+import "StdLibrary.fcc" as StdLib
+import "EditorGenLib.fcc" as EditorLib
+import Resources from "EditorGenLib.fcc"
+import "./PlayerConfig.fcg" as PlayerConfig
+import "List.fcc" as List
+import "./GlobalRole.fcg" as GlobalRole
+import "Player.fcc" as Player
+import "Scene.fcc" as Scene
+
+graph GlobalSpawns {
+    KILLER_SPAWNS List<entity>
+    SURVIVOR_SPAWNS List<entity>
+
+    event OnAwake() {
+        WaitForNextFrame()
+        KILLER_SPAWNS = GetChildren(Resources.Scene_main[EResource_Scene_main.SPAWN_KILLER])
+        SURVIVOR_SPAWNS = GetChildren(Resources.Scene_main[EResource_Scene_main.SPAWN_SURVIVOR])
+
+        Shuffle(KILLER_SPAWNS)
+        Shuffle(SURVIVOR_SPAWNS)
+    }
+
+    func Spawn() {
+        var KillerList = globalEntity<GlobalRole>.imposterList
+        var SurvivorList = globalEntity<GlobalRole>.HumanList
+
+        for key, killer in KillerList {
+            var spawn = KILLER_SPAWNS[key]
+            Teleport(killer, spawn<Transform>.Position,Vector3{0, 0, 0})
+        }
+
+        for key, survivor in SurvivorList {
+            var spawn = SURVIVOR_SPAWNS[key]
+            Teleport(survivor, spawn<Transform>.Position,Vector3{0, 0, 0})
+        }
+    }
+
+
+}

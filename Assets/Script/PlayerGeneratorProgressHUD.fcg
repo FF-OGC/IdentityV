@@ -1,0 +1,72 @@
+import "Hud.fcc" as Hud
+import "StdLibrary.fcc" as StdLib
+import "EditorGenLib.fcc" as EditorLib
+import Resources from "EditorGenLib.fcc"
+import "./HUDUtil.fcg" as HUDUtil
+import "Convert.fcc" as Convert
+import "Workflow.fcc" as Workflow
+import "./GlobalGeneratorManager.fcg" as GlobalGeneratorManager
+
+graph PlayerGeneratorProgressHUD {
+    _GeneratorProgressHUD entity<MatchInfoSubTitleHud>
+    _CurrentProgress int = 0
+    _RequiredProgress int = 4
+    
+    event OnPhaseStart(phase entity<Phase>) {
+        var phaseIndex = phase<Phase>.PhaseIndex
+        if phaseIndex == phaseEnum.IN_PROGRESS {
+            DisplayGeneratorProgressHUD()
+        }
+
+    }
+
+    // event Generator_OnFinish(generator object) {
+    //     _CurrentProgress = globalEntity<GlobalGeneratorManager>.CURRENT_GENERATOR
+    //     UpdateGeneratorProgressHUD()
+    // }
+
+    
+    
+    func InitGeneratorProgressHUD() {
+        if (_GeneratorProgressHUD == nil) {
+            // _GeneratorProgressHUD = HUDUtil.CreateCustomHUD(thisEntity<Player>,EResource_UI.GENERATOR_PROGRESS,4)
+
+            CreateInternalHud(out var objective, thisEntity<Player>,InternalHudType.MatchInfoSubTitleHud)
+            _GeneratorProgressHUD = objective as entity<MatchInfoSubTitleHud>
+            _GeneratorProgressHUD<MatchInfoSubTitleHud>.Visibility = false
+            UpdateGeneratorProgressHUD(_CurrentProgress,_RequiredProgress )
+            
+        }
+    }
+
+    func DisplayGeneratorProgressHUD() {
+        InitGeneratorProgressHUD()
+        _GeneratorProgressHUD<MatchInfoSubTitleHud>.Visibility = true
+    }
+    
+    func CloseGeneratorProgressHUD() {
+        if (_GeneratorProgressHUD != nil) {
+            _GeneratorProgressHUD<MatchInfoSubTitleHud>.Visibility = false
+        }
+    }
+
+    func UpdateGeneratorProgressHUD(currentProgress int, requiredProgress int) {
+        if (_GeneratorProgressHUD != nil) {
+            // var text = GetGeneratorProgressHUDWidget(EResource_UI_GENERATOR_PROGRESS.Text_Progress)
+            // text<HudLabelWidget>.Text = ToString(currentProgress) + "/" + ToString(requiredProgress)
+
+            _GeneratorProgressHUD<MatchInfoSubTitleHud>.TextKey = "Machine: " + ToString(currentProgress) + "/" + ToString(requiredProgress)
+        }
+    }
+    
+    func ResetGeneratorProgressHUD(){
+            
+    }
+    
+    
+    
+    // func GetGeneratorProgressHUDWidget(eResourceUIFixing string) entity<HudWidget>{
+    //     return GetWidgetFromCustomHud(thisEntity<Player>, _GeneratorProgressHUD, Resources.UI_GENERATOR_PROGRESS[EResource_UI_GENERATOR_PROGRESS.Text_Progress])
+    // }
+    
+}

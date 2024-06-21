@@ -1,0 +1,19 @@
+import "StdLibrary.fcc" as StdLib
+import "EditorGenLib.fcc" as EditorLib
+import Resources from "EditorGenLib.fcc"
+
+graph GlobalGateManager {
+    GATES List<entity<Entity>> = List<entity<Entity>>{}
+
+
+    event OnAwake() {
+        WaitForNextFrame()
+        GATES = GetChildren(Resources.Scene_main[EResource_Scene_main.GATES])
+    }
+
+    event Global_OnFinishTask() {
+        for key, gate in GATES {
+            DispatchEvent(Global_OnFinishTask,gate,List<object>{})
+        }
+    }
+}

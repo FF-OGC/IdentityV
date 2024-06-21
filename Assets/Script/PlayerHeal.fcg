@@ -1,0 +1,13 @@
+import "StdLibrary.fcc" as StdLib
+import "EditorGenLib.fcc" as EditorLib
+import Resources from "EditorGenLib.fcc"
+
+graph PlayerHeal {
+    HP int
+
+
+    event OnAwake() {
+
+    }
+
+}

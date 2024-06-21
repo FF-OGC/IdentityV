@@ -1,0 +1,104 @@
+import "Hud.fcc" as Hud
+import "StdLibrary.fcc" as StdLib
+import "EditorGenLib.fcc" as EditorLib
+import Resources from "EditorGenLib.fcc"
+import "./HUDUtil.fcg" as HUDUtil
+import "Convert.fcc" as Convert
+import "Workflow.fcc" as Workflow
+import "./GlobalGeneratorManager.fcg" as GlobalGeneratorManager
+import "./Prison.fcg" as Prison
+import "./PlayerRescue.fcg" as PlayerRescue
+import "Math.fcc" as Math
+
+graph PlayerRescueHUD {
+    _RescueHUD entity<CustomHud>
+    PRISON entity<Entity>
+
+    PIVOT_PROGRESS entity<HudWidget>
+    BTN entity<HudWidget>
+
+    PROGRESS_BAR entity<HudWidget>
+    CURRENT_PROGRESS_BAR entity<HudWidget>
+
+    _isActive bool = false
+
+ 
+    
+    event OnPhaseStart(phase entity<Phase>) {
+        var phaseIndex = phase<Phase>.PhaseIndex
+        if phaseIndex == phaseEnum.IN_PROGRESS {
+        }
+
+    }
+
+
+    func SetPrison(prison entity<Entity>) {
+        PRISON = prison
+        thisEntity<PlayerRescue>.SetPrison(prison)
+    }
+    
+    func InitRescueHUD() {
+        if (_RescueHUD == nil) {
+            _RescueHUD = HUDUtil.CreateCustomHUD(thisEntity<Player>,EResource_UI.PROGRESS_BAR,4)
+            _RescueHUD<CustomHud>.Visibility = false
+            PIVOT_PROGRESS = GetRescueHUDWidget(EResource_UI_PROGRESS_BAR.Pivot_Progress)
+            BTN = GetRescueHUDWidget(EResource_UI_PROGRESS_BAR.BTN)
+            PROGRESS_BAR = GetChildByIndex(PIVOT_PROGRESS,0) as entity<HudWidget>
+            CURRENT_PROGRESS_BAR = GetChildByIndex(PIVOT_PROGRESS,1) as entity<HudWidget>
+            
+        }
+    }
+
+    async func DisplayRescueHUD() {
+        if PRISON<Prison>.isActive {
+            InitRescueHUD()
+            UpdateRescueHUD()
+            _RescueHUD<CustomHud>.Visibility = true
+            _isActive = true
+            BTN<HudWidget>.Active = true
+
+            if thisEntity == PRISON<Prison>.Prisoner {
+                BTN<HudWidget>.Active = false
+            }
+
+            // start PlayUpdateRescueHUD()
+        }
+    }
+    
+    func CloseRescueHUD() {
+        if (_RescueHUD != nil) {
+            _RescueHUD<CustomHud>.Visibility = false
+            _isActive = false
+        }
+    }
+
+
+
+    func UpdateRescueHUD()  {
+        var BarWidth float = PROGRESS_BAR<HudWidget>.Width as float
+        var TotalProgress float = PRISON<Prison>._TotalProgress as float
+        var ratio float = BarWidth / TotalProgress
+
+        CURRENT_PROGRESS_BAR<HudWidget>.Width = Round(PRISON<Prison>._CurrentProgress * ratio)
+        
+       
+    }
+
+    async func PlayUpdateRescueHUD() {
+        while PRISON<Prison>.isActive {
+            UpdateRescueHUD()
+            WaitForSeconds(1000)
+        }
+    }
+    
+    func ResetRescueHUD(){
+            
+    }
+    
+    
+    
+    func GetRescueHUDWidget(eResourceUIRescue string) entity<HudWidget>{
+        return GetWidgetFromCustomHud(thisEntity<Player>, _RescueHUD, Resources.UI_PROGRESS_BAR[eResourceUIRescue])
+    }
+    
+}

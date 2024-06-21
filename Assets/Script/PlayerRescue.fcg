@@ -1,0 +1,29 @@
+import "StdLibrary.fcc" as StdLib
+import "EditorGenLib.fcc" as EditorLib
+import Resources from "EditorGenLib.fcc"
+import "./Prison.fcg" as Prison
+import "./PlayerRescueHUD.fcg" as PlayerRescueHUD
+
+graph PlayerRescue {
+    PRISON entity<Entity>
+
+    event OnAwake() {
+
+    }
+
+    func SetPrison(prison entity<Entity>) {
+        PRISON = prison
+    }
+
+    func AddProgress(progress float) {
+        PRISON<Prison>._CurrentProgress += progress
+        if PRISON<Prison>._CurrentProgress >= PRISON<Prison>._TotalProgress {
+            PRISON<Prison>._CurrentProgress = PRISON<Prison>._TotalProgress
+            thisEntity<PlayerRescueHUD>.CloseRescueHUD()
+            return
+        }
+        thisEntity<PlayerRescueHUD>.UpdateRescueHUD()
+
+        LogInfo("Progress: " + PRISON<Prison>._CurrentProgress + " / " + PRISON<Prison>._TotalProgress)
+    }
+}

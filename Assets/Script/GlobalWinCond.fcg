@@ -3,49 +3,28 @@ import "EditorGenLib.fcc" as editorGenLib
 import "./GlobalRole.fcg" as globalRole
 import "Player.fcc" as player
 import "Workflow.fcc" as workflow
+import "./PlayerDefaultHUD.fcg" as PlayerDefaultHUD
+import "./GlobalRole.fcg" as GlobalRole
+import "List.fcc" as List
 
 graph GlobalWinCond {
+    _EscapedPlayer List<Player> = List<Player>{}
     
-    imposterWin bool
-    humanWin bool
-    jesterWin bool    
-
-    func CheckWin() {
-        imposterWin = CheckImposterWin()
-        humanWin = CheckHumanWin()
-
-        if imposterWin || humanWin {
-            SetGameNextPhase(phaseEnum.END)
+    event Player_Escape(player entity<Player>) {
+        player<PlayerDefaultHUD>.DisplayEscapeHUD()
+        Append(_EscapedPlayer, player)
+        if Length(_EscapedPlayer) == Length(globalEntity<GlobalRole>.HumanList) {
+            DispatchEvent(Global_EscapedAll,globalEntity,List<object>{})
         }
     }
 
-    func CheckImposterWin() bool {
-        return CheckKillAllHuman()
+    event IMPOSTER_KILLEDALL() {
+        globalEntity<GlobalRole>.imposterPlayer<PlayerDefaultHUD>.DisplayEscapeHUD()
     }
 
-    func CheckHumanWin() bool {
-        return CheckKillAllImposter() || CheckCompleteTask()
+    event Global_EscapedAll() {
+        globalEntity<GlobalRole>.imposterPlayer<PlayerDefaultHUD>.DisplayDefeatHUD()
     }
 
 
-    func CheckKillAllImposter() bool {
-        for key,player in globalEntity<globalRole>.imposterList {
-            if player<Player>.State == PlayerStateType.Alive {
-                return false
-            }
-        }
-        return true
-    }
-
-    func CheckKillAllHuman() bool {
-        for key,player in globalEntity<globalRole>.HumanList {
-            if player<Player>.State == PlayerStateType.Alive {
-                return false
-            }
-        }
-        return true
-    }
-
-    func CheckCompleteTask() bool {
-    }
 }

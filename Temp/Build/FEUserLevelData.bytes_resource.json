@@ -1,16 +1,71 @@
 {
  "OptionalResourceNames": [
-  "WS_VFX_BLOODBALL",
+  "UGC_1P_MALE_UPPERBODY",
+  "BOSOLDIERUGC1PMALEAVATAR",
+  "NB_NEW_UGC_1P_WEAPONFIST_CONTROLLER",
+  "ui_icon_skill_Singersb_link",
+  "ui_icon_skill_Detective",
+  "UGC_T_34_LY_WS_VFX2",
+  "UGC_T_34_LY_WS_VFX4",
   "T_34_M_WS_ICON_SQUARE",
-  "UI_BG_line_1pix"
+  "UI_BG_line_1pix",
+  "T_34_M_WS_ICON_ARROW",
+  "UI_fire_bg",
+  "UI_BG_icon_03",
+  "FF_UI_Common_Debug",
+  "T_34_M_WS_ICON_BLAST",
+  "T_34_M_WS_ICON_FLAG",
+  "ui_icon_skill_Djmale2",
+  "T_34_M_WS_ICON_CIRCULAR",
+  "T_34_M_WS_ICON_PLUS",
+  "FF_UI_Profile_bg_03",
+  "T_34_M_WS_ICON_WRONG",
+  "FF_WS_Quit"
  ],
  "ItemIds": [
+  331,
+  297,
   117,
   224,
-  87
+  283,
+  282,
+  265,
+  337,
+  343,
+  143
  ],
  "ResourcePackageInfo": {
   "DataFormatVersion": 0,
+  "RefPackages": [
+   {
+    "Name": "wehss29x.AutoCommon_qZC7wUI3",
+    "UUID": "wehss29x.AutoCommon_qZC7wUI3",
+    "UseVersionMD5": "IuMdacV39LmRCD/6YHMSdJfa2Tg=",
+    "WhoRequire": "ClientServer",
+    "PlatformSpecial": true
+   },
+   {
+    "Name": "NeJf7T04.ColliderCommon_XwuEidQV",
+    "UUID": "NeJf7T04.ColliderCommon_XwuEidQV",
+    "UseVersionMD5": "fUk7YUsAULN2AMoHXpVHatOLaR8=",
+    "WhoRequire": "ClientServer",
+    "PlatformSpecial": false
+   },
+   {
+    "Name": "NeJf7T04.ColliderCommon_xQ1Regrt",
+    "UUID": "NeJf7T04.ColliderCommon_xQ1Regrt",
+    "UseVersionMD5": "8Qtlh5Bd4Ge0F3Qw8/BRQb+TDEM=",
+    "WhoRequire": "ClientServer",
+    "PlatformSpecial": false
+   },
+   {
+    "Name": "NeJf7T04.AutoServer_j8F3H6X0",
+    "UUID": "NeJf7T04.AutoServer_j8F3H6X0",
+    "UseVersionMD5": "kSN1pGY6jlUALUYlnYPVJ0/vqG4=",
+    "WhoRequire": "ServerOnly",
+    "PlatformSpecial": false
+   }
+  ],
   "BuildinPackages": [
    {
     "Name": "BuiltIn",

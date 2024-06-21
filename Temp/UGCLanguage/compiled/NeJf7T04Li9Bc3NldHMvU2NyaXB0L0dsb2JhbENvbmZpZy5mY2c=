@@ -1,10 +1,10 @@
 ê
 4NeJf7T04Li9Bc3NldHMvU2NyaXB0L0dsb2JhbENvbmZpZy5mY2c=:
-$./Assets/Script/GlobalConfig.fcg:8:4IMPOSTER_NUM"("˙
-%./Assets/Script/GlobalConfig.fcg:16:4GetImposterNumÛ"*∑
-%./Assets/Script/GlobalConfig.fcg:17:8Invoke ProcessCtlReturnÓ"rp
-&./Assets/Script/GlobalConfig.fcg:17:15Invoke GetSelfGraphPropertyﬁ"&:$./Assets/Script/GlobalConfig.fcg:8:4H"é
+$./Assets/Script/GlobalConfig.fcg:9:4IMPOSTER_NUM"("é
 %./Assets/Script/GlobalConfig.fcg:12:4GetPlayerNumÛ"*Õ
 %./Assets/Script/GlobalConfig.fcg:13:8Invoke ProcessCtlReturnÓ"áÑ
 &./Assets/Script/GlobalConfig.fcg:13:15Invoke Lengthö"FD
-&./Assets/Script/GlobalConfig.fcg:13:22Invoke GetAllPlayersHÆçHH*GlobalConfig0
+&./Assets/Script/GlobalConfig.fcg:13:22Invoke GetAllPlayersHÆçHH"˙
+%./Assets/Script/GlobalConfig.fcg:16:4GetImposterNumÛ"*∑
+%./Assets/Script/GlobalConfig.fcg:17:8Invoke ProcessCtlReturnÓ"rp
+&./Assets/Script/GlobalConfig.fcg:17:15Invoke GetSelfGraphPropertyﬁ"&:$./Assets/Script/GlobalConfig.fcg:9:4H*GlobalConfig0

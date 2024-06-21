@@ -1,0 +1,2 @@
+Ability_Enum,Name,Description,Icon,CD,Price,Tier,Script,Available
+ABILITY_RUN,Run,Run faster,ICON_RUN,10000,0,1,AbilityRun,TRUE

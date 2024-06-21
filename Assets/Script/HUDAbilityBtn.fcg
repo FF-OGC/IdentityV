@@ -1,0 +1,14 @@
+import "StdLibrary.fcc" as StdLib
+import "EditorGenLib.fcc" as EditorLib
+import Resources from "EditorGenLib.fcc"
+import "./PlayerAbilityBtnHUD.fcg" as PlayerAbilityBtnHUD
+
+
+graph HUDAbilityBtn {
+    //Executed when entity is created
+    event HUD_ButtonClicked(button entity<HudButtonWidget>, player entity<Player>) {
+        if button == player<PlayerAbilityBtnHUD>.GetAbilityButtonHUDWidget(EResource_UI_SKILL_BTN.BTN) {
+            player<PlayerAbilityBtnHUD>.ButtonClick()
+        }
+    }
+}

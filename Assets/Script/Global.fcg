@@ -5,16 +5,20 @@ import "Workflow.fcc" as workflow
 import "Player.fcc" as player 
 import "LevelObject.fcc" as levelobject 
 import Resource from "EditorGenLib.fcc"
-import "./GlobalRole.fcg" as globalRole
+import "./GlobalRole.fcg" as GlobalRole
 import "Combat.fcc" as combat
-import "./GlobalAction.fcg" as globalAction
-import "./GlobalWinCond.fcg" as globalWinCond
+import "./GlobalAction.fcg" as GlobalAction
+import "./GlobalWinCond.fcg" as GlobalWinCond
+import "./GlobalSpawns.fcg" as GlobalSpawns
 
 graph Global {
     event OnPhaseStart(phase entity<Phase>) {
         var phaseIndex = phase<Phase>.PhaseIndex
         if phaseIndex == phaseEnum.PREPARERATION {
-            thisEntity<globalRole>.SetRole()
+            
+        } else if phaseIndex == phaseEnum.IN_PROGRESS {
+            thisEntity<GlobalRole>.SetRole()
+            thisEntity<GlobalSpawns>.Spawn()
         }
         
     }

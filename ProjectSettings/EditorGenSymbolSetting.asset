@@ -13,6 +13,58 @@
       "signal_95382460": {
         "label": "Generator_OnFinish",
         "params": {}
+      },
+      "signal_68282106": {
+        "label": "Global_OnFinishTask",
+        "params": {}
+      },
+      "signal_87832494": {
+        "label": "Player_Escape",
+        "params": {}
+      },
+      "signal_87018098": {
+        "label": "IMPOSTER_KILLEDALL",
+        "params": {}
+      },
+      "signal_62331693": {
+        "label": "Player_FailSkillCheck",
+        "params": {}
+      },
+      "signal_98263690": {
+        "label": "Player_ChooseAbility",
+        "params": {}
+      },
+      "signal_67677916": {
+        "label": "Player_UseAbility",
+        "params": {}
+      },
+      "signal_25338273": {
+        "label": "Player_EnterPrison",
+        "params": {}
+      },
+      "signal_30540874": {
+        "label": "Player_EscapePrison",
+        "params": {}
+      },
+      "signal_69420190": {
+        "label": "Player_ReceiveDamage",
+        "params": {}
+      },
+      "signal_97717269": {
+        "label": "Global_EscapedAll",
+        "params": {}
+      },
+      "signal_59804305": {
+        "label": "Imposter_ChangeImposter",
+        "params": {}
+      },
+      "signal_68740890": {
+        "label": "Player_StartFixing",
+        "params": {}
+      },
+      "signal_76731559": {
+        "label": "Player_StopFixing",
+        "params": {}
       }
     },
     "Graphs": {
@@ -66,9 +118,23 @@
             "label": "END_ROUND"
           }
         }
+      },
+      "CustomEnum53142074": {
+        "label": "AbilityEnum",
+        "members": {
+          "E47575154": {
+            "label": "RUN"
+          },
+          "E78725606": {
+            "label": "SCAN"
+          },
+          "E43478367": {
+            "label": "TELE"
+          }
+        }
       }
     }
   },
   "children": []
 }
-//"{FE:{"v":"1.8.3020133","c":{"FF":4404},"s":100}
+//"{FE:{"v":"1.8.3021207","c":{"FF":4404},"s":100}

@@ -112,6 +112,102 @@
         "type": "GFileRefer"
       },
       "fileType": "ugcscript"
+    },
+    {
+      "fileId": "6w3rv534evg-lx30r8xm-38t5p33ftt",
+      "filePath": "Assets\\Script\\PlayerGeneratorProgressHUD.fcg",
+      "_tag": {
+        "type": "GFileRefer"
+      },
+      "fileType": "ugcscript"
+    },
+    {
+      "fileId": "29eclna13ow-lx4cz2na-ivcybunh9h",
+      "filePath": "Assets\\Script\\PlayerDefaultHUD.fcg",
+      "_tag": {
+        "type": "GFileRefer"
+      },
+      "fileType": "ugcscript"
+    },
+    {
+      "fileId": "8qhsjw4poa5-lx9tcok0-ef2nuv7k6do",
+      "filePath": "Assets\\Script\\PlayerImposterSabotageHUD.fcg",
+      "_tag": {
+        "type": "GFileRefer"
+      },
+      "fileType": "ugcscript"
+    },
+    {
+      "fileId": "95l3zre7g56-lx9tglmz-q4qyz1inqkq",
+      "filePath": "Assets\\Script\\PlayerSabotage.fcg",
+      "_tag": {
+        "type": "GFileRefer"
+      },
+      "fileType": "ugcscript"
+    },
+    {
+      "fileId": "b42a654jn07-lxb984mr-x549sj54jsj",
+      "filePath": "Assets\\Script\\PlayerRescue.fcg",
+      "_tag": {
+        "type": "GFileRefer"
+      },
+      "fileType": "ugcscript"
+    },
+    {
+      "fileId": "j93icbxx2jo-lxb9826s-4s33mo0pobl",
+      "filePath": "Assets\\Script\\PlayerRescueHUD.fcg",
+      "_tag": {
+        "type": "GFileRefer"
+      },
+      "fileType": "ugcscript"
+    },
+    {
+      "fileId": "6sbpppm5avl-lxbi7ttj-hbdxgoaum3g",
+      "filePath": "Assets\\Script\\PlayerGateHUD.fcg",
+      "_tag": {
+        "type": "GFileRefer"
+      },
+      "fileType": "ugcscript"
+    },
+    {
+      "fileId": "ms2o7z8bujd-lxbihbt7-0o6djsqsmlg",
+      "filePath": "Assets\\Script\\PlayerGate.fcg",
+      "_tag": {
+        "type": "GFileRefer"
+      },
+      "fileType": "ugcscript"
+    },
+    {
+      "fileId": "al3dr1u3j2k-lxcobbv5-budnwd54uic",
+      "filePath": "Assets\\Script\\PlayerAbilityBtnHUD.fcg",
+      "_tag": {
+        "type": "GFileRefer"
+      },
+      "fileType": "ugcscript"
+    },
+    {
+      "fileId": "lbscin5sx5j-lxiewfxo-ej3cjjc5k36",
+      "filePath": "Assets\\Script\\PlayerStateHUD.fcg",
+      "_tag": {
+        "type": "GFileRefer"
+      },
+      "fileType": "ugcscript"
+    },
+    {
+      "fileId": "tcd0iwjm21-lxed93xm-e90nb2he4",
+      "filePath": "Assets\\Script\\PlayerHPBar.fcg",
+      "_tag": {
+        "type": "GFileRefer"
+      },
+      "fileType": "ugcscript"
+    },
+    {
+      "fileId": "9n4a6p75uak-lxofqyvc-j2ow70r1ri",
+      "filePath": "Assets\\Script\\PlayerNotificationHUD.fcg",
+      "_tag": {
+        "type": "GFileRefer"
+      },
+      "fileType": "ugcscript"
     }
   ],
   "avatarInfo": null,
@@ -333,4 +429,4 @@
   "modOpen": true,
   "showSwitch": false
 }
-//"{FE:{"v":"1.8.3020133","c":{"FF":4404},"s":100}
+//"{FE:{"v":"1.8.3021207","c":{"FF":4404},"s":100}

@@ -1,0 +1,135 @@
+import "StdLibrary.fcc" as StdLib
+import "EditorGenLib.fcc" as EditorLib
+import Resources from "EditorGenLib.fcc"
+import "./PrisonTrigger.fcg" as PrisonTrigger
+import "List.fcc" as List
+import "Player.fcc" as Player
+import "./GlobalPrisonManager.fcg" as GlobalPrisonManager
+import "LevelObject.fcc" as LevelObject
+import "./PlayerRescueHUD.fcg" as PlayerRescueHUD
+
+graph Prison {
+    PRISON entity<Entity>
+    PRISON_TRIGGER entity<Entity>
+    PRISON_SPAWN entity<Entity>
+
+    _TotalProgress float = 180
+    _CurrentProgress float = 0
+    _SelfRescueSpeed = 1
+
+    isActive = false
+    Prisoner entity<Player>
+
+    _HavePrisonerIcon entity<IconEntity>
+    
+    // _PrisonerList List<Player> = List<Player>{}
+    
+    event OnAwake() {
+        WaitForNextFrame()
+        PRISON = GetChildByIndex(thisEntity,0)
+        PRISON_TRIGGER = GetChildByIndex(thisEntity,1)
+        PRISON_SPAWN = GetChildByIndex(thisEntity,2)
+        AddScript(PRISON_TRIGGER,PrisonTrigger)
+    }
+
+    async func DisablePrison() {
+        if PRISON<Entity>.ActiveSelf {
+            SetActive(PRISON,false)
+            WaitForSeconds(5000)
+            SetActive(PRISON,true)
+        }
+        
+    }
+
+    func DisplayHavePrisonerIcon() {
+        if !_HavePrisonerIcon {
+            var pos = thisEntity<Transform>.Position
+            pos.Y = pos.Y + 2
+            CreateLevelObject(out var createdEntity,pos , DynamicCreateItemID.IconObject)
+            _HavePrisonerIcon = createdEntity<IconEntity>
+            _HavePrisonerIcon<IconEntity>.IconResID = IconType.Flag as SpriteID
+            createdEntity<IconEntity>.Height = 300
+            createdEntity<IconEntity>.Width = 300
+            createdEntity<IconEntity>.Color = #FF0000FF
+            createdEntity<IconEntity>.IsIgnoreDepth = true
+            createdEntity<IconEntity>.IsAlwaysInScreen = true
+            createdEntity<IconEntity>.IsBillboard = true
+        }
+        SetActive(_HavePrisonerIcon,true)
+        
+    }
+
+    func RemoveHavePrisonerIcon() {
+        SetActive(_HavePrisonerIcon,false)
+    }
+
+    async func SetPrisoner(player entity<Player>) {
+        if player == nil {
+            LogInfo("Prisoner nil")
+            return 
+        }
+        Prisoner = player
+        isActive = true
+        Prisoner<Player>.GodState = true
+        globalEntity<GlobalPrisonManager>.AppendPrisonner(player)
+        DisplayHavePrisonerIcon()
+        Prisoner<PlayerRescueHUD>.SetPrison(thisEntity)
+        Prisoner<PlayerRescueHUD>.DisplayRescueHUD()
+
+        _CurrentProgress = 0
+        start AutoRescue()
+    }
+
+    async func AutoRescue() {
+        while _CurrentProgress < _TotalProgress {
+            AddProgress(_SelfRescueSpeed)
+            WaitForSeconds(1000)
+        }
+
+        RescuePrisoners()
+    }
+
+    func AddProgress(progress float) {
+        _CurrentProgress += progress
+        if _CurrentProgress >= _TotalProgress {
+            _CurrentProgress = _TotalProgress
+            Prisoner<PlayerRescueHUD>.UpdateRescueHUD()
+            return
+        }
+        Prisoner<PlayerRescueHUD>.UpdateRescueHUD()
+    }
+
+    // func AppendPrisoner(player entity<Player>) {
+    //     Append(_PrisonerList,player)
+    // }
+
+    // func RemovePrisoner(player entity<Player>) {
+    //     Delete(_PrisonerList,player)
+    // }
+
+    // func RescuePrisoners() {
+    //     for key,player in globalEntity<GlobalPrisonManager>.GetPrisonerList() {
+    //         Teleport(player<PlayerOrVehicle>,PRISON_SPAWN<Transform>.Position,Vector3{0, 0, 0})
+    //     }
+    //     globalEntity<GlobalPrisonManager>.RemoveAllPrisoner()
+    // }
+
+    func RescuePrisoners() {
+        Prisoner<Player>.GodState = false
+        Prisoner<Player>.HP = 200
+        Teleport(Prisoner<PlayerOrVehicle>,PRISON_SPAWN<Transform>.Position,Vector3{0, 0, 0})
+        Prisoner<PlayerRescueHUD>.CloseRescueHUD()
+        globalEntity<GlobalPrisonManager>.RemovePrisoner(Prisoner)
+        isActive = false
+        Prisoner = nil
+        RemoveHavePrisonerIcon()
+        
+
+    }
+
+    func GetIsActive() bool{
+        return isActive
+    }
+
+    
+}

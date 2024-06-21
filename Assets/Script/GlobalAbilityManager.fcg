@@ -1,0 +1,111 @@
+import "LevelObject.fcc" as LevelObject
+import "Convert.fcc" as Convert
+import "Workflow.fcc" as Workflow
+import "List.fcc" as List
+import "CSVData.fcc" as CSVData
+import "Hud.fcc" as Hud
+import "StdLibrary.fcc" as StdLib
+import "EditorGenLib.fcc" as EditorLib
+import Resources from "EditorGenLib.fcc"
+
+
+graph GlobalAbilityManager {
+
+    KILLER_ABILITY_DICT Map<AbilityEnum,List<object>> = Map<AbilityEnum,List<object>>{}
+    SURVIVOR_ABILITY_DICT Map<AbilityEnum,List<object>> = Map<AbilityEnum,List<object>>{}
+    ABILITY_DICT Map<AbilityEnum,List<object>> = Map<AbilityEnum,List<object>>{}
+    CURRENT_AVAILABLE_ABILITIES List<AbilityEnum> = List<AbilityEnum>{}
+    
+    event OnGameStart() {
+        WaitForNextFrame()
+        SetKillerAbilityDict()
+        SetSurvivorAbilityDict()
+
+        LogInfo(ABILITY_DICT[AbilityEnum.RUN])
+        LogInfo(ABILITY_DICT[AbilityEnum.SCAN])
+    }
+
+    event OnPhaseStart(phase entity<Phase>) {
+        LogInfo(ABILITY_DICT[AbilityEnum.RUN])
+        LogInfo(ABILITY_DICT[AbilityEnum.SCAN])
+    }
+
+    func SetKillerAbilityDict() {
+        
+        var data = ReadCSV(Resources.CSV[EResource_CSV.CSV_KILLER_ABILITY])
+        var EnumIndex = 0
+        var NameIndex = 1
+        var DescriptionIndex = 2
+        var IconIndex = 3
+        var CDIndex = 4
+        var PriceIndex = 5
+        var TierIndex = 6
+        var ScriptIndex = 7
+        var AvailableIndex = 8
+
+
+        for key, row in data {
+            if row[AvailableIndex] == "TRUE" {
+                KILLER_ABILITY_DICT[row[EnumIndex]] = List<object> {row[NameIndex], row[DescriptionIndex], Resources.Texture[row[IconIndex]], row[CDIndex], row[PriceIndex], row[TierIndex], Resources.FCG[row[ScriptIndex]]}
+
+                ABILITY_DICT[row[EnumIndex]] = List<object> {row[NameIndex], row[DescriptionIndex], Resources.Texture[row[IconIndex]], row[CDIndex], row[PriceIndex], row[TierIndex], Resources.FCG[row[ScriptIndex]]}
+
+                Append(CURRENT_AVAILABLE_ABILITIES, EnumIndex)
+            }
+        }
+    }
+
+    func SetSurvivorAbilityDict() {
+        var data = ReadCSV(Resources.CSV[EResource_CSV.CSV_SURVIVOR_ABILITY])
+        var EnumIndex = 0
+        var NameIndex = 1
+        var DescriptionIndex = 2
+        var IconIndex = 3
+        var CDIndex = 4
+        var PriceIndex = 5
+        var TierIndex = 6
+        var ScriptIndex = 7
+        var AvailableIndex = 8
+
+        for key, row in data {
+            if row[AvailableIndex] == "TRUE" {
+                SURVIVOR_ABILITY_DICT[row[EnumIndex]] = List<object> {row[NameIndex], row[DescriptionIndex], Resources.Texture[row[IconIndex]], row[CDIndex], row[PriceIndex], row[TierIndex], Resources.FCG[row[ScriptIndex]]}
+
+                ABILITY_DICT[row[EnumIndex]] = List<object> {row[NameIndex], row[DescriptionIndex], Resources.Texture[row[IconIndex]], row[CDIndex], row[PriceIndex], row[TierIndex], Resources.FCG[row[ScriptIndex]]}
+
+                Append(CURRENT_AVAILABLE_ABILITIES, EnumIndex)
+            }
+        }
+
+        
+    }
+
+    func GetAbilityName(Ability AbilityEnum) string{
+        return ABILITY_DICT[Ability][0]
+    }
+
+    func GetAibilityDescription(Ability AbilityEnum) string{
+        return ABILITY_DICT[Ability][1]
+    }
+
+    func GetAbilityIcon(Ability AbilityEnum) SpriteID{
+        return ABILITY_DICT[Ability][2] as SpriteID
+    }
+
+    func GetAbilityCD(Ability AbilityEnum) int{
+        StringToInt(ABILITY_DICT[Ability][3],out var CD, out var isSuccess)
+        return CD
+    }
+
+    func GetAbilityPrice(Ability AbilityEnum) int{
+        return ABILITY_DICT[Ability][4]
+    }
+
+    func GetAbilityTier(Ability AbilityEnum) int{
+        return ABILITY_DICT[Ability][5]
+    }
+
+    func GetAbilityScript(Ability AbilityEnum) GraphID{
+        return ABILITY_DICT[Ability][6]
+    }
+}

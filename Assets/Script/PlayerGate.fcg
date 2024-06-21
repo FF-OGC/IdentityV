@@ -1,0 +1,51 @@
+import "StdLibrary.fcc" as StdLib
+import "EditorGenLib.fcc" as EditorLib
+import Resources from "EditorGenLib.fcc"
+import "./GATE.fcg" as GATE
+import "./PlayerRescueHUD.fcg" as PlayerRescueHUD
+import "./PlayerConfig.fcg" as PlayerConfig
+import "./Gate.fcg" as Gate
+import "./PlayerGateHUD.fcg" as PlayerGateHUD
+import "./GlobalGeneratorManager.fcg" as GlobalGeneratorManager
+
+graph PlayerRescue {
+    GATE entity<Entity>
+
+    _InTrigger bool = false
+
+    event OnAwake() {
+
+    }
+
+    func SetGate(Gate entity<Entity>) {
+        GATE = Gate
+    }
+
+    func SetInTrigger(inTrigger bool) {
+        _InTrigger = inTrigger
+    }
+
+    func AddProgress(progress float) {
+        GATE<Gate>._CurrentProgress += progress
+        if GATE<Gate>._CurrentProgress >= GATE<Gate>._TotalProgress {
+            GATE<Gate>._CurrentProgress = GATE<Gate>._TotalProgress
+            GATE<Gate>.OpenGate()
+            thisEntity<PlayerGateHUD>.CloseGateHUD()
+            return
+        }
+        thisEntity<PlayerGateHUD>.UpdateGateHUD()
+
+        LogInfo("Progress: " + GATE<Gate>._CurrentProgress + " / " + GATE<Gate>._TotalProgress)
+    } 
+
+    async func OpenGate() {
+        if thisEntity<PlayerConfig>.isImposter{
+            return
+        }
+
+        while _InTrigger && GATE<Gate>._IsClosed  {
+            AddProgress(1)
+            WaitForSeconds(1000)
+        }
+    }
+}

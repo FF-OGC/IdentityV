@@ -1,0 +1,56 @@
+import "Animation.fcc" as Animation
+import "Playable.fcc" as Playable
+import "LevelObject.fcc" as LevelObject
+import "Physics.fcc" as Physics
+import "StdLibrary.fcc" as StdLib
+import "EditorGenLib.fcc" as EditorLib
+import Resources from "EditorGenLib.fcc"
+import "../PlayerHuman.fcg" as PlayerHuman
+import "../PlayerAbilityBtnHUD.fcg" as PlayerAbilityBtnHUD
+
+graph AbilityRun {
+    RUN_SPEED_SCALE = 1.8
+    DURATION = 1000
+
+    _Effect entity<EffectEntity>
+    _Motion entity<PositionFollow>
+    event Player_UseAbility() {
+        start Run()
+        start thisEntity<PlayerAbilityBtnHUD>.StartCD()
+    }
+
+    async func Run() {
+        thisEntity<Player>.RunSpeedScale = RUN_SPEED_SCALE
+        thisEntity<Player>.CrouchSpeedScale = RUN_SPEED_SCALE
+        SetEffect()
+
+        WaitForSeconds(DURATION)
+
+        thisEntity<Player>.RunSpeedScale = thisEntity<PlayerHuman>.RUN_SPEED_SCALE as float
+        thisEntity<Player>.CrouchSpeedScale = thisEntity<PlayerHuman>.RUN_SPEED_SCALE as float
+        HideEffect()
+    }
+
+    func InitEffect() {
+        if _Effect == nil {
+            CreateEffect(out var effect,thisEntity<Player>, EffectType.Line,LoopType.Loop,true)
+            _Effect = effect
+            _Effect<Transform>.Scale = Vector3{2, 2, 2}
+            CreateFollow(_Effect, thisEntity<Player>, Vector3{0, 0, 0},CoordinateType.LocalPosition,out var followMotion, false)
+            _Motion = followMotion
+            SetActive(_Effect,false)
+        }
+    }
+
+    func SetEffect() {
+        InitEffect()
+        SetActive(_Effect,true)
+        Play(_Motion,true)
+    }
+
+    func HideEffect() {
+        SetActive(_Effect,false)
+        Pause(_Motion)
+    }
+    
+}

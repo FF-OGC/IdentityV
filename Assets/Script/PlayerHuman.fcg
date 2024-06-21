@@ -3,35 +3,117 @@ import "EditorGenLib.fcc" as editorGenLib
 import "Workflow.fcc" as workflow 
 import "ChatChannel.fcc" as ChatChannel
 import "./PlayerConfig.fcg" as PlayerConfig
+import "Items.fcc" as Items
+import "Player.fcc" as Player
+import "Hostility.fcc" as Hostility
+import "Playable.fcc" as Playable
+import "Animation.fcc" as Animation
+import "./PlayerDefaultHUD.fcg" as PlayerDefaultHUD
+import "LevelObject.fcc" as LevelObject
+import "./GlobalRole.fcg" as GlobalRole
 
 graph PlayerHuman {
+    
+    _SoundEffect entity<SoundEntity>
+    _HitEffect entity<EffectEntity>
+    _Arrow entity<IconEntity>
+    _NameTag entity<TextEntity>
+
+    RUN_SPEED_SCALE = 0.8
+
+
 
     event OnPhaseStart(phase entity<Phase>) {
         var phaseIndex = phase<Phase>.PhaseIndex
         if phaseIndex == phaseEnum.PREPARERATION {
-        } else if phaseIndex == phaseEnum.DAY {
-        } else if phaseIndex == phaseEnum.NIGHT{
-            WaitForNextFrame()
+
+        } else if phaseIndex == phaseEnum.IN_PROGRESS {
+            DispatchEvent(Player_ChooseAbility,thisEntity,List<object>{AbilityEnum.RUN})
+            // DisplayNameTag()
+        
         }
+    }
+
+    event Player_Escape(player entity<Player>) {
+        LogInfo("Escaped")
+    }
+
+    event Player_ReceiveDamage(player object, damage int) {
+        PlayHitEffect()
+    }
+
+    func InitHumanConfig() {
+        thisEntity<Player>.RunSpeedScale = RUN_SPEED_SCALE
+        thisEntity<Player>.CrouchSpeedScale = RUN_SPEED_SCALE
+    }
+
+    func InitHitEffect() {
+        if _HitEffect == nil {
+            CreateEffect(out var effect, nil,EffectType.ExplosiveBlaze,LoopType.Once,true)
+            _HitEffect = effect
+            _HitEffect<EffectEntity>.Color = #FF0000FF
+            _HitEffect<Transform>.Scale = Vector3{2, 2, 2}
+        }
+    }
+
+    async func PlayHitEffect() {
+        InitHitEffect()
+        _HitEffect<Transform>.Position = thisEntity<Player>.Position
+
+        SetActive(_HitEffect,false)
+        WaitForSeconds(100)
+        SetActive(_HitEffect,true)
     }
     
     func Check() bool{
         return thisEntity<PlayerConfig>.isHuman 
     }
 
-    func CallMeeting() {
 
+    async func PlayHeartBeat() {
+
+        if _SoundEffect == nil {
+            CreateSoundEntity(out var sound, thisEntity<Player>,SoundEffects.MediumHeartbeat,LoopType.Loop,true)
+            _SoundEffect = sound
+            WaitForNextFrame()
+            LogInfo("Display heartbeat")
+            thisEntity<PlayerDefaultHUD>.DisplayHeartBeatEffect()
+        }
     }
 
-    func Vote(player Player) {
-
+    async func DeleteHeartBeat() {
+        if _SoundEffect != nil {
+            DeleteEntity(_SoundEffect)
+            WaitForNextFrame()
+            LogInfo("Close heartbeat")
+            thisEntity<PlayerDefaultHUD>.CloseHeartBeatEffect()
+        }
     }
 
-    func DoTask() {
+    func DisplayNameTag() {
+        var Imposter = globalEntity<GlobalRole>.imposterPlayer
 
-    }
+        CreateLevelObject(out var arrow, Vector3{0, 0, 0}, DynamicCreateItemID.IconObject)
+        _Arrow = arrow as entity<IconEntity>
+        _Arrow<IconEntity>.IconResID = IconType.Arrow as SpriteID
+        _Arrow<IconEntity>.FollowTarget = thisEntity<Player>
+        _Arrow<IconEntity>.Offset = Vector3{0, 1.5, 0}
+        _Arrow<Transform>.Scale = Vector3{0.5, 0.5, 0.5}
+        _Arrow<IconEntity>.IsIgnoreDepth = true
+        _Arrow<IconEntity>.VisiblePlayersList = List<entity<Player>>{Imposter}
+        _Arrow<IconEntity>.Color = #FF0000FF
+        _Arrow<IconEntity>.ShowDepth = 5
+        SetParent(thisEntity<Transform>, _Arrow<Transform>,true)
 
-    func ReportBody() {
+        CreateLevelObject(out var name, Vector3{0, 0, 0}, DynamicCreateItemID.TextObject)
+        _NameTag = name as entity<TextEntity>
+        _NameTag<TextEntity>.TextKey = thisEntity<Player>.NickName
+        _NameTag<TextEntity>.FollowTarget = thisEntity<Player>
+        _NameTag<TextEntity>.Offset = Vector3{0, 1.8, 0}
+        _NameTag<TextEntity>.IsIgnoreDepth = true
+        _NameTag<TextEntity>.VisiblePlayersList = List<entity<Player>>{Imposter}
+        _NameTag<TextEntity>.Color = #FF0000FF
+        SetParent(thisEntity<Transform>, _NameTag<Transform>,true)
 
     }
 

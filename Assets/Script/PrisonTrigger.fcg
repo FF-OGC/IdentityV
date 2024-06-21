@@ -1,0 +1,37 @@
+import "LevelObject.fcc" as LevelObject
+import "StdLibrary.fcc" as StdLib
+import "EditorGenLib.fcc" as EditorLib
+import Resources from "EditorGenLib.fcc"
+import "./Prison.fcg" as Prison
+import "List.fcc" as List
+import "./GlobalPrisonManager.fcg" as GlobalPrisonManager
+import "./PlayerConfig.fcg" as PlayerConfig
+import "./PlayerRescueHUD.fcg" as PlayerRescueHUD
+
+
+graph PrisonTrigger {
+    PRISON entity<Entity>
+    HasInit bool = false
+
+    event OnPlayerEnterTrigger(player entity<Player>) {
+        InitPrisonTrigger()
+        if player != PRISON<Prison>.Prisoner && !player<PlayerConfig>.isImposter{
+            player<PlayerRescueHUD>.SetPrison(PRISON)
+            player<PlayerRescueHUD>.DisplayRescueHUD()
+        }
+       
+        
+    }
+
+    event OnPlayerLeaveTrigger(player entity<Player>) {
+        player<PlayerRescueHUD>.CloseRescueHUD()
+    }
+
+    func InitPrisonTrigger() {
+        if (HasInit) {
+            return
+        }
+        HasInit = true
+        PRISON = GetParent(thisEntity)
+    }
+}

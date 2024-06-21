@@ -1,0 +1,61 @@
+import "Hud.fcc" as Hud
+import "StdLibrary.fcc" as StdLib
+import "EditorGenLib.fcc" as EditorLib
+import Resources from "EditorGenLib.fcc"
+import "./HUDUtil.fcg" as HUDUtil
+import "Convert.fcc" as Convert
+import "Workflow.fcc" as Workflow
+import "./GlobalGeneratorManager.fcg" as GlobalGeneratorManager
+import "./Gate.fcg" as Gate
+import "./PlayerGate.fcg" as PlayerGate
+import "Math.fcc" as Math
+
+graph PlayerStateHUD {
+    _StateHUD entity<CustomHud>
+
+
+ 
+    
+    event OnPhaseStart(phase entity<Phase>) {
+        var phaseIndex = phase<Phase>.PhaseIndex
+        if phaseIndex == phaseEnum.IN_PROGRESS {
+        }
+
+    }
+
+    
+    func InitStateHUD() {
+        if (_StateHUD == nil) {
+
+        }
+    }
+
+    async func DisplayStateHUD() {
+        InitStateHUD()
+
+    }
+    
+    func CloseStateHUD() {
+        if (_StateHUD != nil) {
+            _StateHUD<CustomHud>.Visibility = false
+        }
+    }
+
+
+
+    func UpdateStateHUD()  {
+
+    }
+
+    
+    func ResetStateHUD(){
+            
+    }
+    
+    
+    
+    func GetStateHUDWidget(eResourceUIState string) entity<HudWidget>{
+        return GetWidgetFromCustomHud(thisEntity<Player>, _StateHUD, Resources.UI_STATE[eResourceUIState])
+    }
+    
+}

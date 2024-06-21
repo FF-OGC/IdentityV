@@ -1,0 +1,50 @@
+import "StdLibrary.fcc" as StdLib
+import "EditorGenLib.fcc" as EditorLib
+import Resources from "EditorGenLib.fcc"
+import "./PlayerGeneratorProgressHUD.fcg" as PlayerGeneratorProgressHUD
+import "./GlobalPrisonManager.fcg" as GlobalPrisonManager
+
+graph GlobalGeneratorManager {
+
+    REQUIRED_GENERATOR int = 4
+    CurrentGenerator int = 0
+    Finished bool = false
+
+
+    event Generator_OnFinish(param1 object) {
+        CurrentGenerator += 1
+        LogInfo("Generator Finished:"+ CurrentGenerator)
+        for key, player in GetAllPlayers() {
+            player<PlayerGeneratorProgressHUD>.UpdateGeneratorProgressHUD(CurrentGenerator, REQUIRED_GENERATOR)
+        }
+
+        if CurrentGenerator >= REQUIRED_GENERATOR {
+            Finished = true
+            DispatchEvent(Global_OnFinishTask,globalEntity,List<object>{})
+        }
+    }
+
+    func GetIsFinished() bool {
+        return Finished
+    }
+
+    func DEBUG_FinishTask() {
+        Finished = true
+        DispatchEvent(Global_OnFinishTask,globalEntity,List<object>{})
+    }
+
+    func UpdateRequiedGenerator(requiredGenerator int) {
+        REQUIRED_GENERATOR = requiredGenerator
+        for key, player in GetAllPlayers() {
+            player<PlayerGeneratorProgressHUD>.UpdateGeneratorProgressHUD(CurrentGenerator, REQUIRED_GENERATOR)
+        }
+        
+        if CurrentGenerator >= REQUIRED_GENERATOR {
+            Finished = true
+            DispatchEvent(Global_OnFinishTask,globalEntity,List<object>{})
+        }
+    }
+
+    
+
+}   

@@ -1,0 +1,202 @@
+import "Hud.fcc" as Hud
+import "StdLibrary.fcc" as StdLib
+import "EditorGenLib.fcc" as EditorLib
+import Resources from "EditorGenLib.fcc"
+import "./HUDUtil.fcg" as HUDUtil
+import "Convert.fcc" as Convert
+import "Workflow.fcc" as Workflow
+import "./GlobalGeneratorManager.fcg" as GlobalGeneratorManager
+import "./Gate.fcg" as Gate
+import "./PlayerGate.fcg" as PlayerGate
+import "Math.fcc" as Math
+import "./GlobalRole.fcg" as GlobalRole
+import "./GlobalPlayerStateManager.fcg" as GlobalPlayerStateManager
+import "Player.fcc" as Player
+import "List.fcc" as List
+import "SafeZone.fcc" as SafeZone
+
+graph PlayerStateHUD {
+    _StateHUD entity<CustomHud>
+
+    PLAYER_LAYOUT entity<HudWidget>
+    PLAYER_0 entity<HudWidget>
+    PLAYER_1 entity<HudWidget>
+    PLAYER_2 entity<HudWidget>
+    PLAYER_3 entity<HudWidget>
+
+    
+
+    
+    
+    event OnPhaseStart(phase entity<Phase>) {
+        var phaseIndex = phase<Phase>.PhaseIndex
+        if phaseIndex == phaseEnum.IN_PROGRESS {
+            DisplayStateHUD()
+        }
+
+    }
+
+    
+    func InitStateHUD() {
+        if (_StateHUD == nil) {
+            _StateHUD = HUDUtil.CreateCustomHUD(thisEntity<Player>,EResource_UI.STATE,4)
+            PLAYER_LAYOUT = GetStateHUDWidget(EResource_UI_STATE.PLAYER_LAYOUT)
+            PLAYER_0 = GetStateHUDWidget(EResource_UI_STATE.PLAYER_0)
+            PLAYER_1 = GetStateHUDWidget(EResource_UI_STATE.PLAYER_1)
+            PLAYER_2 = GetStateHUDWidget(EResource_UI_STATE.PLAYER_2)
+            PLAYER_3 = GetStateHUDWidget(EResource_UI_STATE.PLAYER_3)
+            
+            var HumanNum = globalEntity<GlobalRole>.HumanNum
+
+            for key, playerHUD in GetChildren(PLAYER_LAYOUT) {
+                if key > HumanNum - 1 {
+                    DisconnectedPlayer(playerHUD as entity<HudWidget>)
+                } else {
+                    var avatar = GetChildByIndex(playerHUD, 0)
+                    var name = GetChildByIndex(playerHUD, 1)
+
+                    avatar<HudProfileInfo>.AccountID = globalEntity<GlobalRole>.HumanList[key]<Player>.UserUID
+                    name<HudLabelWidget>.Text = globalEntity<GlobalRole>.HumanList[key]<Player>.NickName
+                }
+
+            }
+
+            _StateHUD<CustomHud>.Visibility = false
+        }
+    }
+
+    async func DisplayStateHUD() {
+        InitStateHUD()
+        _StateHUD<CustomHud>.Visibility = true
+
+    }
+    
+    func CloseStateHUD() {
+        if (_StateHUD != nil) {
+            _StateHUD<CustomHud>.Visibility = false
+        }
+    }
+
+
+
+    async func UpdateStateHUD()  {
+        WaitForSeconds(200)
+        var HumanNum = Length(globalEntity<GlobalRole>.HumanList)
+        LogInfo("UpdateStateHUD: " + HumanNum)
+        for key,playerHUD in GetChildren(PLAYER_LAYOUT) {
+            if key > HumanNum - 1 {
+                DisconnectedPlayer(playerHUD as entity<HudWidget>)
+            } else {
+                var player = globalEntity<GlobalRole>.HumanList[key]
+                // var InPrison = globalEntity<GlobalPlayerStateManager>.GetPlayerInPrison(player)
+                // var HP = player<Player>.HP
+                // var State = player<Player>.State
+
+                // if globalEntity<GlobalPlayerStateManager>.GetPlayerEscaped(player) {
+                //     UpdateEscapeStatus(playerHUD as entity<HudWidget>,true)
+                //     return
+                // }
+                
+                // LogInfo("UpdateStateHUD: "+ player<Player>.NickName + " HP: " + HP + " InPrison: " + InPrison + " State: " + State)
+                // UpdateHPBar(playerHUD as entity<HudWidget>,HP)
+                // UpdatePrisonStatus(playerHUD as entity<HudWidget>,InPrison)
+                // UpdatePlayerState(playerHUD as entity<HudWidget>,State)
+
+                Update(playerHUD as entity<HudWidget>,player)
+            }
+        }
+    }
+
+    func Update(playerHUD entity<HudWidget>,player entity<Player>){ 
+        LogInfo("UpdateStateHUD: "+ player<Player>.NickName)
+        var holder = GetChildByIndex(playerHUD, 3)
+        holder<HudWidget>.Active = true
+        var bg = GetChildByIndex(holder, 0)
+        var icon = GetChildByIndex(holder, 1)
+
+        if globalEntity<GlobalPlayerStateManager>.GetPlayerEscaped(player) {
+            SetIcon(bg,icon,#33FF00FF,IconType.Exit as SpriteID)
+            return
+        } else if globalEntity<GlobalPlayerStateManager>.GetPlayerInPrison(player){
+            SetIcon(bg,icon, #FF0000FF ,IconType.Flag as SpriteID)
+            return
+        } else if globalEntity<GlobalPlayerStateManager>.GetPlayerFixing(player) {
+            SetIcon(bg,icon, #33FF00FF ,IconType.Repair as SpriteID)
+            return
+        }
+
+        holder<HudWidget>.Active = false
+        LogInfo("no update")
+
+
+    }
+
+    func SetIcon(bg entity<Entity>,icon entity<Entity>,color Color, IconType SpriteID){
+        bg<HudImageWidget>.Color = color
+        icon<HudImageWidget>.Color = color
+        icon<HudImageWidget>.SpriteName = IconType as SpriteID
+    }
+
+    func UpdateHPBar(playerHUD entity<HudWidget>,hp int ) {
+        var HPHolder = GetChildByIndex(playerHUD, 2)
+        var HP1 = GetChildByIndex(HPHolder, 0)
+        var HP2 = GetChildByIndex(HPHolder, 1)
+
+        if hp > 100 {
+            HP1<HudImageWidget>.Color = #34CF12FF
+        } else {
+            HP1<HudImageWidget>.Color = #4B4B4BFF
+        }
+    }
+
+    func UpdatePrisonStatus(playerHUD entity<HudWidget>, InPrison bool) {
+
+        var PrisonStatusHUD = GetChildByIndex(playerHUD, 3)
+        PrisonStatusHUD<HudWidget>.Active = InPrison
+    }
+
+    func UpdatePlayerState(playerHUD entity<HudWidget>, playerState int) {
+        var PlayerStateHUD = GetChildByIndex(playerHUD, 4)
+        // 1 = survival, 2 = Knock Down, 3 = Dead
+        if playerState == 1 {
+            PlayerStateHUD<HudWidget>.Active = false
+        } else if playerState == 2 {
+            PlayerStateHUD<HudWidget>.Active = true
+        }
+    }
+
+    func DisconnectedPlayer(playerHUD entity<HudWidget>) {
+        var PrisonStatusHUD = GetChildByIndex(playerHUD, 3)
+        var PlayerStateHUD = GetChildByIndex(playerHUD, 4)
+        var DisconnectHUD = GetChildByIndex(playerHUD, 5) 
+
+        PrisonStatusHUD<HudWidget>.Active = false
+        PlayerStateHUD<HudWidget>.Active = false
+        DisconnectHUD<HudWidget>.Active = true
+    }
+
+    func UpdateEscapeStatus(playerHUD entity<HudWidget>, escape bool) {
+        var PrisonStatusHUD = GetChildByIndex(playerHUD, 3)
+        var PlayerStateHUD = GetChildByIndex(playerHUD, 4)
+        var DisconnectHUD = GetChildByIndex(playerHUD, 5) 
+        var EscapeHUD = GetChildByIndex(playerHUD, 6)
+
+        PrisonStatusHUD<HudWidget>.Active = false
+        PlayerStateHUD<HudWidget>.Active = false
+        DisconnectHUD<HudWidget>.Active = false
+        EscapeHUD<HudWidget>.Active = escape
+    }
+    
+
+    
+    func ResetStateHUD(){
+            
+    }
+    
+    
+    
+    func GetStateHUDWidget(eResourceUIState string) entity<HudWidget>{
+        return GetWidgetFromCustomHud(thisEntity<Player>, _StateHUD, Resources.UI_STATE[eResourceUIState])
+    }
+    
+}

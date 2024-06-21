@@ -1,0 +1,82 @@
+import "Physics.fcc" as Physics
+import "LevelObject.fcc" as LevelObject
+import "StdLibrary.fcc" as StdLib
+import "EditorGenLib.fcc" as EditorLib
+import Resources from "EditorGenLib.fcc"
+import "./GateTrigger.fcg" as GateTrigger
+import "./GlobalGeneratorManager.fcg" as GlobalGeneratorManager
+import "Playable.fcc" as Playable
+
+
+graph Gate {
+    GATE_TRIGGER entity<Entity>
+    GATE entity<Entity>
+    GATE_ICON entity<IconEntity>
+    GATE_SWITCH entity<Entity>
+    GATE_EFFECT entity<Entity>
+
+    _TotalProgress float = 10
+    _CurrentProgress float = 0
+    _IsClosed = true
+
+    event OnAwake() {
+        WaitForNextFrame()
+        InitGate()
+    }
+
+    event Global_OnFinishTask() {
+        LogInfo("Global_OnFinishTask")
+        DisplayGateIcon()
+    }
+ 
+
+    func InitGate(){
+        GATE = GetChildByIndex(thisEntity,0)
+        GATE_TRIGGER = GetChildByIndex(thisEntity,1)
+        GATE_EFFECT = GetChildByIndex(GATE_TRIGGER,0)
+        GATE_SWITCH = GetChildByIndex(thisEntity,3)
+        AddScript(GATE_TRIGGER, GateTrigger)
+    }
+
+    func OpenGate() {
+        if globalEntity<GlobalGeneratorManager>.GetIsFinished() {
+            // SetActive(GATE,false)
+            var NewPos = GATE<Transform>.LocalPosition
+            NewPos.Y = NewPos.Y - 5
+            var curve = CreateTweenCurve(List<float>{0,0,1,1})
+            
+            CreateTween(GATE,Transform.LocalPosition,GATE<Transform>.LocalPosition,NewPos,TweenStyle.Once,curve, 3000, out var motion, true)
+        }
+
+    }
+
+
+
+    func DisplayGateIcon() {
+        if !GATE_ICON {
+            var pos = GATE_SWITCH<Transform>.Position
+            pos.Y = pos.Y + 1
+            CreateLevelObject(out var createdEntity,pos , DynamicCreateItemID.IconObject)
+            GATE_ICON = createdEntity<IconEntity>
+            GATE_ICON<IconEntity>.IconResID = IconType.Exit as SpriteID
+            GATE_ICON<IconEntity>.Height = 300
+            GATE_ICON<IconEntity>.Width = 300
+            GATE_ICON<IconEntity>.Color = #33FF00FF
+            GATE_ICON<IconEntity>.IsIgnoreDepth = true
+            GATE_ICON<IconEntity>.IsAlwaysInScreen = true
+            GATE_ICON<IconEntity>.IsBillboard = true
+        }
+
+        SetActive(GATE_ICON,true)
+        SetActive(GATE_EFFECT,true)
+        
+    }
+
+    func RemoveGateIcon() {
+        SetActive(GATE_ICON,false)
+    }
+
+
+    
+    
+}

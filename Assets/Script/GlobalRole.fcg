@@ -3,15 +3,36 @@ import "EditorGenLib.fcc" as editorGenLib
 import "List.fcc" as list 
 import "./GlobalConfig.fcg" as GlobalConfig
 import "./PlayerConfig.fcg" as playerConfig
+import "Hostility.fcc" as Hostility
+import "Player.fcc" as Player
+import "./GlobalGeneratorManager.fcg" as GlobalGeneratorManager
+import "./PlayerHuman.fcg" as PlayerHuman
 
 graph GlobalRole {
     imposterList List<entity<Player>>
+    imposterPlayer entity<Player>
     HumanList List<entity<Player>>
+    HumanNum int 
     Sheriff entity<Player>
     Jester entity<Player>
 
+    ImposterFaction entity<Faction>
+    HumanFaction entity<Faction>
+    HasInit bool = false
+    
+
     event OnAwake() {
         Init()
+    }
+
+    event OnPlayerQuit(player entity<Player>) {
+        if player == imposterPlayer {
+            ChangeImposter()
+        } else {
+            Delete(HumanList,player)
+        }
+
+        globalEntity<GlobalGeneratorManager>.UpdateRequiedGenerator(Length(HumanList))
     }
 
     func Init() {
@@ -20,6 +41,7 @@ graph GlobalRole {
     }
 
     func SetRole() {
+        InitFaction()
         var playerList = GetAllPlayers()
         Shuffle(playerList)
         // Randomize all player list
@@ -29,14 +51,56 @@ graph GlobalRole {
         for key,player in playerList {
             if key < imposterNum {
                 player<playerConfig>.SetImposter()
+                imposterPlayer = player
+                SetFaction(player,ImposterFaction)
                 Append(imposterList,player)
                 
             } else {
-        // Remain are Human
+        // Remain are Humans
                 player<playerConfig>.SetHuman()
+                SetFaction(player,HumanFaction)
                 Append(HumanList,player)
             }
         }
 
+        HumanNum = Length(HumanList)
+        LogInfo("Imposter is " + imposterPlayer)
+        LogInfo("HumanList is " + HumanList)
+    }
+
+    async func ChangeImposter() {
+        var playerList = GetAllPlayers()
+        var imposterNum = globalEntity<GlobalConfig>.GetImposterNum()
+        Shuffle(playerList)
+        imposterPlayer = playerList[imposterNum]
+
+
+        RemoveScript(imposterPlayer,PlayerHuman)
+        imposterPlayer<playerConfig>.SetImposter()
+
+        SetFaction(imposterPlayer,ImposterFaction)
+        Delete(HumanList,imposterPlayer)
+
+        WaitForNextFrame()
+        DispatchEvent(Imposter_ChangeImposter,imposterPlayer,List<object>{imposterPlayer})
+    }
+
+    func InitFaction() {
+        if (HasInit) {
+            return
+        }
+        CreateFaction(out var imposterFaction) 
+        ImposterFaction = imposterFaction
+        CreateFaction(out var humanFaction)
+        HumanFaction = humanFaction
+
+        SetAttackableFaction(ImposterFaction,HumanFaction,true)
+
+        HasInit = true
+    }
+
+    func SetFaction(player entity<Player>,faction entity<Faction>) {
+        InitFaction()
+        JoinFaction(player,faction)
     }
 }

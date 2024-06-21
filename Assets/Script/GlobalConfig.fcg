@@ -3,10 +3,10 @@ import "EditorGenLib.fcc" as editorGenLib
 import "List.fcc" as list 
 import "Workflow.fcc" as workflow 
 import "Math.fcc" as math 
+import "Hostility.fcc" as Hostility
 
 graph GlobalConfig {
     IMPOSTER_NUM = 1
-    
 
 
     func GetPlayerNum() int {
@@ -16,4 +16,5 @@ graph GlobalConfig {
     func GetImposterNum() int {
         return IMPOSTER_NUM
     }
+
 }

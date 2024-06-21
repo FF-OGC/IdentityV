@@ -1,0 +1,126 @@
+import "Hud.fcc" as Hud
+import "StdLibrary.fcc" as StdLib
+import "EditorGenLib.fcc" as EditorLib
+import Resources from "EditorGenLib.fcc"
+import "./HUDUtil.fcg" as HUDUtil
+import "Convert.fcc" as Convert
+import "Workflow.fcc" as Workflow
+import "./GlobalGeneratorManager.fcg" as GlobalGeneratorManager
+import "./Prison.fcg" as Prison
+import "./PlayerRescue.fcg" as PlayerRescue
+import "Math.fcc" as Math
+import "List.fcc" as List
+
+graph PlayerNotificationHUD {
+    _NotificationHUD entity<CustomHud>
+    BG entity<HudWidget>
+    Text entity<HudWidget>
+    
+
+    _IsActive bool = false
+    _Queue List<List<object>> = List<List<object>>{}
+ 
+    
+    event OnPhaseStart(phase entity<Phase>) {
+        var phaseIndex = phase<Phase>.PhaseIndex
+        if phaseIndex == phaseEnum.IN_PROGRESS {
+        }
+
+    }
+
+    event Generator_OnFinish(generator object) {
+        DisplayNotificationHUD(#32FF00FF, "Generator Repaired.", 3000)
+    }
+
+    event Player_EnterPrison(player entity<Player>) {
+        DisplayNotificationHUD(#FF0000FF, player<Player>.NickName + " Enter Prison.", 3000)
+    }
+
+    event Player_EscapePrison(player entity<Player>) {
+        DisplayNotificationHUD(#32FF00FF, player<Player>.NickName + " Escape Prison.", 3000)
+    }
+
+    event Global_OnFinishTask() {
+        WaitForNextFrame()
+        DisplayNotificationHUD(#32FF00FF, "Task Completed.", 3000)
+    }
+
+    event Player_Escape(player entity<Player>) {
+        DisplayNotificationHUD(#32FF00FF, player<Player>.NickName + " Escaped.", 3000)
+    }   
+
+
+    
+    func InitNotificationHUD() {
+        if (_NotificationHUD == nil) {
+            _NotificationHUD = HUDUtil.CreateCustomHUD(thisEntity<Player>,EResource_UI.NOTIFICATION,4)
+            _NotificationHUD<CustomHud>.Visibility = false
+            BG = GetNotificationHUDWidget(EResource_UI_NOTIFICATION.BG)
+            Text = GetNotificationHUDWidget(EResource_UI_NOTIFICATION.TEXT)
+
+        }
+    }
+
+    async func DisplayNotificationHUD(bgColor Color, text string, duration int) {
+        InitNotificationHUD()
+
+        if _IsActive {
+            AppendQueue({bgColor, text, duration})
+            return
+        }
+
+        BG<HudImageWidget>.Color = bgColor
+        Text<HudLabelWidget>.Text = text
+        _NotificationHUD<CustomHud>.Visibility = true
+        _IsActive = true
+
+        WaitForSeconds(duration)
+
+        if Length(_Queue) > 0 {
+            ProcessQueue()
+        } else {
+            CloseNotificationHUD()
+        }
+
+
+    }
+    
+    func CloseNotificationHUD() {
+        if (_NotificationHUD != nil) {
+            _NotificationHUD<CustomHud>.Visibility = false
+            _IsActive = false
+        }
+    }
+
+    
+    func ResetNotificationHUD(){
+            
+    }
+
+    func AppendQueue(noti List<object>){
+        LogInfo("AppendQueue")
+        Append(_Queue, noti)
+    }
+
+    func PopQueue() List<object>{
+        var noti = _Queue[0]
+        DeleteAt(_Queue,0)
+        LogInfo("PopQueue: " + _Queue)
+        return noti
+
+    }
+
+    async func ProcessQueue(){
+        if (Length(_Queue) > 0 ){
+            var noti = PopQueue()
+            DisplayNotificationHUD(noti[0] as Color, noti[1] as string,noti[2] as int)
+        }
+    }
+    
+    
+    
+    func GetNotificationHUDWidget(eResourceUINotification string) entity<HudWidget>{
+        return GetWidgetFromCustomHud(thisEntity<Player>, _NotificationHUD, Resources.UI_NOTIFICATION[eResourceUINotification])
+    }
+    
+}

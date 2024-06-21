@@ -3,11 +3,14 @@ import "EditorGenLib.fcc" as editorGenLib
 import "Physics.fcc" as physics
 import "LevelObject.fcc" as levelobject
 import "List.fcc" as list
-import "./PlayerImposter.fcg" as playerImposter
-import "./PlayerConfig.fcg" as playerConfig
+import "./PlayerImposter.fcg" as PlayerImposter
+import "./PlayerConfig.fcg" as PlayerConfig
 import "Workflow.fcc" as Workflow
 import "Math.fcc" as Math
-import "./PlayerFixingHUD.fcg" as playerFixingHUD
+import "./PlayerFixingHUD.fcg" as PlayerFixingHUD
+import "./GlobalRole.fcg" as GlobalRole
+import "Playable.fcc" as Playable
+import "Animation.fcc" as Animation
 
 graph Generator {
     //Executed when entity is created
@@ -17,17 +20,23 @@ graph Generator {
     Generator_Trigger entity<LevelObject> 
     Generator_Cylinder entity<LevelObject>
     Generator_Effect entity<LevelObject>
+    Generator_FixingEffect entity<LevelObject>
 
 
-    _CurrentPhase = 0
+    _CurrentPhase = 0 //Phase 0: New, Phase 1: Fixing, Phase 2: Finished    
     _TotalProgress float = 50
     _CurrentProgress float = 0
     _SkillCheckChance float = 0.2
-    _SkillCheckPenalty = 10
+    _SkillCheckPenalty = 5
     _SkillCheckActive bool = false
     _PlayerFixing float = 0
     _FixingSpeed float = 1
     _PlayerList List<entity<Player>> = List<entity<Player>>{}
+
+    _IsDamaged bool = false
+    _SabotageEffect entity<EffectEntity>
+
+    _FailSkillCheckIcon entity<IconEntity>
 
 
     event OnAwake() {
@@ -37,6 +46,7 @@ graph Generator {
         Generator_Trigger = GetChildren(thisEntity)[2] as entity<LevelObject>
         Generator_Cylinder = GetChildren(thisEntity)[3] as entity<LevelObject>
         Generator_Effect = GetChildren(thisEntity)[4] as entity<LevelObject>
+        Generator_FixingEffect = GetChildren(thisEntity)[7] as entity<LevelObject>
     }
 
     
@@ -46,14 +56,18 @@ graph Generator {
 
     async func RemovePlayer(player entity<Player>) {
         Delete(_PlayerList, player)
-        if player<playerFixingHUD>._inSkillCheck {
+        if player<PlayerFixingHUD>._inSkillCheck {
             FailSkillCheck()
         }
     }
 
 
     async func AddProgress(progress float) {
-
+        if _IsDamaged {
+            _IsDamaged = false
+            StopSabotageEffect()
+        }
+        
         if _CurrentPhase == 0 {
             Generator_Cylinder<EffectEntity>.Color = #FFB400FF
             _CurrentPhase = 1
@@ -69,6 +83,13 @@ graph Generator {
         }
     }
 
+    func MinusProgress(progress float) {
+        _CurrentProgress -= progress
+        if _CurrentProgress < 0 {
+            _CurrentProgress = 0
+        }
+    }
+
     async func FailSkillCheck() {
         if _CurrentPhase != 2 {
             _CurrentProgress -= _SkillCheckPenalty
@@ -80,11 +101,79 @@ graph Generator {
             SetActive(Generator_Effect, false)
             WaitForSeconds(100)
             SetActive(Generator_Effect, true)
+
+            start CreateFailSkillCheckIcon()
+            DispatchEvent(Player_FailSkillCheck,globalEntity<GlobalRole>.imposterPlayer, List<object>{thisEntity} )
         }
     }
 
-    func SkillCheck() {
+    async func CreateFailSkillCheckIcon() {
+        CreateLevelObject(out var createdEntity,thisEntity<Transform>.Position , DynamicCreateItemID.IconObject)
+        createdEntity<IconEntity>.IconResID = IconType.Boom as SpriteID
+        createdEntity<IconEntity>.Height = 300
+        createdEntity<IconEntity>.Width = 300
+        createdEntity<IconEntity>.Color = #FF0000FF
+        createdEntity<IconEntity>.VisiblePlayersList = List<entity<Player>>{globalEntity<GlobalRole>.imposterPlayer}
+        createdEntity<IconEntity>.Offset = Vector3{0, 0, 0}
+        createdEntity<IconEntity>.IsIgnoreDepth = true
+        createdEntity<IconEntity>.IsAlwaysInScreen = true
+        createdEntity<IconEntity>.IsBillboard = true
 
+        WaitForSeconds(10000)
+        DeleteEntity(createdEntity)
+
+        // if _FailSkillCheckIcon == nil {
+        //     CreateLevelObject(out var createdEntity,thisEntity<Transform>.Position , DynamicCreateItemID.IconObject)
+        //     _FailSkillCheckIcon = createdEntity
+        //     _FailSkillCheckIcon<IconEntity>.IconResID = IconType.Boom as SpriteID
+        //     _FailSkillCheckIcon<IconEntity>.Height = 300
+        //     _FailSkillCheckIcon<IconEntity>.Width = 300
+        //     _FailSkillCheckIcon<IconEntity>.Color = #FF0000FF
+        //     _FailSkillCheckIcon<IconEntity>.VisiblePlayersList = List<entity<Player>>{globalEntity<GlobalRole>.imposterPlayer}
+        //     _FailSkillCheckIcon<IconEntity>.Offset = Vector3{0, 0, 0}
+        //     _FailSkillCheckIcon<IconEntity>.IsIgnoreDepth = true
+        //     _FailSkillCheckIcon<IconEntity>.IsAlwaysInScreen = true
+        //     _FailSkillCheckIcon<IconEntity>.IsBillboard = true
+        // }
+
+        // SetActive(_FailSkillCheckIcon, true)
+        // WaitForSeconds(10000)
+        // SetActive(_FailSkillCheckIcon, false)
+    }
+
+    async func Sabotage() {
+        _IsDamaged = true
+        PlaySabotageEffect()
+        while _IsDamaged {
+            MinusProgress(0.5)
+            if _CurrentProgress == 0 {
+                return
+            }
+            WaitForSeconds(1000)
+        }
+    }
+
+    async func PlaySabotageEffect() {
+        if _SabotageEffect == nil {
+            var pos = thisEntity<Transform>.Position
+            pos.Y = pos.Y + 2
+            CreateEffect(out var createdEntity,nil,EffectType.RisingParticle,LoopType.Loop,true)
+            _SabotageEffect = createdEntity
+            _SabotageEffect<EffectEntity>.Color = #FF0000FF
+            _SabotageEffect<Transform>.Position = pos
+            _SabotageEffect<Transform>.Rotation = Vector3{180, 0, 0}
+            _SabotageEffect<Transform>.Scale = Vector3{3, 3, 3}
+        }
+        
+        SetActive(_SabotageEffect, true)
+
+        SetActive(Generator_Effect, false)
+        WaitForSeconds(100)
+        SetActive(Generator_Effect, true)
+    }
+
+    func StopSabotageEffect() {
+        SetActive(_SabotageEffect, false)
     }
 
     func SwitchPhase() {
@@ -104,6 +193,14 @@ graph Generator {
 
     func SetInTrigger(value bool) {
         inTrigger = value
+    }
+
+    func DisplayFixingEffect() {
+        SetActive(Generator_FixingEffect, true)
+    }
+
+    func CloseFixingEffect() {
+        SetActive(Generator_FixingEffect, false)
     }
 
 

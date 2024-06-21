@@ -1,0 +1,127 @@
+import "Hud.fcc" as Hud
+import "StdLibrary.fcc" as StdLib
+import "EditorGenLib.fcc" as EditorLib
+import Resources from "EditorGenLib.fcc"
+import "./HUDUtil.fcg" as HUDUtil
+import "Workflow.fcc" as Workflow
+import "./GlobalAbilityManager.fcg" as GlobalAbilityManager
+import "Playable.fcc" as Playable
+import "PropertyFormula.fcc" as PropertyFormula
+
+graph PlayerAbilityBtnHUD {
+
+    _AbilityBtnHUD entity<CustomHud>
+
+    ICON entity<HudWidget>
+    BLOCKER entity<HudWidget>
+    BUTTON entity<HudWidget>
+
+    _IsAvailable bool = false
+    _IsActive bool = false
+
+    _CD int 
+    _CurrentID AbilityEnum
+
+    
+
+    event OnPhaseStart (phase entity<Phase>) {
+        var phaseIndex = phase<Phase>.PhaseIndex
+        if phaseIndex == phaseEnum.IN_PROGRESS {
+
+        }
+
+    }
+
+    event Player_ChooseAbility(abilityID object) {
+        InitAbilityHUD()
+        SetCurrentID(abilityID)
+        DisplayAbilityButtonHUD()
+    }
+
+    func SetCurrentID(abilityID object) {
+        AddScript(thisEntity, globalEntity<GlobalAbilityManager>.GetAbilityScript(abilityID as AbilityEnum) as GraphID)
+        _CurrentID = abilityID as AbilityEnum
+
+        _CD = globalEntity<GlobalAbilityManager>.GetAbilityCD(abilityID as AbilityEnum)
+        ICON<HudImageWidget>.SpriteName = globalEntity<GlobalAbilityManager>.GetAbilityIcon(abilityID as AbilityEnum) as SpriteID
+    }
+    
+
+    
+    func InitAbilityHUD() {
+        if (_AbilityBtnHUD == nil) {
+            _AbilityBtnHUD = HUDUtil.CreateCustomHUD(thisEntity<Player>,EResource_UI.SKILL_BTN,4)
+            _AbilityBtnHUD<CustomHud>.Visibility = false
+
+            _IsAvailable = true
+            _IsActive = false
+
+            ICON = GetAbilityButtonHUDWidget(EResource_UI_SKILL_BTN.ICON)
+            BLOCKER = GetAbilityButtonHUDWidget(EResource_UI_SKILL_BTN.BLOCKER)
+            BUTTON = GetAbilityButtonHUDWidget(EResource_UI_SKILL_BTN.BTN)
+
+            BLOCKER<HudImageWidget>.FillAmount = 0
+            
+        }
+    }
+
+    func DisplayAbilityButtonHUD() {
+        InitAbilityHUD()
+        _AbilityBtnHUD<CustomHud>.Visibility = true
+    }
+    
+    func CloseAbilityButtonHUD() {
+        if (_AbilityBtnHUD != nil) {
+            _AbilityBtnHUD<CustomHud>.Visibility = false
+        }
+    }
+
+    
+    func ResetAbilityButtonHUD(){
+            
+    }
+
+    func ButtonClick() {
+        if (!_IsAvailable) {
+            return
+        }
+        DispatchEvent(Player_UseAbility,thisEntity,List<object>{})
+        // start StartCD()
+    }
+
+    async func StartCD() {
+        _IsActive = true
+        WaitForNextFrame()
+        LogInfo("Start CD")
+        if !_IsActive {
+            return
+        }
+
+        var currentCD float = _CD
+        var blockerFill float = 1
+        _IsActive = false
+        _IsAvailable = false
+
+        LogInfo("CD: " + _CD)
+        LogInfo("Current CD: " + currentCD)
+        
+        // while currentCD > 0 {
+        //     currentCD -= 1000
+        //     blockerFill = currentCD / _CD
+        //     BLOCKER<HudImageWidget>.FillAmount = blockerFill
+        //     WaitForSeconds(1000)
+        // }
+    
+        var curve = CreateTweenCurve(List<float>{0,0,1,1})
+        CreateTween(BLOCKER<HudImageWidget>,HudImageWidget.FillAmount,1,0,TweenStyle.Once,curve,_CD, out var motion, true)
+        WaitForSeconds(_CD + 500)
+
+        _IsAvailable = true;
+    }
+    
+    
+    
+    func GetAbilityButtonHUDWidget(eResourceUISkill string) entity<HudWidget>{
+        return GetWidgetFromCustomHud(thisEntity<Player>, _AbilityBtnHUD, Resources.UI_SKILL_BTN[eResourceUISkill])
+    }
+}

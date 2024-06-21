@@ -1,0 +1,77 @@
+import "Player.fcc" as Player
+import "List.fcc" as List
+import "Combat.fcc" as Combat
+import "StdLibrary.fcc" as StdLib
+import "EditorGenLib.fcc" as EditorLib
+import Resources from "EditorGenLib.fcc"
+import "./Prison.fcg" as Prison
+import "./GlobalRole.fcg" as GlobalRole
+import "./PlayerDefaultHUD.fcg" as PlayerDefaultHUD
+
+graph GlobalPrisonManager {
+    PRISONS List<entity<Entity>> = List<entity<Entity>>{}
+    _PrisonerList List<Player> = List<Player>{}
+
+    event OnAwake() {
+        WaitForNextFrame()
+        PRISONS = GetChildren(Resources.Scene_main[EResource_Scene_main.PRISONS])
+    }
+
+
+    event OnPlayerDead(player entity<Player>) {
+        WaitForNextFrame()
+        // Teleport(player, Resources.Scene_main[EResource_Scene_main.PRISON]<Transform>.Position,Vector3{0, 0, 0})
+        PutInPrison(player)
+        Revive(player)
+
+        if Length(_PrisonerList) >= Length(globalEntity<GlobalRole>.HumanList) {
+            DispatchEvent(IMPOSTER_KILLEDALL,globalEntity<GlobalRole>.imposterPlayer,List<object>{})
+            DispatchEvent(IMPOSTER_KILLEDALL,globalEntity,List<object>{})
+
+            // Debug
+            LogInfo("Imposter killed all players")
+        }
+    }
+
+    func GetPrisonerList() List<Player> {
+        return _PrisonerList
+    }
+
+    func AppendPrisonner(player entity<Player>) {
+        Append(_PrisonerList, player)
+        DispatchEvent(Player_EnterPrison,globalEntity,List<object>{player})
+
+        for key,_player in GetAllPlayers() {
+            DispatchEvent(Player_EnterPrison,_player,List<object>{player})
+        }
+    }
+
+    func RemovePrisoner(player entity<Player>) {
+        Delete(_PrisonerList, player)
+        DispatchEvent(Player_EscapePrison,globalEntity,List<object>{player})
+        
+        for key,_player in GetAllPlayers() {
+            DispatchEvent(Player_EscapePrison,_player,List<object>{player})
+        }
+    }
+
+    func RemoveAllPrisoner() {
+        Clear(_PrisonerList)
+    }
+
+    func IsPrisoner(player entity<Player>) bool {
+        return Contains(_PrisonerList, player)
+    }
+
+    async func PutInPrison(player entity<Player>) {
+        Shuffle(PRISONS)
+        for key, prison in PRISONS {
+            if !prison<Prison>.GetIsActive() {
+                prison<Prison>.SetPrisoner(player)
+                Teleport(player,prison<Transform>.Position,Vector3{0,0,0})
+                return
+            }
+        }
+    }
+
+}

@@ -1,0 +1,24 @@
+{
+ "Name": "NeJf7T04.AutoServer_TvRlqOtk",
+ "UUID": "NeJf7T04.AutoServer_TvRlqOtk",
+ "ShareType": "Private",
+ "PackageType": "Custom",
+ "UseableType": "ClientServer",
+ "Platform": "Any",
+ "Version": "1.0.0",
+ "DataFormatVersion": 1,
+ "ResourceList": [
+  {
+   "UUID": "NeJf7T04.fktlnx01p5s-lxd0vnbl-o65yd9qpuy",
+   "Type": "CSV",
+   "Path": "Assets\\CSV\\Survivor_Abilities.csv",
+   "Data": "ChIKAAoACgAKAAoACgAKAAoACgAKEgoACgAKAAoACgAKAAoACgAKAApLCgxBYmlsaXR5X0VudW0KBE5hbWUKC0Rlc2NyaXB0aW9uCgRJY29uCgJDRAoFUHJpY2UKBFRpZXIKBlNjcmlwdAoJQXZhaWxhYmxlCkcKC0FCSUxJVFlfUlVOCgNSdW4KClJ1biBmYXN0ZXIKCElDT05fUlVOCgUxMDAwMAoBMAoBMQoKQWJpbGl0eVJ1bgoEVFJVRQ=="
+  },
+  {
+   "UUID": "NeJf7T04.t1jz9jooian-lxd0vbu1-uh6kqf7m48",
+   "Type": "CSV",
+   "Path": "Assets\\CSV\\Killer_Abilities.csv",
+   "Data": "ChIKAAoACgAKAAoACgAKAAoACgAKEgoACgAKAAoACgAKAAoACgAKAApLCgxBYmlsaXR5X0VudW0KBE5hbWUKC0Rlc2NyaXB0aW9uCgRJY29uCgJDRAoFUHJpY2UKBFRpZXIKBlNjcmlwdAoJQXZhaWxhYmxlClMKDEFCSUxJVFlfU0NBTgoEU2NhbgoSU2NhbiB0aGUgc3Vydml2b3JzCglJQ09OX1NDQU4KBTEwMDAwCgEwCgExCgtBYmlsaXR5U2NhbgoEVFJVRQpWCgxBQklMSVRZX1RFTEUKBFRlbGUKFlRlbGVwb3J0IHRvIGEgc3Vydml2b3IKCUlDT05fVEVMRQoEMzAwMAoBMAoBMQoLQWJpbGl0eVRlbGUKBFRSVUU="
+  }
+ ]
+}

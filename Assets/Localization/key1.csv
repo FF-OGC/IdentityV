@@ -1,0 +1,2 @@
+Ability_Enum,Name,Description,Icon,CD,Price,Tier,Script,Available
+ABILITY_SCAN,Scan,Scan the survivors,ICON_SCAN,10000,0,1,AbilityScan,TRUE

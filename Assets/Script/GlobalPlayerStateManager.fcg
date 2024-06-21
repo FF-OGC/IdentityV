@@ -1,0 +1,115 @@
+import "StdLibrary.fcc" as StdLib
+import "EditorGenLib.fcc" as EditorLib
+import Resources from "EditorGenLib.fcc"
+import "./GlobalRole.fcg" as GlobalRole
+import "List.fcc" as List
+import "./PlayerStateHUD.fcg" as PlayerStateHUD
+import "Player.fcc" as Player
+import "./PlayerHPBar.fcg" as PlayerHPBar
+
+graph GlobalPlayerStateManager {
+    _PlayerHPList = List<int>{200,200,200,200}
+    _PlayerPrisonList = List<bool>{false,false,false,false}
+    _PlayerStateList = List<int>{1,1,1,1} // 1 = Alive, 2 = Knock Down, 3 = Dead
+    _PlayerEscapedList = List<bool>{false,false,false,false}
+    _PlayerFixingList = List<bool>{false,false,false,false}
+
+    event Player_EnterPrison(player entity<Player>) {
+        WaitForNextFrame()
+        PlayerEnterPrison(player)
+        UpdateState()
+    }
+
+    event Player_EscapePrison(player entity<Player>) {
+        WaitForNextFrame()
+        PlayerEscapePrison(player)
+        UpdateState()
+    }
+
+    event Player_ReceiveDamage(player object, damage int) {
+        WaitForNextFrame()
+        PlayerReceiveDamage(player as entity<Player>)
+        UpdateState()
+    }
+
+    event Player_Escape(player entity<Player>) {
+        WaitForNextFrame()
+        PlayerEscapeGate(player)
+        UpdateState()
+    }
+
+    event Player_StartFixing(player entity<Player>, generator object) {
+        WaitForNextFrame()
+        PlayerStartFixing(player)
+        UpdateState()
+    }
+
+    event Player_StopFixing(player entity<Player>, generator object) {
+        WaitForNextFrame()
+        PlayerStopFixing(player)
+        UpdateState()
+    }
+
+    event OnPlayerQuit(player entity<Player>) {
+        WaitForNextFrame()
+        UpdateState()
+    }
+
+    func PlayerEnterPrison(player entity<Player>) {
+        var playerIndex = IndexOf(globalEntity<GlobalRole>.HumanList,player)
+        _PlayerPrisonList[playerIndex] = true
+        _PlayerHPList[playerIndex] = player<Player>.HP
+        _PlayerStateList[playerIndex] = player<Player>.State
+    }
+
+    func PlayerEscapePrison(player entity<Player>) {
+        var playerIndex = IndexOf(globalEntity<GlobalRole>.HumanList,player)
+        LogInfo(playerIndex)
+        _PlayerPrisonList[playerIndex] = false
+        _PlayerHPList[playerIndex] = player<Player>.HP
+    }
+
+    func PlayerReceiveDamage(player entity<Player>) {
+        var playerIndex = IndexOf(globalEntity<GlobalRole>.HumanList,player)
+        _PlayerHPList[playerIndex] = player<Player>.HP
+        _PlayerStateList[playerIndex] = player<Player>.State
+
+    }
+
+    func PlayerEscapeGate(player entity<Player>) {
+        var playerIndex = IndexOf(globalEntity<GlobalRole>.HumanList,player)
+        _PlayerEscapedList[playerIndex] = true
+    }
+
+    func PlayerStartFixing(player entity<Player>) {
+        var playerIndex = IndexOf(globalEntity<GlobalRole>.HumanList,player)
+        _PlayerFixingList[playerIndex] = true
+    }
+
+    func PlayerStopFixing(player entity<Player>) {
+        var playerIndex = IndexOf(globalEntity<GlobalRole>.HumanList,player)
+        _PlayerFixingList[playerIndex] = false
+    }
+
+    func GetPlayerFixing(player entity<Player>) bool {
+        var playerIndex = IndexOf(globalEntity<GlobalRole>.HumanList,player)
+        return _PlayerFixingList[playerIndex]
+    }
+
+    func GetPlayerInPrison(player entity<Player>) bool {
+        var playerIndex = IndexOf(globalEntity<GlobalRole>.HumanList,player)
+        return _PlayerPrisonList[playerIndex]
+    }
+
+    func GetPlayerEscaped(player entity<Player>) bool {
+        var playerIndex = IndexOf(globalEntity<GlobalRole>.HumanList,player)
+        return _PlayerEscapedList[playerIndex]
+    }
+
+    async func UpdateState() {
+        for key,player in GetAllPlayers() {
+            player<PlayerStateHUD>.UpdateStateHUD()
+            player<PlayerHPBar>.UpdateHpBar()
+        }
+    }
+}

@@ -1,0 +1,34 @@
+import "StdLibrary.fcc" as stdLibrary
+import "EditorGenLib.fcc" as editorGenLib
+import "LevelObject.fcc" as levelobject
+import "Collection.fcc" as collection
+import "Workflow.fcc" as workflow
+import "Combat.fcc" as combat
+import "List.fcc" as list
+import "Player.fcc" as player
+import "Math.fcc" as math
+import "ChatChannel.fcc" as ChatChannel
+
+graph PlayerEntity {
+
+
+    event OnPhaseStart(phase entity<Phase>) {
+        var phaseIndex = phase<Phase>.PhaseIndex
+        if phaseIndex == phaseEnum.PREPARERATION {
+
+        } else if phaseIndex == phaseEnum.IN_PROGRESS {
+            SetPlayerConfig()
+        } 
+
+    }
+
+    func SetPlayerConfig() {
+        thisEntity<Player>.IsNOFallDamage = true
+        thisEntity<Player>.KnockDownState = KnockDownType.SkipKnockDown
+    }
+    
+
+
+
+
+} 

@@ -1,0 +1,92 @@
+import "Hud.fcc" as Hud
+import "StdLibrary.fcc" as StdLib
+import "EditorGenLib.fcc" as EditorLib
+import Resources from "EditorGenLib.fcc"
+import "./HUDUtil.fcg" as HUDUtil
+import "Convert.fcc" as Convert
+import "Workflow.fcc" as Workflow
+import "./GlobalGeneratorManager.fcg" as GlobalGeneratorManager
+import "./Gate.fcg" as Gate
+import "./PlayerGate.fcg" as PlayerGate
+import "Math.fcc" as Math
+
+graph PlayerGateHUD {
+    _GateHUD entity<CustomHud>
+    GATE entity<Entity>
+
+    PIVOT_PROGRESS entity<HudWidget>
+    BTN entity<HudWidget>
+
+    PROGRESS_BAR entity<HudWidget>
+    CURRENT_PROGRESS_BAR entity<HudWidget>
+    TEXT entity<HudWidget>
+
+    _isActive bool = false
+
+ 
+    
+    event OnPhaseStart(phase entity<Phase>) {
+        var phaseIndex = phase<Phase>.PhaseIndex
+        if phaseIndex == phaseEnum.IN_PROGRESS {
+        }
+
+    }
+
+
+    func SetGate(Gate entity<Entity>) {
+        GATE = Gate
+        thisEntity<PlayerGate>.SetGate(GATE)
+    }
+    
+    func InitGateHUD() {
+        if (_GateHUD == nil) {
+            _GateHUD = HUDUtil.CreateCustomHUD(thisEntity<Player>,EResource_UI.PROGRESS_BAR,4)
+            _GateHUD<CustomHud>.Visibility = false
+            PIVOT_PROGRESS = GetGateHUDWidget(EResource_UI_PROGRESS_BAR.Pivot_Progress)
+            BTN = GetGateHUDWidget(EResource_UI_PROGRESS_BAR.BTN)
+            PROGRESS_BAR = GetChildByIndex(PIVOT_PROGRESS,0) as entity<HudWidget>
+            CURRENT_PROGRESS_BAR = GetChildByIndex(PIVOT_PROGRESS,1) as entity<HudWidget>
+            TEXT = GetChildByIndex(PIVOT_PROGRESS,2) as entity<HudWidget>
+            TEXT<HudLabelWidget>.Text = "Opening Gate"
+            
+            BTN<HudWidget>.Active = false
+        }
+    }
+
+    async func DisplayGateHUD() {
+        InitGateHUD()
+        UpdateGateHUD()
+        _GateHUD<CustomHud>.Visibility = true
+        _isActive = true
+
+    }
+    
+    func CloseGateHUD() {
+        if (_GateHUD != nil) {
+            _GateHUD<CustomHud>.Visibility = false
+            _isActive = false
+        }
+    }
+
+
+
+    func UpdateGateHUD()  {
+        LogInfo("ProgressBar Width: " + PROGRESS_BAR<HudWidget>.Width)
+        LogInfo("Total Progress: " + GATE<Gate>._TotalProgress)
+        
+        var ratio = PROGRESS_BAR<HudWidget>.Width / GATE<Gate>._TotalProgress
+        CURRENT_PROGRESS_BAR<HudWidget>.Width = Round(GATE<Gate>._CurrentProgress * ratio)
+    }
+
+    
+    func ResetGateHUD(){
+            
+    }
+    
+    
+    
+    func GetGateHUDWidget(eResourceUIGate string) entity<HudWidget>{
+        return GetWidgetFromCustomHud(thisEntity<Player>, _GateHUD, Resources.UI_PROGRESS_BAR[eResourceUIGate])
+    }
+    
+}

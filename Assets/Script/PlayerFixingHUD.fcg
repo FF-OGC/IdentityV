@@ -9,6 +9,7 @@ import "PropertyFormula.fcc" as PropertyFormula
 import "./Generator.fcg" as Generator
 import "./PlayerFix.fcg" as PlayerFix
 import "./GlobalLoop.fcg" as GlobalLoop
+import "./GlobalRole.fcg" as GlobalRole
 
 
 graph PlayerFixingHUD {
@@ -85,6 +86,7 @@ graph PlayerFixingHUD {
     }
 
     async func CloseFixingHUD(){
+        LogInfo("PRogress Pivot Active: " + _ProgressPivot<HudWidget>.Active)
         if(_ProgressPivot<HudWidget>.Active){
             _ProgressPivot<HudWidget>.Active = false
             CloseSkillCheckHUD()

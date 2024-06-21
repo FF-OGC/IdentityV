@@ -1,0 +1,73 @@
+import "Items.fcc" as Items
+import "List.fcc" as List
+import "Combat.fcc" as Combat
+import "Buff.fcc" as Buff
+import "Workflow.fcc" as Workflow
+import "Hud.fcc" as Hud
+import "StdLibrary.fcc" as StdLib
+import "EditorGenLib.fcc" as EditorLib
+import Resources from "EditorGenLib.fcc"
+import "./PlayerConfig.fcg" as PlayerConfig
+import "./GlobalRole.fcg" as GlobalRole
+
+graph PlayerHPBar {
+    
+    hpBarHUD entity<PlayerHeadHud>;
+
+    event OnAwake() {
+    }
+    
+    event OnPhaseStart(phase entity<Phase>) {
+        var phaseIndex = phase<Phase>.PhaseIndex
+        if(phaseIndex == phaseEnum.IN_PROGRESS){
+            if thisEntity<PlayerConfig>.isHuman {
+
+            CreateHPBarHUD(); 
+            WaitForNextFrame();
+            ConfigHpBarHUD();
+            }
+        }
+    }
+
+
+
+    event OnKill(target entity<Entity>, value HitBodyPart) {
+        
+    }
+
+
+
+
+
+    func CreateHPBarHUD(){
+        CreateInternalHud(out var out_hud,nil,InternalHudType.PlayerHeadHud);
+        hpBarHUD = out_hud<PlayerHeadHud>;
+    }
+
+    func ConfigHpBarHUD(){
+        var lineSpacing = thisEntity<Player>.HPMAX/(thisEntity<Player>.HP/100);
+        // var visibleList List<entity<Player>> =  Clone(GetAllPlayers()) as List<entity<Player>>;
+       
+        // Delete(visibleList,thisEntity<Player>);
+        hpBarHUD<PlayerHeadHud>.TotalHp = thisEntity<Player>.HPMAX;
+        hpBarHUD<PlayerHeadHud>.CurrentHp = thisEntity<Player>.HP;
+        hpBarHUD<PlayerHeadHud>.PlayerName = thisEntity<Player>.NickName;
+        hpBarHUD<PlayerHeadHud>.LineSpacing = lineSpacing;
+        hpBarHUD<PlayerHeadHud>.FollowTarget = thisEntity;
+        hpBarHUD<PlayerHeadHud>.Offset = Vector3{0, 1.7, 0};
+        hpBarHUD<PlayerHeadHud>.VisiblePlayersList = List<entity<Player>>{globalEntity<GlobalRole>.imposterPlayer}
+        hpBarHUD<PlayerHeadHud>.IsLocalPos = false;
+        hpBarHUD<PlayerHeadHud>.MainColor = #FF0000FF
+    }
+
+    func HideHPBBarHUD(){
+        if(hpBarHUD==nil) {return}
+        DeleteEntity(hpBarHUD);
+
+    }
+
+
+    func UpdateHpBar(){
+        hpBarHUD<PlayerHeadHud>.CurrentHp = thisEntity<Player>.HP;
+    }
+}

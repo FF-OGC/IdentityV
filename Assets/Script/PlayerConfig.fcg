@@ -4,21 +4,28 @@ import "Items.fcc" as items
 import "Collection.fcc" as collection
 import "./PlayerHuman.fcg" as PlayerHuman
 import "./PlayerImposter.fcg" as PlayerImposter
+import "Hostility.fcc" as Hostility
 
 graph PlayerConfig {
     isImposter = false
     isHuman = false
 
+
     func SetImposter() {
         isImposter = true
+        isHuman = false
         AddScript(thisEntity, PlayerImposter)
+
     }
 
     func SetHuman() {
         isHuman = true
+        isImposter = false
         AddScript(thisEntity, PlayerHuman)
+
     }
 
-    
+
+
     
 }

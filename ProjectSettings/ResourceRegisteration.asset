@@ -77,6 +77,157 @@
               "scriptName": "BTN_SKILLCHECK"
             }
           ]
+        },
+        {
+          "refer": {
+            "fileId": "d8b0ruwmbkv-lx30opct-wgkdnvedms9",
+            "filePath": "Assets\\UI\\generatorProgress.ui",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "ui"
+          },
+          "scriptName": "GENERATOR_PROGRESS",
+          "children": [
+            {
+              "id": "k3iGyMmA",
+              "scriptName": "Text_Progress"
+            }
+          ]
+        },
+        {
+          "refer": {
+            "fileId": "s222cuggl4l-lx9sxgtt-o8ryzl0n5zm",
+            "filePath": "Assets\\UI\\imposterSabotage.ui",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "ui"
+          },
+          "scriptName": "SABOTAGE",
+          "children": [
+            {
+              "id": "HYQlDAvI",
+              "scriptName": "BTN_SABOTAGE"
+            }
+          ]
+        },
+        {
+          "refer": {
+            "fileId": "5hd4ip4zrfl-lxb8zoo4-we1ra3pxcpk",
+            "filePath": "Assets\\UI\\progressBar.ui",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "ui"
+          },
+          "scriptName": "PROGRESS_BAR",
+          "children": [
+            {
+              "id": "XxnvEbsy",
+              "scriptName": "Pivot_Progress"
+            },
+            {
+              "id": "hPHKz9hm",
+              "scriptName": "BTN"
+            }
+          ]
+        },
+        {
+          "refer": {
+            "fileId": "iuzpe43cef-lxbpl9cb-jss1ztyr4mb",
+            "filePath": "Assets\\UI\\SkillButton.ui",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "ui"
+          },
+          "scriptName": "SKILL_BTN",
+          "children": [
+            {
+              "id": "172b9d3e-550d-49eb-8362-ac3df57c9ee4",
+              "scriptName": "BTN"
+            },
+            {
+              "id": "YGhCLWZs",
+              "scriptName": "ICON"
+            },
+            {
+              "id": "7560371e-2512-4e86-b643-77fdb6235eba",
+              "scriptName": "BLOCKER"
+            }
+          ]
+        },
+        {
+          "refer": {
+            "fileId": "cwvbudnfcl-lxeefunh-m0ypid5q88l",
+            "filePath": "Assets\\UI\\heal.ui",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "ui"
+          },
+          "scriptName": "HEAL",
+          "children": [
+            {
+              "id": "HYQlDAvI",
+              "scriptName": "BTN"
+            }
+          ]
+        },
+        {
+          "refer": {
+            "fileId": "lxgec6va0m-lxeg73im-qnfw798me8",
+            "filePath": "Assets\\UI\\stateBoard.ui",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "ui"
+          },
+          "scriptName": "STATE",
+          "children": [
+            {
+              "id": "9C3p3nTX",
+              "scriptName": "PLAYER_0"
+            },
+            {
+              "id": "86lfavfB",
+              "scriptName": "PLAYER_1"
+            },
+            {
+              "id": "2ity6DMp",
+              "scriptName": "PLAYER_2"
+            },
+            {
+              "id": "nk1lYtbE",
+              "scriptName": "PLAYER_3"
+            },
+            {
+              "id": "4QQBw2lu",
+              "scriptName": "PLAYER_LAYOUT"
+            }
+          ]
+        },
+        {
+          "refer": {
+            "fileId": "ftj5c43koi6-lxoeqsxl-euqx7j5otkq",
+            "filePath": "Assets\\UI\\Notification.ui",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "ui"
+          },
+          "scriptName": "NOTIFICATION",
+          "children": [
+            {
+              "id": "WTu8iJ1g",
+              "scriptName": "BG"
+            },
+            {
+              "id": "6xKA9hJO",
+              "scriptName": "TEXT"
+            }
+          ]
         }
       ]
     },
@@ -95,7 +246,24 @@
             "fileType": "scene"
           },
           "scriptName": "main",
-          "children": []
+          "children": [
+            {
+              "id": "JwjZLDxp",
+              "scriptName": "SPAWN_KILLER"
+            },
+            {
+              "id": "Uziz8LSF",
+              "scriptName": "SPAWN_SURVIVOR"
+            },
+            {
+              "id": "T081LHj2",
+              "scriptName": "PRISONS"
+            },
+            {
+              "id": "3VfdbZXu",
+              "scriptName": "GATES"
+            }
+          ]
         }
       ]
     },
@@ -109,7 +277,41 @@
       "id": "ugcscript",
       "label": "UGCScript",
       "scriptName": "UGCScript",
-      "children": []
+      "children": [
+        {
+          "refer": {
+            "fileId": "9dgbxf1k7km-lxd20op2-aw1gf1giwtl",
+            "filePath": "Assets\\Script\\PlayerAbilites\\AbilityRun.fcg",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "ugcscript"
+          },
+          "scriptName": "AbilityRun"
+        },
+        {
+          "refer": {
+            "fileId": "ygn5a1jlwh-lxd20op3-9pqmtm60cyb",
+            "filePath": "Assets\\Script\\PlayerAbilites\\AbilityScan.fcg",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "ugcscript"
+          },
+          "scriptName": "AbilityScan"
+        },
+        {
+          "refer": {
+            "fileId": "lp1j5ej8gl-lxn1tvb5-6etregrsi04",
+            "filePath": "Assets\\Script\\PlayerAbilites\\AbilityTele.fcg",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "ugcscript"
+          },
+          "scriptName": "AbilityTele"
+        }
+      ]
     },
     "ugcscriptclient": {
       "id": "ugcscriptclient",
@@ -125,7 +327,41 @@
     },
     "texture": {
       "id": "texture",
-      "children": []
+      "children": [
+        {
+          "refer": {
+            "fileId": "3968b91ec1dbda7bcd6d0d03934321a5",
+            "filePath": "lib://fftextures/WorkshopIconLibrary/T_17_C_SKILL_NAME_PLAYBOY.png",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "texture"
+          },
+          "scriptName": "ICON_RUN"
+        },
+        {
+          "refer": {
+            "fileId": "5a7058d0c36d61bea231175d3395d533",
+            "filePath": "lib://fftextures/WorkshopIconLibrary/T_22_C_SKILL_NAME_DETECTIVE.png",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "texture"
+          },
+          "scriptName": "ICON_SCAN"
+        },
+        {
+          "refer": {
+            "fileId": "9823b8cff5c37a1293da0fe3f9a4c71d",
+            "filePath": "lib://fftextures/WorkshopIconLibrary/T_34_M_WS_ICON_LOOP.png",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "texture"
+          },
+          "scriptName": "ICON_TELE"
+        }
+      ]
     },
     "effecttype": {
       "id": "effecttype",
@@ -196,7 +432,30 @@
     },
     "csv": {
       "id": "csv",
-      "children": []
+      "children": [
+        {
+          "refer": {
+            "fileId": "t1jz9jooian-lxd0vbu1-uh6kqf7m48",
+            "filePath": "Assets\\CSV\\Killer_Abilities.csv",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "csv"
+          },
+          "scriptName": "CSV_KILLER_ABILITY"
+        },
+        {
+          "refer": {
+            "fileId": "fktlnx01p5s-lxd0vnbl-o65yd9qpuy",
+            "filePath": "Assets\\CSV\\Survivor_Abilities.csv",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "csv"
+          },
+          "scriptName": "CSV_SURVIVOR_ABILITY"
+        }
+      ]
     },
     "internalhudtype": {
       "id": "internalhudtype",
@@ -205,4 +464,4 @@
   },
   "children": []
 }
-//"{FE:{"v":"1.8.3020133","c":{"FF":4404},"s":100}
+//"{FE:{"v":"1.8.3021207","c":{"FF":4404},"s":100}

@@ -1,0 +1,127 @@
+import "LevelObject.fcc" as LevelObject
+import "Physics.fcc" as Physics
+import "StdLibrary.fcc" as StdLib
+import "EditorGenLib.fcc" as EditorLib
+import Resources from "EditorGenLib.fcc"
+import "../GlobalPrisonManager.fcg" as GlobalPrisonManager
+import "../GlobalRole.fcg" as GlobalRole
+import "Player.fcc" as Player
+import "Math.fcc" as Math
+import "Playable.fcc" as Playable
+import "Animation.fcc" as Animation
+import "../PlayerImposter.fcg" as PlayerImposter
+import "../PlayerAbilityBtnHUD.fcg" as PlayerAbilityBtnHUD
+
+graph AbilityTele {
+    TELE_RANGE = 20.0
+
+    _TeleEffect entity<EffectEntity>
+    _Motion entity<PositionFollow>
+
+    _DebuffEffect entity<EffectEntity>
+    _DebuffMotion entity<PositionFollow>
+    
+    event Player_UseAbility() {
+        if Tele() {
+            start thisEntity<PlayerAbilityBtnHUD>.StartCD()
+        }
+        
+    }
+
+    func InitTeleEffect() {
+        if _TeleEffect == nil {
+            CreateEffect(out var teleEffect,nil,EffectType.Halo,LoopType.Once,true)
+            _TeleEffect = teleEffect
+            _TeleEffect<EffectEntity>.Color = #FF0000FF
+            _TeleEffect<Transform>.Scale = Vector3{2, 2, 2}
+            CreateFollow(_TeleEffect,thisEntity<Player>,Vector3{0, 0, 0},CoordinateType.LocalPosition,out var followMotion, true)
+            _Motion = followMotion
+        }
+    }
+
+    func DisplayTeleEffect() {
+        InitTeleEffect()
+        SetActive(_TeleEffect,true)
+        Play(_Motion,true)
+        DisplayTeleNotiForVictim()
+    }
+
+    func CloseTeleEffect() {
+        SetActive(_TeleEffect,false)
+        Pause(_Motion)
+    }
+
+    func InitDebuffEffect() {
+        if _DebuffEffect == nil {
+            CreateEffect(out var debuff,nil,EffectType.Line,LoopType.Once,true)
+            _DebuffEffect = debuff
+            _DebuffEffect<EffectEntity>.Color = #FF0000FF
+            _DebuffEffect<Transform>.Rotation = Vector3{0, 0, 180}
+            _DebuffEffect<Transform>.Scale = Vector3{2, 2, 2}
+            CreateFollow(_DebuffEffect,thisEntity<Player>,Vector3{0, 2, 0},CoordinateType.LocalPosition,out var followMotion, true)
+            _DebuffMotion = followMotion
+        }
+    }
+
+    func DisplayDebuffEffect() {
+        InitDebuffEffect()
+        SetActive(_DebuffEffect,true)
+        Play(_DebuffMotion,true)
+        DisplayTeleNotiForVictim()
+    }
+
+    func CloseDebuffEffect() {
+        SetActive(_DebuffEffect,false)
+        Pause(_DebuffMotion)
+    }
+
+    
+
+    func DisplayTeleNotiForVictim() {
+
+    }
+
+    async func Debuff() {
+        thisEntity<Player>.RunSpeedScale = 0.2
+        thisEntity<Player>.CrouchSpeedScale = 0.2
+        DisplayDebuffEffect()
+
+        WaitForSeconds(2000)
+
+        thisEntity<Player>.RunSpeedScale = thisEntity<PlayerImposter>.RUN_SPEED_SCALE
+        thisEntity<Player>.CrouchSpeedScale = thisEntity<PlayerImposter>.RUN_SPEED_SCALE
+        CloseDebuffEffect()
+    }
+
+    async func Tele() bool{
+        for key, player in globalEntity<GlobalRole>.HumanList {
+            if globalEntity<GlobalPrisonManager>.IsPrisoner(player) {
+                continue
+            }
+
+
+            if Distance(player<Player>.Position,thisEntity<Player>.Position) <= TELE_RANGE {
+                var targetDirection = player<Player>.Position - thisEntity<Player>.Position
+                var angle = Angel(thisEntity<Player>.Forward, targetDirection)
+                if angle >= -30 && angle <= 30 {
+
+                    LogInfo("Tele: Hit Player: " + player)
+                    var delta = 3
+                    var playerDirection = player<Player>.Forward
+                    var teleportPosition = player<Player>.Position - (playerDirection * delta)
+                    DisplayTeleEffect()
+                    WaitForSeconds(2000)
+                    Teleport(thisEntity<Player>,teleportPosition,playerDirection)
+                    CloseTeleEffect()
+                    Debuff()
+                    return true
+                }
+
+                
+            }
+        }
+
+        LogInfo("Tele: No Player Hit")
+        return false
+    }
+}

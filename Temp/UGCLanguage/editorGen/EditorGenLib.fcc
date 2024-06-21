@@ -35,13 +35,43 @@ enum phaseEnum {
 
 }
 
+// AbilityEnum, type: String
+enum AbilityEnum {
+    // RUN
+    RUN = "ABILITY_RUN"
+
+    // SCAN
+    SCAN = "ABILITY_SCAN"
+
+    // TELE
+    TELE = "ABILITY_TELE"
+
+}
+
 enum EResource_UI {
     imposterScreenEffect = "imposterScreenEffect"
     nightScreenEffect = "nightScreenEffect"
     FIXING = "FIXING"
+    GENERATOR_PROGRESS = "GENERATOR_PROGRESS"
+    SABOTAGE = "SABOTAGE"
+    PROGRESS_BAR = "PROGRESS_BAR"
+    SKILL_BTN = "SKILL_BTN"
+    HEAL = "HEAL"
+    STATE = "STATE"
+    NOTIFICATION = "NOTIFICATION"
 }
 enum EResource_Scene {
     main = "main"
+}
+enum EResource_FCG {
+    AbilityRun = "AbilityRun"
+    AbilityScan = "AbilityScan"
+    AbilityTele = "AbilityTele"
+}
+enum EResource_Texture {
+    ICON_RUN = "ICON_RUN"
+    ICON_SCAN = "ICON_SCAN"
+    ICON_TELE = "ICON_TELE"
 }
 enum EResource_LevelObject {
     Icon = "Icon"
@@ -49,6 +79,16 @@ enum EResource_LevelObject {
 }
 enum EResource_Cloth {
     Imposter = "Imposter"
+}
+enum EResource_CSV {
+    CSV_KILLER_ABILITY = "CSV_KILLER_ABILITY"
+    CSV_SURVIVOR_ABILITY = "CSV_SURVIVOR_ABILITY"
+}
+enum EResource_Scene_main {
+    SPAWN_KILLER = "SPAWN_KILLER"
+    SPAWN_SURVIVOR = "SPAWN_SURVIVOR"
+    PRISONS = "PRISONS"
+    GATES = "GATES"
 }
 enum EResource_UI_FIXING {
     BAR = "BAR"
@@ -60,6 +100,35 @@ enum EResource_UI_FIXING {
     CURRENT_PROGRESS = "CURRENT_PROGRESS"
     BTN_SKILLCHECK = "BTN_SKILLCHECK"
 }
+enum EResource_UI_GENERATOR_PROGRESS {
+    Text_Progress = "Text_Progress"
+}
+enum EResource_UI_SABOTAGE {
+    BTN_SABOTAGE = "BTN_SABOTAGE"
+}
+enum EResource_UI_PROGRESS_BAR {
+    Pivot_Progress = "Pivot_Progress"
+    BTN = "BTN"
+}
+enum EResource_UI_SKILL_BTN {
+    BTN = "BTN"
+    ICON = "ICON"
+    BLOCKER = "BLOCKER"
+}
+enum EResource_UI_HEAL {
+    BTN = "BTN"
+}
+enum EResource_UI_STATE {
+    PLAYER_0 = "PLAYER_0"
+    PLAYER_1 = "PLAYER_1"
+    PLAYER_2 = "PLAYER_2"
+    PLAYER_3 = "PLAYER_3"
+    PLAYER_LAYOUT = "PLAYER_LAYOUT"
+}
+enum EResource_UI_NOTIFICATION {
+    BG = "BG"
+    TEXT = "TEXT"
+}
 // HUD_ButtonClicked(button HudButtonWidget, player Player)
 [platform_server]
 event HUD_ButtonClicked( param1 entity<HudButtonWidget>,  param2 entity<Player>)
@@ -67,6 +136,58 @@ event HUD_ButtonClicked( param1 entity<HudButtonWidget>,  param2 entity<Player>)
 // Generator_OnFinish(generator Object)
 [platform_server]
 event Generator_OnFinish( param1 object)
+
+// Global_OnFinishTask()
+[platform_server]
+event Global_OnFinishTask()
+
+// Player_Escape(player Player)
+[platform_server]
+event Player_Escape( param1 entity<Player>)
+
+// IMPOSTER_KILLEDALL()
+[platform_server]
+event IMPOSTER_KILLEDALL()
+
+// Player_FailSkillCheck(generator Object)
+[platform_server]
+event Player_FailSkillCheck( param1 object)
+
+// Player_ChooseAbility(ability Object)
+[platform_server]
+event Player_ChooseAbility( param1 object)
+
+// Player_UseAbility()
+[platform_server]
+event Player_UseAbility()
+
+// Player_EnterPrison(player Player)
+[platform_server]
+event Player_EnterPrison( param1 entity<Player>)
+
+// Player_EscapePrison(player Player)
+[platform_server]
+event Player_EscapePrison( param1 entity<Player>)
+
+// Player_ReceiveDamage(player Object, damage Int)
+[platform_server]
+event Player_ReceiveDamage( param1 object,  param2 int)
+
+// Global_EscapedAll()
+[platform_server]
+event Global_EscapedAll()
+
+// Imposter_ChangeImposter(imposter Player)
+[platform_server]
+event Imposter_ChangeImposter( param1 entity<Player>)
+
+// Player_StartFixing(player Player, generator any)
+[platform_server]
+event Player_StartFixing( param1 entity<Player>,  param2 object)
+
+// Player_StopFixing(player Player, generator any)
+[platform_server]
+event Player_StopFixing( param1 entity<Player>,  param2 object)
 
 
 // Assets\ECA\Global.eca
@@ -90,12 +211,22 @@ declare graph TriggerBlood {
 declare static graph Resources {
     UI Map<EResource_UI, CustomHudID>
     Scene Map<EResource_Scene, string>
+    FCG Map<EResource_FCG, GraphID>
+    Texture Map<EResource_Texture, SpriteID>
     LevelObject Map<EResource_LevelObject, LevelObjectID>
     Cloth Map<EResource_Cloth, ClothID>
-
+    CSV Map<EResource_CSV, CsvID>
+    Scene_main Map<EResource_Scene_main, entity>
 
 
     UI_FIXING Map<EResource_UI_FIXING, CustomHudWidgetID>
+    UI_GENERATOR_PROGRESS Map<EResource_UI_GENERATOR_PROGRESS, CustomHudWidgetID>
+    UI_SABOTAGE Map<EResource_UI_SABOTAGE, CustomHudWidgetID>
+    UI_PROGRESS_BAR Map<EResource_UI_PROGRESS_BAR, CustomHudWidgetID>
+    UI_SKILL_BTN Map<EResource_UI_SKILL_BTN, CustomHudWidgetID>
+    UI_HEAL Map<EResource_UI_HEAL, CustomHudWidgetID>
+    UI_STATE Map<EResource_UI_STATE, CustomHudWidgetID>
+    UI_NOTIFICATION Map<EResource_UI_NOTIFICATION, CustomHudWidgetID>
 }
 partial enum Economy.MoneyType {
 }
