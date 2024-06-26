@@ -1,0 +1,18 @@
+{
+    "FBXName" : "shield_round_barbarian",
+    "ImportSucceeded" : true,
+    "MaterialCount" : 1,
+    "MaterialDetail" : [
+    {
+        "Index" : 0,
+        "MaterialName" :  "barbarian_texture"
+    }
+    ],
+    "MeshCount" : 1,
+    "MeshDetail" : [
+    {
+        "MeshName" : "shield_round_barbarian",
+        "MaterialIndex" : [0]
+    }
+    ]
+}

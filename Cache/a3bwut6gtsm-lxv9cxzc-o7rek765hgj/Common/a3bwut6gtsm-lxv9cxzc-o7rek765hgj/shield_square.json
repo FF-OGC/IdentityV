@@ -1,0 +1,18 @@
+{
+    "FBXName" : "shield_square",
+    "ImportSucceeded" : true,
+    "MaterialCount" : 1,
+    "MaterialDetail" : [
+    {
+        "Index" : 0,
+        "MaterialName" :  "knight_texture"
+    }
+    ],
+    "MeshCount" : 1,
+    "MeshDetail" : [
+    {
+        "MeshName" : "shield_square",
+        "MaterialIndex" : [0]
+    }
+    ]
+}

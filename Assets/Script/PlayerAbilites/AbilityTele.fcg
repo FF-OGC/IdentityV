@@ -11,49 +11,65 @@ import "Playable.fcc" as Playable
 import "Animation.fcc" as Animation
 import "../PlayerImposter.fcg" as PlayerImposter
 import "../PlayerAbilityBtnHUD.fcg" as PlayerAbilityBtnHUD
+import "../PlayerNotificationHUD.fcg" as PlayerNotificationHUD
 
 graph AbilityTele {
     TELE_RANGE = 20.0
 
     _TeleEffect entity<EffectEntity>
+    _TeleEffectDestination entity<EffectEntity>
     _Motion entity<PositionFollow>
 
     _DebuffEffect entity<EffectEntity>
     _DebuffMotion entity<PositionFollow>
     
     event Player_UseAbility() {
-        if Tele() {
-            start thisEntity<PlayerAbilityBtnHUD>.StartCD()
-        }
+        start thisEntity<PlayerAbilityBtnHUD>.StartCD()
+        Tele()
         
     }
 
     func InitTeleEffect() {
         if _TeleEffect == nil {
-            CreateEffect(out var teleEffect,nil,EffectType.Halo,LoopType.Once,true)
+            CreateEffect(out var teleEffect,nil,EffectType.Halo,LoopType.Loop,true)
             _TeleEffect = teleEffect
             _TeleEffect<EffectEntity>.Color = #FF0000FF
             _TeleEffect<Transform>.Scale = Vector3{2, 2, 2}
             CreateFollow(_TeleEffect,thisEntity<Player>,Vector3{0, 0, 0},CoordinateType.LocalPosition,out var followMotion, true)
             _Motion = followMotion
+
+            CreateEffect(out var teleEffect2,nil,EffectType.Halo,LoopType.Loop,true)
+            _TeleEffectDestination = teleEffect2
+            _TeleEffectDestination<EffectEntity>.Color = #FF0000FF
+            _TeleEffectDestination<Transform>.Scale = Vector3{2, 2, 2}
         }
     }
 
-    func DisplayTeleEffect() {
+
+
+    func DisplayTeleEffect(pos Vector3) {
         InitTeleEffect()
+
+
         SetActive(_TeleEffect,true)
         Play(_Motion,true)
+
+        _TeleEffectDestination<Transform>.Position = pos
+        SetActive(_TeleEffectDestination,true)
+
         DisplayTeleNotiForVictim()
     }
 
     func CloseTeleEffect() {
         SetActive(_TeleEffect,false)
         Pause(_Motion)
+
+        SetActive(_TeleEffectDestination,false)
     }
 
     func InitDebuffEffect() {
         if _DebuffEffect == nil {
-            CreateEffect(out var debuff,nil,EffectType.Line,LoopType.Once,true)
+            CreateEffect(out var debuff,nil,EffectType.Line,LoopType.Loop,true)
             _DebuffEffect = debuff
             _DebuffEffect<EffectEntity>.Color = #FF0000FF
             _DebuffEffect<Transform>.Rotation = Vector3{0, 0, 180}
@@ -93,35 +109,68 @@ graph AbilityTele {
         CloseDebuffEffect()
     }
 
-    async func Tele() bool{
-        for key, player in globalEntity<GlobalRole>.HumanList {
+    func GetNearestPlayer() entity<Player>{
+        var min_distance = 10000000000.0
+        var min_player = thisEntity<Player>
+
+        for key,player in globalEntity<GlobalRole>.HumanList {
             if globalEntity<GlobalPrisonManager>.IsPrisoner(player) {
                 continue
             }
 
+            var distance = Distance(player<Player>.Position,thisEntity<Player>.Position)
+            if distance < min_distance {
+                min_distance = distance
+                min_player = player
+            }
+            
 
-            if Distance(player<Player>.Position,thisEntity<Player>.Position) <= TELE_RANGE {
-                var targetDirection = player<Player>.Position - thisEntity<Player>.Position
-                var angle = Angel(thisEntity<Player>.Forward, targetDirection)
-                if angle >= -30 && angle <= 30 {
+        }
+        return min_player
+    }
 
-                    LogInfo("Tele: Hit Player: " + player)
-                    var delta = 3
-                    var playerDirection = player<Player>.Forward
-                    var teleportPosition = player<Player>.Position - (playerDirection * delta)
-                    DisplayTeleEffect()
-                    WaitForSeconds(2000)
-                    Teleport(thisEntity<Player>,teleportPosition,playerDirection)
-                    CloseTeleEffect()
-                    Debuff()
-                    return true
-                }
+    async func Tele() {
+        var target = GetNearestPlayer()
+        var delta = 4
+        var targetDirection = target<Player>.Forward
+        var teleportPosition = target<Player>.Position - (targetDirection * delta)
+        DisplayTeleEffect(teleportPosition)
+        start target<PlayerNotificationHUD>.DisplayNotificationHUD(#FF0000FF, "Killer is teleporting to you!", 3000)
+        WaitForSeconds(2000)
+        Teleport(thisEntity<Player>,teleportPosition,targetDirection)
+        CloseTeleEffect()
+        start Debuff()
+    }
+
+    // async func TeleToAngle() bool{
+    //     for key, player in globalEntity<GlobalRole>.HumanList {
+    //         if globalEntity<GlobalPrisonManager>.IsPrisoner(player) {
+    //             continue
+    //         }
+
+
+    //         if Distance(player<Player>.Position,thisEntity<Player>.Position) <= TELE_RANGE {
+    //             var targetDirection = player<Player>.Position - thisEntity<Player>.Position
+    //             var angle = Angel(thisEntity<Player>.Forward, targetDirection)
+    //             if angle >= -30 && angle <= 30 {
+
+    //                 LogInfo("Tele: Hit Player: " + player)
+    //                 var delta = 3
+    //                 var playerDirection = player<Player>.Forward
+    //                 var teleportPosition = player<Player>.Position - (playerDirection * delta)
+    //                 DisplayTeleEffect()
+    //                 WaitForSeconds(2000)
+    //                 Teleport(thisEntity<Player>,teleportPosition,playerDirection)
+    //                 CloseTeleEffect()
+    //                 start Debuff()
+    //                 return true
+    //             }
 
                 
-            }
-        }
+    //         }
+    //     }
 
-        LogInfo("Tele: No Player Hit")
-        return false
-    }
+    //     LogInfo("Tele: No Player Hit")
+    //     return false
+    // }
 }

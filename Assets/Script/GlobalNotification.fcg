@@ -1,0 +1,67 @@
+import "StdLibrary.fcc" as StdLib
+import "EditorGenLib.fcc" as EditorLib
+import Resources from "EditorGenLib.fcc"
+import "./PlayerNotificationHUD.fcg" as PlayerNotificationHUD
+import "./PlayerSideNotiHUD.fcg" as PlayerSideNotiHUD
+import "./GlobalGeneratorManager.fcg" as GlobalGeneratorManager
+import "./PlayerConfig.fcg" as PlayerConfig
+import "Workflow.fcc" as Workflow
+
+
+graph GlobalNotification {
+    //Executed when entity is created
+
+    event OnPhaseStart(phase entity<Phase>) {
+        var phaseIndex = phase<Phase>.PhaseIndex
+        if phaseIndex == phaseEnum.IN_PROGRESS {
+            for key, player in GetAllPlayers() {
+                if player<PlayerConfig>.isHuman {
+                    start player<PlayerNotificationHUD>.DisplayNotificationHUD(#32FF00FF, "YOU ARE A SURVIVOR!", 5000)
+                    start player<PlayerNotificationHUD>.DisplayNotificationHUD(#32FF00FF, "ESCAPE FROM THE KILLER!", 5000)
+                } else {
+                    start player<PlayerNotificationHUD>.DisplayNotificationHUD(#FF0000FF, "YOU ARE THE KILLER!", 5000)
+                    start player<PlayerNotificationHUD>.DisplayNotificationHUD(#FF0000FF, "KILL ALL SURVIVORS!", 5000)
+                }
+            }
+        }
+
+    }
+
+    event Generator_OnFinish(generator object) {
+        for key, player in GetAllPlayers(){
+            var text = globalEntity<GlobalGeneratorManager>.CurrentGenerator + "/" + globalEntity<GlobalGeneratorManager>.REQUIRED_GENERATOR
+            start player<PlayerNotificationHUD>.DisplayNotificationHUD(#32FF00FF,text + " Generator Repaired.", 3000)
+        }
+    }
+
+    event Player_EnterPrison(player entity<Player>) {
+        for key, _player in GetAllPlayers(){
+            start _player<PlayerNotificationHUD>.DisplayNotificationHUD(#FF0000FF, player<Player>.NickName + " Enter Prison.", 3000)
+
+            if _player<PlayerConfig>.isHuman && _player != player{
+                _player<PlayerSideNotiHUD>.DisplaySideNotiHUD(#FFB400FF, "Rescue Teammate From Prison", IconType.ExclamationMark as SpriteID, 6000)
+            } else if thisEntity<Player> == player {
+                _player<PlayerSideNotiHUD>.DisplaySideNotiHUD(#FFB400FF, "Wait For Teammate To Rescue", IconType.ExclamationMark as SpriteID, 6000)
+            }
+        }
+    }
+
+    event Player_EscapePrison(player entity<Player>) {
+        for key, _player in GetAllPlayers(){
+            start _player<PlayerNotificationHUD>.DisplayNotificationHUD(#32FF00FF, player<Player>.NickName + " Escape Prison.", 3000)
+        }
+    }
+
+    event Global_OnFinishTask() {
+        for key, player in GetAllPlayers(){
+            start player<PlayerNotificationHUD>.DisplayNotificationHUD(#32FF00FF, "Task Completed.", 3000)
+        }
+    }
+
+    event Player_Escape(player entity<Player>) {
+        for key, _player in GetAllPlayers(){
+            start _player<PlayerNotificationHUD>.DisplayNotificationHUD(#32FF00FF, player<Player>.NickName + " Escaped.", 3000)
+        }
+    }
+
+}

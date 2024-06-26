@@ -22,6 +22,7 @@ import "./PlayerHuman.fcg" as PlayerHuman
 import "Combat.fcc" as Combat
 import "./GlobalGeneratorManager.fcg" as GlobalGeneratorManager
 import "./GlobalPrisonManager.fcg" as GlobalPrisonManager
+import Resource from "EditorGenLib.fcc"
 
 graph PlayerImposter {
     BLOOD_REQUIRE = 3
@@ -44,6 +45,9 @@ graph PlayerImposter {
             DispatchEvent(Player_ChooseAbility,thisEntity,List<object>{AbilityEnum.TELE})
             Transform()
             start SetHeartBeat()
+
+            WaitForNextFrame()
+            SwitchPresetCharacterType(thisEntity<Player>,globalEntity<Resource>.ImposterData)
         }
     }
 

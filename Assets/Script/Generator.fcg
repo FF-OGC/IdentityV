@@ -20,6 +20,7 @@ graph Generator {
     Generator_Trigger entity<LevelObject> 
     Generator_Cylinder entity<LevelObject>
     Generator_Effect entity<LevelObject>
+    Generator_Icon entity<LevelObject>
     Generator_FixingEffect entity<LevelObject>
 
 
@@ -36,6 +37,7 @@ graph Generator {
     _IsDamaged bool = false
     _SabotageEffect entity<EffectEntity>
 
+    _IconTween List<entity<Tween>> = List<entity<Tween>>{}
     _FailSkillCheckIcon entity<IconEntity>
 
 
@@ -46,7 +48,21 @@ graph Generator {
         Generator_Trigger = GetChildren(thisEntity)[2] as entity<LevelObject>
         Generator_Cylinder = GetChildren(thisEntity)[3] as entity<LevelObject>
         Generator_Effect = GetChildren(thisEntity)[4] as entity<LevelObject>
+        Generator_Icon = GetChildren(thisEntity)[5] as entity<LevelObject>
         Generator_FixingEffect = GetChildren(thisEntity)[7] as entity<LevelObject>
+
+        WaitForNextFrame()
+        InitIconTween()
+    }
+
+    event Player_SuccessSkillCheck(player object) {
+        LogInfo("Success Skill Check")
+        AddProgress(5)
+    }
+
+    event Player_FailSkillCheck(player object) {
+        LogInfo("Fail Skill Check")
+        FailSkillCheck()
     }
 
     
@@ -58,6 +74,7 @@ graph Generator {
         Delete(_PlayerList, player)
         if player<PlayerFixingHUD>._inSkillCheck {
             FailSkillCheck()
+            DispatchEvent(Player_FailSkillCheck,player,List<object>{player})
         }
     }
 
@@ -104,6 +121,7 @@ graph Generator {
 
             start CreateFailSkillCheckIcon()
             DispatchEvent(Player_FailSkillCheck,globalEntity<GlobalRole>.imposterPlayer, List<object>{thisEntity} )
+            
         }
     }
 
@@ -184,9 +202,9 @@ graph Generator {
 
         _CurrentPhase = 2
 
-        for key, player in GetAllPlayers(){
-            DispatchEvent(Generator_OnFinish,player, List<object>{thisEntity<Entity>})
-        }
+        // for key, player in GetAllPlayers(){
+        //     DispatchEvent(Generator_OnFinish,player, List<object>{thisEntity<Entity>})
+        // }
         DispatchEvent(Generator_OnFinish,globalEntity, List<object>{thisEntity<Entity>})
         
     }
@@ -195,12 +213,40 @@ graph Generator {
         inTrigger = value
     }
 
+    func InitIconTween() {
+        var curve = CreateTweenCurve(List<float>{0,0,1,1})
+        CreateTween(Generator_Icon<IconEntity>,IconEntity.Height,100,130,TweenStyle.PingPong,curve,1000, out var motion, false)
+        CreateTween(Generator_Icon<IconEntity>,IconEntity.Width,100,130,TweenStyle.PingPong,curve,1000, out var motion2, false)
+        Append(_IconTween, motion)
+        Append(_IconTween, motion2)
+    }
+
+    func PlayIconTween() {
+        Play(_IconTween,false)
+    }
+
+    func PauseIconTween() {
+        Pause(_IconTween)
+        Generator_Icon<IconEntity>.Height = 100
+        Generator_Icon<IconEntity>.Width = 100
+    }
+
+    func StartRotateIcon() {
+
+    }
+
+    func StopRotateIcon() {
+
+    }
+
     func DisplayFixingEffect() {
         SetActive(Generator_FixingEffect, true)
+        PlayIconTween()
     }
 
     func CloseFixingEffect() {
         SetActive(Generator_FixingEffect, false)
+        PauseIconTween()
     }
 
 

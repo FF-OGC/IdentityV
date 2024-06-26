@@ -1,0 +1,18 @@
+{
+    "FBXName" : "animal_people_backpack_1_freeSample_onWear",
+    "ImportSucceeded" : true,
+    "MaterialCount" : 1,
+    "MaterialDetail" : [
+    {
+        "Index" : 0,
+        "MaterialName" :  "animal_people_backpack_1_freeSample"
+    }
+    ],
+    "MeshCount" : 1,
+    "MeshDetail" : [
+    {
+        "MeshName" : "animal_people_backpack_1_freeSample_onWear",
+        "MaterialIndex" : [0]
+    }
+    ]
+}

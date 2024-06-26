@@ -45,6 +45,9 @@ graph PlayerRescueHUD {
             BTN = GetRescueHUDWidget(EResource_UI_PROGRESS_BAR.BTN)
             PROGRESS_BAR = GetChildByIndex(PIVOT_PROGRESS,0) as entity<HudWidget>
             CURRENT_PROGRESS_BAR = GetChildByIndex(PIVOT_PROGRESS,1) as entity<HudWidget>
+
+            var text = GetChildByIndex(PIVOT_PROGRESS,2)
+            text<HudLabelWidget>.Text = "Rescuing Player..."
             
         }
     }
@@ -80,6 +83,10 @@ graph PlayerRescueHUD {
         var ratio float = BarWidth / TotalProgress
 
         CURRENT_PROGRESS_BAR<HudWidget>.Width = Round(PRISON<Prison>._CurrentProgress * ratio)
+
+        var percentageHUD = GetChildByIndex(PIVOT_PROGRESS,3)
+        var percentage = Round((PRISON<Prison>._CurrentProgress / TotalProgress) * 100)
+        percentageHUD<HudLabelWidget>.Text = percentage + "%"
         
        
     }

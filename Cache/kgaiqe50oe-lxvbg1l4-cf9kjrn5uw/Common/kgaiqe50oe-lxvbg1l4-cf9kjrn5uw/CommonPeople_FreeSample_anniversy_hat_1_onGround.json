@@ -1,0 +1,18 @@
+{
+    "FBXName" : "CommonPeople_FreeSample_anniversy_hat_1_onGround",
+    "ImportSucceeded" : true,
+    "MaterialCount" : 1,
+    "MaterialDetail" : [
+    {
+        "Index" : 0,
+        "MaterialName" :  "CommonPeople_FreeSample_anniversy"
+    }
+    ],
+    "MeshCount" : 1,
+    "MeshDetail" : [
+    {
+        "MeshName" : "CommonPeople_FreeSample_anniversy_hat_1_onGround",
+        "MaterialIndex" : [0]
+    }
+    ]
+}

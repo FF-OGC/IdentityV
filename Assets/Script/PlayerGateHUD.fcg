@@ -76,6 +76,10 @@ graph PlayerGateHUD {
         
         var ratio = PROGRESS_BAR<HudWidget>.Width / GATE<Gate>._TotalProgress
         CURRENT_PROGRESS_BAR<HudWidget>.Width = Round(GATE<Gate>._CurrentProgress * ratio)
+
+        var percentageHUD = GetChildByIndex(PIVOT_PROGRESS,3)
+        var percentage = Round(GATE<Gate>._CurrentProgress / GATE<Gate>._TotalProgress * 100)
+        percentageHUD<HudLabelWidget>.Text = percentage + "%"
     }
 
     

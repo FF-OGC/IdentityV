@@ -1,0 +1,18 @@
+{
+    "FBXName" : "smokebomb",
+    "ImportSucceeded" : true,
+    "MaterialCount" : 1,
+    "MaterialDetail" : [
+    {
+        "Index" : 0,
+        "MaterialName" :  "rogue_texture"
+    }
+    ],
+    "MeshCount" : 1,
+    "MeshDetail" : [
+    {
+        "MeshName" : "smokebomb",
+        "MaterialIndex" : [0]
+    }
+    ]
+}

@@ -65,6 +65,10 @@
       "signal_76731559": {
         "label": "Player_StopFixing",
         "params": {}
+      },
+      "signal_50782042": {
+        "label": "Player_SuccessSkillCheck",
+        "params": {}
       }
     },
     "Graphs": {
@@ -78,6 +82,12 @@
         "vars": {
           "v80HQ50CC": {
             "label": "zombieSpawn"
+          },
+          "vHDSHqkrW": {
+            "label": "PlayerData"
+          },
+          "vMeeic4aN": {
+            "label": "ImposterData"
           }
         },
         "funcs": {

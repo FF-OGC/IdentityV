@@ -1,0 +1,18 @@
+{
+    "FBXName" : "CommonPeople_FreeSample_anniversy_balloon_1",
+    "ImportSucceeded" : true,
+    "MaterialCount" : 1,
+    "MaterialDetail" : [
+    {
+        "Index" : 0,
+        "MaterialName" :  "CommonPeople_FreeSample_anniversy"
+    }
+    ],
+    "MeshCount" : 1,
+    "MeshDetail" : [
+    {
+        "MeshName" : "CommonPeople_FreeSample_anniversy_balloon_1",
+        "MaterialIndex" : [0]
+    }
+    ]
+}

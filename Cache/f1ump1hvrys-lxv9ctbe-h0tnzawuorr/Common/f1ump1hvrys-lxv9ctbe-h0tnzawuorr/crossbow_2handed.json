@@ -1,0 +1,18 @@
+{
+    "FBXName" : "crossbow_2handed",
+    "ImportSucceeded" : true,
+    "MaterialCount" : 1,
+    "MaterialDetail" : [
+    {
+        "Index" : 0,
+        "MaterialName" :  "rogue_texture"
+    }
+    ],
+    "MeshCount" : 1,
+    "MeshDetail" : [
+    {
+        "MeshName" : "crossbow_2handed",
+        "MaterialIndex" : [0]
+    }
+    ]
+}

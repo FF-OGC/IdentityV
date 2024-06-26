@@ -1,0 +1,18 @@
+{
+    "FBXName" : "spellbook_open",
+    "ImportSucceeded" : true,
+    "MaterialCount" : 1,
+    "MaterialDetail" : [
+    {
+        "Index" : 0,
+        "MaterialName" :  "mage_texture"
+    }
+    ],
+    "MeshCount" : 1,
+    "MeshDetail" : [
+    {
+        "MeshName" : "spellbook_open",
+        "MaterialIndex" : [0]
+    }
+    ]
+}

@@ -1,0 +1,111 @@
+{
+  "_tag": {
+    "type": "UGCPlayerEntity"
+  },
+  "_entityId": "cFP6sRKH",
+  "children": [],
+  "prefabVariant": null,
+  "activeValue": {
+    "selfValue": true,
+    "valueTag": "activeValue"
+  },
+  "unlockedValue": {
+    "selfValue": true,
+    "valueTag": "unlockedValue"
+  },
+  "editorLockValue": false,
+  "editorVisibleValue": true,
+  "gender": 0,
+  "avatarRef": {
+    "fileId": "fk76kuyijl4-lxviav56-7rgepkukxno",
+    "filePath": "Assets\\Prefab\\Sparrow_Animations.prefab",
+    "_tag": {
+      "type": "GFileRefer"
+    },
+    "fileType": "prefab"
+  },
+  "disableOtherAnimation": true,
+  "_preAnimClip": {
+    "fileId": "vmqnm4ttjv-lxvdafaq-vm83hl8rfe-Roll.Anim",
+    "filePath": "fab://Assets\\Model\\Quirky Series Ultimate\\FREE\\Animations\\Sparrow_Animations.fbx\\Roll.anim",
+    "_tag": {
+      "type": "GFileRefer"
+    },
+    "fileType": "anim"
+  },
+  "playerActionMap": {
+    "Stand_Idle@Fist": {
+      "fileId": "vmqnm4ttjv-lxvdafaq-vm83hl8rfe-Idle_A.Anim",
+      "filePath": "fab://Assets\\Model\\Quirky Series Ultimate\\FREE\\Animations\\Sparrow_Animations.fbx\\Idle_A.anim",
+      "_tag": {
+        "type": "GFileRefer"
+      },
+      "fileType": "anim"
+    },
+    "Jump_Up@Fist": {
+      "fileId": "vmqnm4ttjv-lxvdafaq-vm83hl8rfe-Jump.Anim",
+      "filePath": "fab://Assets\\Model\\Quirky Series Ultimate\\FREE\\Animations\\Sparrow_Animations.fbx\\Jump.anim",
+      "_tag": {
+        "type": "GFileRefer"
+      },
+      "fileType": "anim"
+    },
+    "Dash_Run_F@Fist": {
+      "fileId": "vmqnm4ttjv-lxvdafaq-vm83hl8rfe-Run.Anim",
+      "filePath": "fab://Assets\\Model\\Quirky Series Ultimate\\FREE\\Animations\\Sparrow_Animations.fbx\\Run.anim",
+      "_tag": {
+        "type": "GFileRefer"
+      },
+      "fileType": "anim"
+    },
+    "Jump_Down@Fist": {
+      "fileId": "vmqnm4ttjv-lxvdafaq-vm83hl8rfe-Roll.Anim",
+      "filePath": "fab://Assets\\Model\\Quirky Series Ultimate\\FREE\\Animations\\Sparrow_Animations.fbx\\Roll.anim",
+      "_tag": {
+        "type": "GFileRefer"
+      },
+      "fileType": "anim"
+    },
+    "Run_F@Fist": {
+      "fileId": "vmqnm4ttjv-lxvdafaq-vm83hl8rfe-Walk.Anim",
+      "filePath": "fab://Assets\\Model\\Quirky Series Ultimate\\FREE\\Animations\\Sparrow_Animations.fbx\\Walk.anim",
+      "_tag": {
+        "type": "GFileRefer"
+      },
+      "fileType": "anim"
+    },
+    "Crouch_Idle@Fist": {
+      "fileId": "vmqnm4ttjv-lxvdafaq-vm83hl8rfe-Idle_A.Anim",
+      "filePath": "fab://Assets\\Model\\Quirky Series Ultimate\\FREE\\Animations\\Sparrow_Animations.fbx\\Idle_A.anim",
+      "_tag": {
+        "type": "GFileRefer"
+      },
+      "fileType": "anim"
+    },
+    "Crawl_Idle@Fist": {
+      "fileId": "vmqnm4ttjv-lxvdafaq-vm83hl8rfe-Idle_A.Anim",
+      "filePath": "fab://Assets\\Model\\Quirky Series Ultimate\\FREE\\Animations\\Sparrow_Animations.fbx\\Idle_A.anim",
+      "_tag": {
+        "type": "GFileRefer"
+      },
+      "fileType": "anim"
+    },
+    "Crouch_F@Fist": {
+      "fileId": "vmqnm4ttjv-lxvdafaq-vm83hl8rfe-Walk.Anim",
+      "filePath": "fab://Assets\\Model\\Quirky Series Ultimate\\FREE\\Animations\\Sparrow_Animations.fbx\\Walk.anim",
+      "_tag": {
+        "type": "GFileRefer"
+      },
+      "fileType": "anim"
+    },
+    "Crawl_F@Fist": {
+      "fileId": "vmqnm4ttjv-lxvdafaq-vm83hl8rfe-Walk.Anim",
+      "filePath": "fab://Assets\\Model\\Quirky Series Ultimate\\FREE\\Animations\\Sparrow_Animations.fbx\\Walk.anim",
+      "_tag": {
+        "type": "GFileRefer"
+      },
+      "fileType": "anim"
+    }
+  }
+}
+//"{FE:{"v":"1.8.3021207","c":{"FF":4404},"s":100}

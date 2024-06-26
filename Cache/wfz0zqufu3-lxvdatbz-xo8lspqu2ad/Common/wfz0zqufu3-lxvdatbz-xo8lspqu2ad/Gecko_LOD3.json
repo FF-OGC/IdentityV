@@ -1,0 +1,18 @@
+{
+    "FBXName" : "Gecko_LOD3",
+    "ImportSucceeded" : true,
+    "MaterialCount" : 1,
+    "MaterialDetail" : [
+    {
+        "Index" : 0,
+        "MaterialName" :  "M_Gecko"
+    }
+    ],
+    "MeshCount" : 1,
+    "MeshDetail" : [
+    {
+        "MeshName" : "Mesh",
+        "MaterialIndex" : [0]
+    }
+    ]
+}

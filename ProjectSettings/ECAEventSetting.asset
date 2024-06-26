@@ -224,6 +224,21 @@
       "propCount": 2,
       "apiTargetV2": "server",
       "key": "signal_76731559"
+    },
+    "signal_50782042": {
+      "name": "Player_SuccessSkillCheck",
+      "enitityType": "Entity",
+      "typeID": 100015,
+      "props": [
+        {
+          "name": "player",
+          "value": "Object",
+          "key": 1
+        }
+      ],
+      "propCount": 1,
+      "apiTargetV2": "server",
+      "key": "signal_50782042"
     }
   },
   "customName": {
@@ -241,7 +256,8 @@
     "Global_EscapedAll": "signal_97717269",
     "Imposter_ChangeImposter": "signal_59804305",
     "Player_StartFixing": "signal_68740890",
-    "Player_StopFixing": "signal_76731559"
+    "Player_StopFixing": "signal_76731559",
+    "Player_SuccessSkillCheck": "signal_50782042"
   },
   "customEventRelatMap": {},
   "children": []

@@ -1,0 +1,30 @@
+{
+    "FBXName" : "monster_scavenger",
+    "ImportSucceeded" : true,
+    "MaterialCount" : 1,
+    "MaterialDetail" : [
+    {
+        "Index" : 0,
+        "MaterialName" :  ""
+    }
+    ],
+    "MeshCount" : 4,
+    "MeshDetail" : [
+    {
+        "MeshName" : "BODY",
+        "MaterialIndex" : [0]
+    },
+    {
+        "MeshName" : "TONGUE",
+        "MaterialIndex" : [0]
+    },
+    {
+        "MeshName" : "TEETH",
+        "MaterialIndex" : [0]
+    },
+    {
+        "MeshName" : "Whiskers ",
+        "MaterialIndex" : [0]
+    }
+    ]
+}

@@ -1,0 +1,74 @@
+{
+    "FBXName" : "Knight",
+    "ImportSucceeded" : true,
+    "MaterialCount" : 1,
+    "MaterialDetail" : [
+    {
+        "Index" : 0,
+        "MaterialName" :  "knight_texture"
+    }
+    ],
+    "MeshCount" : 15,
+    "MeshDetail" : [
+    {
+        "MeshName" : "Knight_ArmLeft",
+        "MaterialIndex" : [0]
+    },
+    {
+        "MeshName" : "Knight_ArmRight",
+        "MaterialIndex" : [0]
+    },
+    {
+        "MeshName" : "Knight_Body",
+        "MaterialIndex" : [0]
+    },
+    {
+        "MeshName" : "Knight_Head",
+        "MaterialIndex" : [0]
+    },
+    {
+        "MeshName" : "Knight_LegLeft",
+        "MaterialIndex" : [0]
+    },
+    {
+        "MeshName" : "Knight_LegRight",
+        "MaterialIndex" : [0]
+    },
+    {
+        "MeshName" : "Knight_Cape",
+        "MaterialIndex" : [0]
+    },
+    {
+        "MeshName" : "Rectangle_Shield",
+        "MaterialIndex" : [0]
+    },
+    {
+        "MeshName" : "Round_Shield",
+        "MaterialIndex" : [0]
+    },
+    {
+        "MeshName" : "Spike_Shield",
+        "MaterialIndex" : [0]
+    },
+    {
+        "MeshName" : "Badge_Shield",
+        "MaterialIndex" : [0]
+    },
+    {
+        "MeshName" : "1H_Sword_Offhand",
+        "MaterialIndex" : [0]
+    },
+    {
+        "MeshName" : "2H_Sword",
+        "MaterialIndex" : [0]
+    },
+    {
+        "MeshName" : "1H_Sword",
+        "MaterialIndex" : [0]
+    },
+    {
+        "MeshName" : "Knight_Helmet",
+        "MaterialIndex" : [0]
+    }
+    ]
+}

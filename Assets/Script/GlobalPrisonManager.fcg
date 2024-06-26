@@ -41,18 +41,18 @@ graph GlobalPrisonManager {
         Append(_PrisonerList, player)
         DispatchEvent(Player_EnterPrison,globalEntity,List<object>{player})
 
-        for key,_player in GetAllPlayers() {
-            DispatchEvent(Player_EnterPrison,_player,List<object>{player})
-        }
+        // for key,_player in GetAllPlayers() {
+        //     DispatchEvent(Player_EnterPrison,_player,List<object>{player})
+        // }
     }
 
     func RemovePrisoner(player entity<Player>) {
         Delete(_PrisonerList, player)
         DispatchEvent(Player_EscapePrison,globalEntity,List<object>{player})
         
-        for key,_player in GetAllPlayers() {
-            DispatchEvent(Player_EscapePrison,_player,List<object>{player})
-        }
+        // for key,_player in GetAllPlayers() {
+        //     DispatchEvent(Player_EscapePrison,_player,List<object>{player})
+        // }
     }
 
     func RemoveAllPrisoner() {

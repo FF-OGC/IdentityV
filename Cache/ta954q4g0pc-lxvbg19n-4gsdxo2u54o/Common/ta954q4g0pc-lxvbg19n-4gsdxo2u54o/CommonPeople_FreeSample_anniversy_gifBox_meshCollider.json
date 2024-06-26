@@ -1,0 +1,18 @@
+{
+    "FBXName" : "CommonPeople_FreeSample_anniversy_gifBox_meshCollider",
+    "ImportSucceeded" : true,
+    "MaterialCount" : 1,
+    "MaterialDetail" : [
+    {
+        "Index" : 0,
+        "MaterialName" :  "meshCollider"
+    }
+    ],
+    "MeshCount" : 1,
+    "MeshDetail" : [
+    {
+        "MeshName" : "CommonPeople_FreeSample_anniversy_gifBox_meshCollider",
+        "MaterialIndex" : [0]
+    }
+    ]
+}

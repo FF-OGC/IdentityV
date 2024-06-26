@@ -1,0 +1,26 @@
+{
+    "FBXName" : "LaaLaa",
+    "ImportSucceeded" : true,
+    "MaterialCount" : 3,
+    "MaterialDetail" : [
+    {
+        "Index" : 0,
+        "MaterialName" :  "classic_body"
+    },
+    {
+        "Index" : 1,
+        "MaterialName" :  "classic_face"
+    },
+    {
+        "Index" : 2,
+        "MaterialName" :  "classic_fur"
+    }
+    ],
+    "MeshCount" : 1,
+    "MeshDetail" : [
+    {
+        "MeshName" : "st2_laalaa_st2laalaa_ref",
+        "MaterialIndex" : [0,1,2]
+    }
+    ]
+}

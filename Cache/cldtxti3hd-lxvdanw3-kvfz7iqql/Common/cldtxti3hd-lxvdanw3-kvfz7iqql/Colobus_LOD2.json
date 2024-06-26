@@ -1,0 +1,18 @@
+{
+    "FBXName" : "Colobus_LOD2",
+    "ImportSucceeded" : true,
+    "MaterialCount" : 1,
+    "MaterialDetail" : [
+    {
+        "Index" : 0,
+        "MaterialName" :  "M_Colobus"
+    }
+    ],
+    "MeshCount" : 1,
+    "MeshDetail" : [
+    {
+        "MeshName" : "Mesh",
+        "MaterialIndex" : [0]
+    }
+    ]
+}

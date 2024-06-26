@@ -208,6 +208,14 @@
         "type": "GFileRefer"
       },
       "fileType": "ugcscript"
+    },
+    {
+      "fileId": "p7tzvosvakn-lxss73ok-kpkorag2fq",
+      "filePath": "Assets\\Script\\PlayerSideNotiHUD.fcg",
+      "_tag": {
+        "type": "GFileRefer"
+      },
+      "fileType": "ugcscript"
     }
   ],
   "avatarInfo": null,

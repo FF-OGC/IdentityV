@@ -1,0 +1,22 @@
+{
+    "FBXName" : "common_people_male_1",
+    "ImportSucceeded" : true,
+    "MaterialCount" : 2,
+    "MaterialDetail" : [
+    {
+        "Index" : 0,
+        "MaterialName" :  "Body"
+    },
+    {
+        "Index" : 1,
+        "MaterialName" :  "Face"
+    }
+    ],
+    "MeshCount" : 1,
+    "MeshDetail" : [
+    {
+        "MeshName" : "common_people_male_1",
+        "MaterialIndex" : [0,1]
+    }
+    ]
+}

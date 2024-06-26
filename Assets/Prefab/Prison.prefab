@@ -19,7 +19,7 @@
           "_entityId": "1f64lHVG",
           "children": [],
           "activeValue": {
-            "selfValue": false,
+            "selfValue": true,
             "valueTag": "activeValue"
           },
           "unlockedValue": {
@@ -30,7 +30,7 @@
           "editorVisibleValue": true,
           "position": {
             "x": 0,
-            "y": 0,
+            "y": -1.6750574111938477,
             "z": 0
           },
           "scale": {
@@ -66,7 +66,7 @@
           "entityTagData": {
             "tagPointers": []
           },
-          "tempIndex": 605,
+          "tempIndex": 478,
           "itemID": 143,
           "seParent": null,
           "ecaScripts": [
@@ -144,7 +144,7 @@
           "entityTagData": {
             "tagPointers": []
           },
-          "tempIndex": 606,
+          "tempIndex": 479,
           "itemID": 117,
           "seParent": null,
           "ecaScripts": [
@@ -313,7 +313,10 @@
                 "selfValue": true,
                 "valueTag": "activeValue"
               },
-              "unlockedValue": null,
+              "unlockedValue": {
+                "selfValue": true,
+                "valueTag": "unlockedValue"
+              },
               "editorLockValue": false,
               "editorVisibleValue": true,
               "position": {
@@ -352,7 +355,7 @@
               "entityTagData": {
                 "tagPointers": []
               },
-              "tempIndex": 607,
+              "tempIndex": 480,
               "itemID": 138,
               "seParent": null,
               "ecaScripts": [
@@ -380,7 +383,10 @@
                 "selfValue": true,
                 "valueTag": "activeValue"
               },
-              "unlockedValue": null,
+              "unlockedValue": {
+                "selfValue": true,
+                "valueTag": "unlockedValue"
+              },
               "position": {
                 "x": 0.10800059139728546,
                 "y": 0,
@@ -417,7 +423,7 @@
               "entityTagData": {
                 "tagPointers": []
               },
-              "tempIndex": 608,
+              "tempIndex": 481,
               "itemID": 138,
               "seParent": null,
               "ecaScripts": [
@@ -447,7 +453,10 @@
                 "selfValue": true,
                 "valueTag": "activeValue"
               },
-              "unlockedValue": null,
+              "unlockedValue": {
+                "selfValue": true,
+                "valueTag": "unlockedValue"
+              },
               "position": {
                 "x": -2.5479986667633057,
                 "y": 0,
@@ -484,7 +493,7 @@
               "entityTagData": {
                 "tagPointers": []
               },
-              "tempIndex": 609,
+              "tempIndex": 482,
               "itemID": 138,
               "seParent": null,
               "ecaScripts": [
@@ -514,7 +523,10 @@
                 "selfValue": true,
                 "valueTag": "activeValue"
               },
-              "unlockedValue": null,
+              "unlockedValue": {
+                "selfValue": true,
+                "valueTag": "unlockedValue"
+              },
               "position": {
                 "x": 2.512000799179077,
                 "y": 0,
@@ -551,7 +563,7 @@
               "entityTagData": {
                 "tagPointers": []
               },
-              "tempIndex": 610,
+              "tempIndex": 483,
               "itemID": 138,
               "seParent": null,
               "ecaScripts": [
@@ -568,6 +580,103 @@
               "_entityName": "Iron Fence (3)",
               "editorLockValue": false,
               "editorVisibleValue": true
+            },
+            {
+              "_tag": {
+                "type": "SceneEditEntity",
+                "resourceId": "Primitive/Empty"
+              },
+              "_entityId": "pPtZdJrZ",
+              "children": [],
+              "prefabVariant": null,
+              "activeValue": {
+                "selfValue": true,
+                "valueTag": "activeValue"
+              },
+              "unlockedValue": {
+                "selfValue": true,
+                "valueTag": "unlockedValue"
+              },
+              "editorLockValue": false,
+              "editorVisibleValue": true,
+              "position": {
+                "x": 0.01899999938905239,
+                "y": 0,
+                "z": -0.03200000151991844
+              },
+              "scale": {
+                "x": 7.000000476837158,
+                "y": 0.5,
+                "z": 7.000000476837158
+              },
+              "rotation": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "BTPath": [
+                null
+              ],
+              "visible": true,
+              "VisibilityLayer": 0,
+              "modelOptimization": 0,
+              "streamingLayer": "",
+              "attributes": [
+                2,
+                4
+              ],
+              "isTrigger": false,
+              "collidable": true,
+              "physicalLayer": 0,
+              "physicalMaterial": null,
+              "initialTypes": {},
+              "componentList": [],
+              "_filters": [
+                "game.related9"
+              ],
+              "entityTagData": {
+                "tagPointers": []
+              },
+              "tempIndex": 484,
+              "itemID": 224,
+              "seParent": null,
+              "ecaScripts": [
+                null
+              ],
+              "ecaProps": {
+                "EffectEntityGenerator": {},
+                "ItemContainerGenerator": {},
+                "Entity": {},
+                "EffectEntity": {},
+                "Playable": {},
+                "Loopable": {},
+                "LevelObject": {},
+                "Transform": {},
+                "Visibility": {}
+              },
+              "_entityName": "Visual effects",
+              "propsData": {
+                "effectColor": {
+                  "r": 255,
+                  "g": 255,
+                  "b": 255,
+                  "a": 0.05
+                },
+                "effectTextureRef": null,
+                "playSpeed": 50,
+                "autoPlay": true,
+                "effectTypeResId": "",
+                "effectTexture": "",
+                "effectTypeRef": {
+                  "fileId": "EffectType_WS_FF_VFX_SPAWNAREA",
+                  "filePath": "lib://ffEffects/WS_FF_VFX_SPAWNAREA",
+                  "_tag": {
+                    "type": "GFileRefer"
+                  },
+                  "fileType": "effecttype"
+                },
+                "effectType": "WS_FF_VFX_SPAWNAREA"
+              }
             }
           ],
           "prefabVariant": null,
@@ -575,7 +684,10 @@
             "selfValue": true,
             "valueTag": "activeValue"
           },
-          "unlockedValue": null,
+          "unlockedValue": {
+            "selfValue": true,
+            "valueTag": "unlockedValue"
+          },
           "editorLockValue": false,
           "editorVisibleValue": true,
           "position": {
@@ -637,104 +749,11 @@
             "LevelObject": {},
             "Transform": {},
             "Entity": {},
-            "Visibility": {}
+            "Visibility": {},
+            "MeshRender": {}
           },
           "entityVersion": 3,
           "_entityName": "fence"
-        },
-        {
-          "_tag": {
-            "type": "SceneEditEntity",
-            "resourceId": "Primitive/Empty"
-          },
-          "_entityId": "pPtZdJrZ",
-          "children": [],
-          "prefabVariant": null,
-          "activeValue": {
-            "selfValue": true,
-            "valueTag": "activeValue"
-          },
-          "unlockedValue": null,
-          "editorLockValue": false,
-          "editorVisibleValue": true,
-          "position": {
-            "x": 0,
-            "y": 0,
-            "z": 0
-          },
-          "scale": {
-            "x": 7,
-            "y": 0.5,
-            "z": 7
-          },
-          "rotation": {
-            "x": 0,
-            "y": 0,
-            "z": 0
-          },
-          "BTPath": [
-            null
-          ],
-          "visible": true,
-          "VisibilityLayer": 0,
-          "modelOptimization": 0,
-          "streamingLayer": "",
-          "attributes": [
-            2,
-            4
-          ],
-          "isTrigger": false,
-          "collidable": true,
-          "physicalLayer": 0,
-          "physicalMaterial": null,
-          "initialTypes": {},
-          "componentList": [],
-          "_filters": [
-            "game.related9"
-          ],
-          "entityTagData": {
-            "tagPointers": []
-          },
-          "tempIndex": 611,
-          "itemID": 224,
-          "seParent": null,
-          "ecaScripts": [
-            null
-          ],
-          "ecaProps": {
-            "EffectEntityGenerator": {},
-            "ItemContainerGenerator": {},
-            "Entity": {},
-            "EffectEntity": {},
-            "Playable": {},
-            "Loopable": {},
-            "LevelObject": {},
-            "Transform": {},
-            "Visibility": {}
-          },
-          "_entityName": "Visual effects",
-          "propsData": {
-            "effectColor": {
-              "r": 255,
-              "g": 255,
-              "b": 255,
-              "a": 0.05
-            },
-            "effectTextureRef": null,
-            "playSpeed": 50,
-            "autoPlay": true,
-            "effectTypeResId": "",
-            "effectTexture": "",
-            "effectTypeRef": {
-              "fileId": "EffectType_WS_FF_VFX_SPAWNAREA",
-              "filePath": "lib://ffEffects/WS_FF_VFX_SPAWNAREA",
-              "_tag": {
-                "type": "GFileRefer"
-              },
-              "fileType": "effecttype"
-            },
-            "effectType": "WS_FF_VFX_SPAWNAREA"
-          }
         }
       ],
       "activeValue": {
@@ -840,14 +859,14 @@
   "_entityName": "Prison",
   "mainCameraTransfrom": {
     "position": {
-      "x": 45.75812530517578,
-      "y": 14.861900329589844,
-      "z": 572.8306884765625
+      "x": 34.3521728515625,
+      "y": 14.839212417602539,
+      "z": 586.6571044921875
     },
     "rotation": {
-      "x": 29.50031089782715,
-      "y": 259.60003662109375,
-      "z": -9.809508583202842e-7
+      "x": 14.20036506652832,
+      "y": 189.100341796875,
+      "z": -1.1008550160340747e-7
     }
   }
 }

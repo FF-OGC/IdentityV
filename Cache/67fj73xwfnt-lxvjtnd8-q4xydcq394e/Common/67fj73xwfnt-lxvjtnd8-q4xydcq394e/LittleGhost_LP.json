@@ -1,0 +1,54 @@
+{
+    "FBXName" : "LittleGhost_LP",
+    "ImportSucceeded" : true,
+    "MaterialCount" : 5,
+    "MaterialDetail" : [
+    {
+        "Index" : 0,
+        "MaterialName" :  "Kid_ghost_v1:body2"
+    },
+    {
+        "Index" : 1,
+        "MaterialName" :  "Kid_ghost_v1:lambert9"
+    },
+    {
+        "Index" : 2,
+        "MaterialName" :  "Kid_ghost_v1:aiStandardSurface14"
+    },
+    {
+        "Index" : 3,
+        "MaterialName" :  "Kid_ghost_v1:aiStandardSurface15"
+    },
+    {
+        "Index" : 4,
+        "MaterialName" :  "Kid_ghost_v1:lambert10"
+    }
+    ],
+    "MeshCount" : 6,
+    "MeshDetail" : [
+    {
+        "MeshName" : "Kid_ghost_v1:Ghost_Kid_S1",
+        "MaterialIndex" : [0]
+    },
+    {
+        "MeshName" : "Kid_ghost_v1:Ghost_Kid_S2",
+        "MaterialIndex" : [0]
+    },
+    {
+        "MeshName" : "Kid_ghost_v1:Devil_head2",
+        "MaterialIndex" : [1]
+    },
+    {
+        "MeshName" : "Kid_ghost_v1:Devil_head1",
+        "MaterialIndex" : [1]
+    },
+    {
+        "MeshName" : "Kid_ghost_v1:Witch_Hat",
+        "MaterialIndex" : [2,3]
+    },
+    {
+        "MeshName" : "Kid_ghost_v1:Axe",
+        "MaterialIndex" : [4]
+    }
+    ]
+}

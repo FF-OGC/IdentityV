@@ -1,0 +1,18 @@
+{
+ "Name": "NeJf7T04.AutoCommon_AMGKNjIl",
+ "UUID": "NeJf7T04.AutoCommon_AMGKNjIl",
+ "ShareType": "Private",
+ "PackageType": "Custom",
+ "UseableType": "ClientServer",
+ "Platform": "Any",
+ "Version": "1.0.0",
+ "DataFormatVersion": 1,
+ "ResourceList": [
+  {
+   "UUID": "NeJf7T04.vmqnm4ttjv-lxvdafaq-vm83hl8rfe-Walk.Anim-evented",
+   "Type": "EventAnimationClip",
+   "Path": "fab://Assets\\Model\\Quirky Series Ultimate\\FREE\\Animations\\Sparrow_Animations.fbx\\Walk.anim",
+   "Data": "CglXYWxrLmFuaW0VVVXQQx0AAMBBMjFOZUpmN1QwNC52bXFubTR0dGp2LWx4dmRhZmFxLXZtODNobDhyZmUtV2Fsay5Bbmlt"
+  }
+ ]
+}

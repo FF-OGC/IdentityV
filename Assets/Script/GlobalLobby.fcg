@@ -1,0 +1,34 @@
+import "Player.fcc" as Player
+import "Workflow.fcc" as Workflow
+import "StdLibrary.fcc" as StdLib
+import "EditorGenLib.fcc" as EditorLib
+import Resources from "EditorGenLib.fcc"
+
+graph GlobalLobby {
+    //Executed when entity is created
+    LOBBY entity<Entity>
+
+    event OnAwake() {
+        WaitForNextFrame()
+        LOBBY = Resources.Scene_main[EResource_Scene_main.LOBBY]
+    }
+
+    event OnPhaseStart(phase entity<Phase>) {
+        var phaseIndex = phase<Phase>.PhaseIndex
+        if phaseIndex == phaseEnum.IN_PROGRESS {
+            SetActive(LOBBY, false)
+
+            for key,player in GetAllPlayers() {
+                player<Player>.GodState = false
+            }
+        }
+
+    }
+
+    event OnPlayerJoin(player entity<Player>) {
+        Teleport(player,LOBBY<Transform>.Position,Vector3{0, 0, 0})
+        player<Player>.GodState = true
+    }
+
+
+}

@@ -71,6 +71,10 @@ graph PlayerFixingHUD {
     func UpdateProgress() {
         var ratio = _ProgressBar<HudWidget>.Width / _SelectedGenerator<Generator>._TotalProgress
         _CurrentProgressBar<HudWidget>.Width = Round(_SelectedGenerator<Generator>._CurrentProgress * ratio)
+
+        var percentage = Round((_SelectedGenerator<Generator>._CurrentProgress / _SelectedGenerator<Generator>._TotalProgress) * 100)
+        var percentageHUD = GetChildByIndex(_ProgressPivot, 3)
+        percentageHUD<HudLabelWidget>.Text = percentage + "%"
     }
 
     func DisplayFixingHUD(){
@@ -146,9 +150,13 @@ graph PlayerFixingHUD {
 
         if(value >= _MinAccept && value <= _MaxAccept){
             LogInfo("Success")
+            DispatchEvent(Player_SuccessSkillCheck,_SelectedGenerator<Generator>,List<object>{thisEntity})
+            DispatchEvent(Player_SuccessSkillCheck,thisEntity,List<object>{thisEntity})
         } else {
             LogInfo("Fail")
-            _SelectedGenerator<Generator>.FailSkillCheck()
+            // _SelectedGenerator<Generator>.FailSkillCheck()
+            DispatchEvent(Player_FailSkillCheck,_SelectedGenerator<Generator>,List<object>{thisEntity})
+            DispatchEvent(Player_FailSkillCheck,thisEntity,List<object>{thisEntity})
         }
 
         CloseSkillCheckHUD()
@@ -168,6 +176,7 @@ graph PlayerFixingHUD {
                 if(time > max_time){
                     CloseSkillCheckHUD()
                     _SelectedGenerator<Generator>.FailSkillCheck()
+                    DispatchEvent(Player_FailSkillCheck,thisEntity,List<object>{thisEntity})
                 }
                 WaitForSeconds(1000)
             }

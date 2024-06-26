@@ -1,0 +1,18 @@
+{
+ "Name": "NeJf7T04.ColliderCommon_7nD8UvyX",
+ "UUID": "NeJf7T04.ColliderCommon_7nD8UvyX",
+ "ShareType": "Private",
+ "PackageType": "Custom",
+ "UseableType": "ClientServer",
+ "Platform": "Any",
+ "Version": "1.0.0",
+ "DataFormatVersion": 1,
+ "ResourceList": [
+  {
+   "UUID": "rhjn933ebnp-lxvmhhyb-fqyf2ny9h2j-aPjMKqVp-collider",
+   "Type": "Collider",
+   "Path": "Assets\\Prefab\\chr107 With Animations.prefab",
+   "Data": ""
+  }
+ ]
+}

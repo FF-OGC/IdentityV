@@ -1,0 +1,18 @@
+{
+ "Name": "NeJf7T04.AutoCommon_3wyW3I8N",
+ "UUID": "NeJf7T04.AutoCommon_3wyW3I8N",
+ "ShareType": "Private",
+ "PackageType": "Custom",
+ "UseableType": "ClientServer",
+ "Platform": "Any",
+ "Version": "1.0.0",
+ "DataFormatVersion": 1,
+ "ResourceList": [
+  {
+   "UUID": "NeJf7T04.2w3soodteto-lxvk3p5r-4ofdrz111ap",
+   "Type": "CustomPlayer",
+   "Path": "Assets\\PlayerData\\Imposter.playerdata",
+   "Data": "CiVBc3NldHNcUGxheWVyRGF0YVxJbXBvc3Rlci5wbGF5ZXJkYXRhEjNyaGpuOTMzZWJucC1seHZtaGh5Yi1mcXlmMm55OWgyamFQak1LcVZwLXBsYXllcmJvbmUYASJJCgpSdW5fRkBGaXN0EjtOZUpmN1QwNC51aHExemhhODNiOC1seHZtZmVjOS15eDRtM2JiN3kxbS1tb3ZlLkFuaW0tZXZlbnRlZCJPCgxBdHRhY2syQEZpc3QSP05lSmY3VDA0LnVocTF6aGE4M2I4LWx4dm1mZWM5LXl4NG0zYmI3eTFtLWF0dGFjazAxLkFuaW0tZXZlbnRlZCJQCg1BdHRhY2sxQEZpc3QgEj9OZUpmN1QwNC51aHExemhhODNiOC1seHZtZmVjOS15eDRtM2JiN3kxbS1hdHRhY2swMS5BbmltLWV2ZW50ZWQiTgoPU3RhbmRfSWRsZUBGaXN0EjtOZUpmN1QwNC51aHExemhhODNiOC1seHZtZmVjOS15eDRtM2JiN3kxbS1pZGxlLkFuaW0tZXZlbnRlZCoLNi8vYVBqTUtxVnAwAA=="
+  }
+ ]
+}

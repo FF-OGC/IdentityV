@@ -1,0 +1,18 @@
+{
+    "FBXName" : "hero_xixuegui_skin_high_add",
+    "ImportSucceeded" : true,
+    "MaterialCount" : 1,
+    "MaterialDetail" : [
+    {
+        "Index" : 0,
+        "MaterialName" :  "mat_xixuegui_high"
+    }
+    ],
+    "MeshCount" : 1,
+    "MeshDetail" : [
+    {
+        "MeshName" : "MoFaShi_YuanShi",
+        "MaterialIndex" : [0]
+    }
+    ]
+}

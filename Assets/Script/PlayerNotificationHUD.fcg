@@ -10,11 +10,14 @@ import "./Prison.fcg" as Prison
 import "./PlayerRescue.fcg" as PlayerRescue
 import "Math.fcc" as Math
 import "List.fcc" as List
+import "Playable.fcc" as Playable
+
 
 graph PlayerNotificationHUD {
     _NotificationHUD entity<CustomHud>
     BG entity<HudWidget>
     Text entity<HudWidget>
+    Holder entity<HudWidget>
     
 
     _IsActive bool = false
@@ -28,26 +31,28 @@ graph PlayerNotificationHUD {
 
     }
 
-    event Generator_OnFinish(generator object) {
-        DisplayNotificationHUD(#32FF00FF, "Generator Repaired.", 3000)
-    }
+    // event Generator_OnFinish(generator object) {
+    //     WaitForNextFrame()
+    //     var text = globalEntity<GlobalGeneratorManager>.CurrentGenerator + "/" + globalEntity<GlobalGeneratorManager>.REQUIRED_GENERATOR
+    //     start DisplayNotificationHUD(#32FF00FF,text + " Generator Repaired.", 3000)
+    // }
 
-    event Player_EnterPrison(player entity<Player>) {
-        DisplayNotificationHUD(#FF0000FF, player<Player>.NickName + " Enter Prison.", 3000)
-    }
+    // event Player_EnterPrison(player entity<Player>) {
+    //     start DisplayNotificationHUD(#FF0000FF, player<Player>.NickName + " Enter Prison.", 3000)
+    // }
 
-    event Player_EscapePrison(player entity<Player>) {
-        DisplayNotificationHUD(#32FF00FF, player<Player>.NickName + " Escape Prison.", 3000)
-    }
+    // event Player_EscapePrison(player entity<Player>) {
+    //     start DisplayNotificationHUD(#32FF00FF, player<Player>.NickName + " Escape Prison.", 3000)
+    // }
 
-    event Global_OnFinishTask() {
-        WaitForNextFrame()
-        DisplayNotificationHUD(#32FF00FF, "Task Completed.", 3000)
-    }
+    // event Global_OnFinishTask() {
+    //     WaitForNextFrame()
+    //     start DisplayNotificationHUD(#32FF00FF, "Task Completed.", 3000)
+    // }
 
-    event Player_Escape(player entity<Player>) {
-        DisplayNotificationHUD(#32FF00FF, player<Player>.NickName + " Escaped.", 3000)
-    }   
+    // event Player_Escape(player entity<Player>) {
+    //     start DisplayNotificationHUD(#32FF00FF, player<Player>.NickName + " Escaped.", 3000)
+    // }   
 
 
     
@@ -57,6 +62,7 @@ graph PlayerNotificationHUD {
             _NotificationHUD<CustomHud>.Visibility = false
             BG = GetNotificationHUDWidget(EResource_UI_NOTIFICATION.BG)
             Text = GetNotificationHUDWidget(EResource_UI_NOTIFICATION.TEXT)
+            Holder = GetNotificationHUDWidget(EResource_UI_NOTIFICATION.HOLDER)
 
         }
     }
@@ -73,23 +79,34 @@ graph PlayerNotificationHUD {
         Text<HudLabelWidget>.Text = text
         _NotificationHUD<CustomHud>.Visibility = true
         _IsActive = true
+        start PlayAnimation()
 
         WaitForSeconds(duration)
 
+        CloseNotificationHUD()
+
         if Length(_Queue) > 0 {
             ProcessQueue()
-        } else {
-            CloseNotificationHUD()
-        }
-
-
+        } 
     }
     
-    func CloseNotificationHUD() {
+    async func CloseNotificationHUD() {
         if (_NotificationHUD != nil) {
+
+            var curve = CreateTweenCurve(List<float>{0,0,0.58,1})
+            CreateTween(Holder<HudWidget>,HudWidget.AnchorPosition,Vector3{0, 0, 0},Vector3{0, -50, 0}, TweenStyle.Once,curve,1000,out var motion, true)
+            CreateTween(Holder<HudEmptyWidget>,HudEmptyWidget.Alpha,1,0, TweenStyle.Once,curve,1000,out var alphamotion, true)
+            WaitForSeconds(1000)
+
             _NotificationHUD<CustomHud>.Visibility = false
             _IsActive = false
         }
+    }
+
+    async func PlayAnimation() {
+        var curve = CreateTweenCurve(List<float>{0,0,0.58,1})
+        CreateTween(Holder<HudWidget>,HudWidget.AnchorPosition,Vector3{0, -50, 0},Vector3{0, 0, 0}, TweenStyle.Once,curve,1000,out var motion, true)
+        CreateTween(Holder<HudEmptyWidget>,HudEmptyWidget.Alpha,0,1, TweenStyle.Once,curve,1000,out var alphamotion, true)
     }
 
     
@@ -113,6 +130,7 @@ graph PlayerNotificationHUD {
     async func ProcessQueue(){
         if (Length(_Queue) > 0 ){
             var noti = PopQueue()
+            LogInfo("ProcessQueue: " + noti)
             DisplayNotificationHUD(noti[0] as Color, noti[1] as string,noti[2] as int)
         }
     }

@@ -1,0 +1,18 @@
+{
+    "FBXName" : "Squid_Animations",
+    "ImportSucceeded" : true,
+    "MaterialCount" : 1,
+    "MaterialDetail" : [
+    {
+        "Index" : 0,
+        "MaterialName" :  "M_Squid"
+    }
+    ],
+    "MeshCount" : 1,
+    "MeshDetail" : [
+    {
+        "MeshName" : "Mesh",
+        "MaterialIndex" : [0]
+    }
+    ]
+}

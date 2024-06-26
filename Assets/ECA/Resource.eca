@@ -762,6 +762,167 @@
         "fields": {
           "V": "b063b0439839b3d97a8fd2aa6a57ef8b"
         }
+      },
+      {
+        "type": "a",
+        "id": "yK|C)b|f8tX[56!!4}^:",
+        "x": -1262,
+        "y": -234,
+        "extraState": {
+          "X": 528,
+          "L": [
+            1,
+            2,
+            3
+          ],
+          "T": "SetPlayerHubSwitch",
+          "OT": null
+        },
+        "inputs": {
+          "P1": {
+            "shadow": {
+              "type": "tys",
+              "id": "DGCq/b9v|=zjD+)f`ZZO",
+              "extraState": "Player"
+            }
+          },
+          "P2": {
+            "shadow": {
+              "type": "ipe",
+              "id": "@IyyqH}[,-5(t|Cf)@PE",
+              "extraState": "PlayerHudSwitchType",
+              "fields": {
+                "I": "AttackHUD"
+              }
+            }
+          },
+          "P3": {
+            "shadow": {
+              "type": "ipe",
+              "id": "$FhJ[F54#r]D^.+!.0~{",
+              "extraState": "CommonHudSwitchValue",
+              "fields": {
+                "I": "Close"
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "ipbz",
+        "id": "gz1q/;kq!W%`+j4LXycs",
+        "x": -1293,
+        "y": -16,
+        "fields": {
+          "BZ": "0,0,0.58,1",
+          "BezierText": "Ease Out"
+        }
+      },
+      {
+        "type": "ipbz",
+        "id": "Dv#~=HsBjm$rzKF((Nc_",
+        "x": -1308,
+        "y": -117,
+        "fields": {
+          "BZ": "0.42,0,0.58,1",
+          "BezierText": "Ease Both"
+        }
+      },
+      {
+        "type": "e",
+        "id": "jP{rt{c1)}U8GbirYfT_",
+        "x": 1725,
+        "y": -2,
+        "extraState": {
+          "X": 14,
+          "L": [
+            1
+          ],
+          "T": "OnPlayerAdd",
+          "OT": null
+        },
+        "fields": {
+          "P1": {
+            "name": "Triggering player",
+            "type": "Player"
+          }
+        }
+      },
+      {
+        "type": "e",
+        "id": "NOvoU;hKn(x$,hMtZ3E{",
+        "x": 1549,
+        "y": 158,
+        "extraState": {
+          "X": 1,
+          "L": [],
+          "T": "OnMatchStart",
+          "OT": null
+        },
+        "next": {
+          "block": {
+            "type": "a",
+            "id": "2-dHe#WkuoYkpbep2I?V",
+            "extraState": {
+              "X": 31,
+              "L": [],
+              "T": "WaitForNextFrame",
+              "OT": null
+            },
+            "next": {
+              "block": {
+                "type": "grs",
+                "id": "A/W3s+BQ/im~8)7r2`QK",
+                "fields": {
+                  "VR": "vHDSHqkrW",
+                  "O": "UK"
+                },
+                "inputs": {
+                  "V": {
+                    "shadow": {
+                      "type": "tys",
+                      "id": "{VU^R96ZRALVNWsq{p(`",
+                      "extraState": "PlayerDataID"
+                    },
+                    "block": {
+                      "type": "ppd",
+                      "id": "@2#TaeL8FKS?XU6*Ls8e",
+                      "fields": {
+                        "V": "i30uaiyqk6e-lxvib4ok-i08msz60p2"
+                      }
+                    }
+                  }
+                },
+                "next": {
+                  "block": {
+                    "type": "grs",
+                    "id": "6`,A8}n:ChKWfJp8AoX!",
+                    "fields": {
+                      "VR": "vMeeic4aN",
+                      "O": "UK"
+                    },
+                    "inputs": {
+                      "V": {
+                        "shadow": {
+                          "type": "tys",
+                          "id": "c!|QCBlzSJL6)IUV9b=^",
+                          "extraState": "PlayerDataID"
+                        },
+                        "block": {
+                          "type": "ppd",
+                          "id": "4#6MTvFrlrd2VDDL9qCq",
+                          "fields": {
+                            "V": "2w3soodteto-lxvk3p5r-4ofdrz111ap"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     ]
   },
@@ -770,6 +931,18 @@
       "id": "v80HQ50CC",
       "name": "zombieSpawn",
       "type": "any",
+      "value": null
+    },
+    {
+      "id": "vHDSHqkrW",
+      "name": "PlayerData",
+      "type": "PlayerDataID",
+      "value": null
+    },
+    {
+      "id": "vMeeic4aN",
+      "name": "ImposterData",
+      "type": "PlayerDataID",
       "value": null
     }
   ],

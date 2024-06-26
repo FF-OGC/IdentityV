@@ -220,12 +220,45 @@
           "scriptName": "NOTIFICATION",
           "children": [
             {
+              "id": "fdbepv2h",
+              "scriptName": "BG"
+            },
+            {
+              "id": "iygV0KdX",
+              "scriptName": "TEXT"
+            },
+            {
+              "id": "1aazNHkw",
+              "scriptName": "HOLDER"
+            }
+          ]
+        },
+        {
+          "refer": {
+            "fileId": "8d4muaxmtav-lxsrkiqd-zrh9vachqo",
+            "filePath": "Assets\\UI\\SideNoti.ui",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "ui"
+          },
+          "scriptName": "SIDENOTI",
+          "children": [
+            {
+              "id": "lgBUMArH",
+              "scriptName": "HOLDER"
+            },
+            {
               "id": "WTu8iJ1g",
               "scriptName": "BG"
             },
             {
               "id": "6xKA9hJO",
               "scriptName": "TEXT"
+            },
+            {
+              "id": "BZLSs5rD",
+              "scriptName": "ICON"
             }
           ]
         }
@@ -262,6 +295,10 @@
             {
               "id": "3VfdbZXu",
               "scriptName": "GATES"
+            },
+            {
+              "id": "D4Fq0b0Y",
+              "scriptName": "LOBBY"
             }
           ]
         }

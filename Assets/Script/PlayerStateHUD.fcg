@@ -14,6 +14,7 @@ import "./GlobalPlayerStateManager.fcg" as GlobalPlayerStateManager
 import "Player.fcc" as Player
 import "List.fcc" as List
 import "SafeZone.fcc" as SafeZone
+import "Playable.fcc" as Playable
 
 graph PlayerStateHUD {
     _StateHUD entity<CustomHud>
@@ -24,7 +25,7 @@ graph PlayerStateHUD {
     PLAYER_2 entity<HudWidget>
     PLAYER_3 entity<HudWidget>
 
-    
+    _MotionIcons List<entity<Tween>> = List<entity<Tween>>{}
 
     
     
@@ -37,7 +38,7 @@ graph PlayerStateHUD {
     }
 
     
-    func InitStateHUD() {
+    async func InitStateHUD() {
         if (_StateHUD == nil) {
             _StateHUD = HUDUtil.CreateCustomHUD(thisEntity<Player>,EResource_UI.STATE,4)
             PLAYER_LAYOUT = GetStateHUDWidget(EResource_UI_STATE.PLAYER_LAYOUT)
@@ -57,6 +58,11 @@ graph PlayerStateHUD {
 
                     avatar<HudProfileInfo>.AccountID = globalEntity<GlobalRole>.HumanList[key]<Player>.UserUID
                     name<HudLabelWidget>.Text = globalEntity<GlobalRole>.HumanList[key]<Player>.NickName
+
+                    var holder = GetChildByIndex(playerHUD, 3)
+                    var icon = GetChildByIndex(holder, 1)
+
+                    InitMotionIcon(icon)
                 }
 
             }
@@ -102,17 +108,19 @@ graph PlayerStateHUD {
                 // UpdatePrisonStatus(playerHUD as entity<HudWidget>,InPrison)
                 // UpdatePlayerState(playerHUD as entity<HudWidget>,State)
 
-                Update(playerHUD as entity<HudWidget>,player)
+                Update(playerHUD as entity<HudWidget>,player,key)
             }
         }
     }
 
-    func Update(playerHUD entity<HudWidget>,player entity<Player>){ 
+    func Update(playerHUD entity<HudWidget>,player entity<Player>,key int ){ 
         LogInfo("UpdateStateHUD: "+ player<Player>.NickName)
         var holder = GetChildByIndex(playerHUD, 3)
         holder<HudWidget>.Active = true
         var bg = GetChildByIndex(holder, 0)
         var icon = GetChildByIndex(holder, 1)
+
+        PlayMotionIcon(icon,key)
 
         if globalEntity<GlobalPlayerStateManager>.GetPlayerEscaped(player) {
             SetIcon(bg,icon,#33FF00FF,IconType.Exit as SpriteID)
@@ -127,6 +135,7 @@ graph PlayerStateHUD {
 
         holder<HudWidget>.Active = false
         LogInfo("no update")
+        PauseMotionIcon(key)
 
 
     }
@@ -135,6 +144,23 @@ graph PlayerStateHUD {
         bg<HudImageWidget>.Color = color
         icon<HudImageWidget>.Color = color
         icon<HudImageWidget>.SpriteName = IconType as SpriteID
+    }
+
+    async func InitMotionIcon(icon entity<Entity>) {
+        var curve = CreateTweenCurve(List<float>{0.42,0,0.58,1})
+        CreateTween(icon<HudWidget>,HudWidget.Angle,-10,10,TweenStyle.PingPong,curve,1000,out var motion, true)
+        WaitForNextFrame()
+        Append(_MotionIcons,motion)
+        LogInfo("InitMotionIcon: " + _MotionIcons)
+    }
+
+    func PlayMotionIcon(icon entity<Entity>, index int) {
+        LogInfo("PlayMotion: " + _MotionIcons[index])
+        Play(_MotionIcons[index],false)
+    }
+
+    func PauseMotionIcon(index int) {
+        Pause(_MotionIcons[index])
     }
 
     func UpdateHPBar(playerHUD entity<HudWidget>,hp int ) {

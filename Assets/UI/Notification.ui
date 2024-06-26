@@ -7,120 +7,215 @@
   "children": [
     {
       "_tag": {
-        "type": "UIImageEntity",
+        "type": "UIEmptyEntity",
         "resourceId": ""
       },
-      "_entityId": "WTu8iJ1g",
-      "children": [],
-      "prefabVariant": null,
-      "activeValue": {
-        "selfValue": true,
-        "valueTag": "activeValue"
-      },
-      "unlockedValue": null,
-      "editorLockValue": false,
-      "editorVisibleValue": true,
-      "propsData": {
-        "activeSelf": true,
-        "transform": {
-          "rotate": 0,
-          "anchorMin": {
-            "x": 0.5,
-            "y": 0.5
+      "_entityId": "1aazNHkw",
+      "children": [
+        {
+          "_tag": {
+            "type": "UIImageEntity",
+            "resourceId": ""
           },
-          "anchorMax": {
-            "x": 0.5,
-            "y": 0.5
+          "_entityId": "fdbepv2h",
+          "children": [],
+          "prefabVariant": null,
+          "activeValue": {
+            "selfValue": true,
+            "valueTag": "activeValue"
           },
-          "pivot": {
-            "x": 0.5,
-            "y": 0.5
+          "unlockedValue": {
+            "selfValue": true,
+            "valueTag": "unlockedValue"
           },
-          "anchoredPosition": {
-            "x": 0,
-            "y": 200
-          },
-          "sizeDelta": {
-            "x": 700,
-            "y": 50
-          }
-        },
-        "alpha": 100,
-        "image": {
-          "source": {
-            "fileId": "76a32cce1ccdd94eddcdf6c4fe0c3499",
-            "filePath": "lib://fftextures/WorkshopIconLibrary/FF_UI_InviteWindow_FG.png",
-            "_tag": {
-              "type": "GFileRefer"
+          "propsData": {
+            "activeSelf": true,
+            "transform": {
+              "rotate": 0,
+              "anchorMin": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "anchorMax": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "pivot": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "anchoredPosition": {
+                "x": 0,
+                "y": 200
+              },
+              "sizeDelta": {
+                "x": 700,
+                "y": 50
+              }
             },
-            "fileType": "texture"
+            "alpha": 100,
+            "image": {
+              "source": {
+                "fileId": "76a32cce1ccdd94eddcdf6c4fe0c3499",
+                "filePath": "lib://fftextures/WorkshopIconLibrary/FF_UI_InviteWindow_FG.png",
+                "_tag": {
+                  "type": "GFileRefer"
+                },
+                "fileType": "texture"
+              },
+              "color": "#FF0000",
+              "reverse": {
+                "x": false,
+                "y": false
+              },
+              "fillType": 1,
+              "slicedBorder": {
+                "left": 0,
+                "right": 0,
+                "top": 0,
+                "bottom": 0
+              },
+              "tiledBorder": {
+                "left": 0,
+                "right": 0,
+                "top": 0,
+                "bottom": 0
+              },
+              "centerInvisible": false,
+              "fillDir": 0,
+              "fillAmount": 0,
+              "invertFill": false,
+              "flip": 0,
+              "gradient": 1,
+              "gradientTop": {
+                "r": 255,
+                "g": 255,
+                "b": 255,
+                "a": 1
+              },
+              "gradientBottom": {
+                "r": 255,
+                "g": 255,
+                "b": 255,
+                "a": 1
+              }
+            }
           },
-          "color": "#FF0000",
-          "reverse": {
-            "x": false,
-            "y": false
+          "ecaScripts": [],
+          "ecaProps": {
+            "HudImageWidget": {},
+            "HudWidget": {},
+            "Entity": {},
+            "Component": {}
           },
-          "fillType": 1,
-          "slicedBorder": {
-            "left": 0,
-            "right": 0,
-            "top": 0,
-            "bottom": 0
+          "_filters": [],
+          "_entityName": "Image",
+          "entityTagData": {
+            "tagPointers": []
           },
-          "tiledBorder": {
-            "left": 0,
-            "right": 0,
-            "top": 0,
-            "bottom": 0
+          "editorLockValue": false,
+          "editorVisibleValue": true
+        },
+        {
+          "_tag": {
+            "type": "UITextEntity",
+            "resourceId": ""
           },
-          "centerInvisible": false,
-          "fillDir": 0,
-          "fillAmount": 0,
-          "invertFill": false,
-          "flip": 0,
-          "gradient": 1,
-          "gradientTop": {
-            "r": 255,
-            "g": 255,
-            "b": 255,
-            "a": 1
+          "_entityId": "iygV0KdX",
+          "children": [],
+          "prefabVariant": null,
+          "activeValue": {
+            "selfValue": true,
+            "valueTag": "activeValue"
           },
-          "gradientBottom": {
-            "r": 255,
-            "g": 255,
-            "b": 255,
-            "a": 1
-          }
+          "unlockedValue": {
+            "selfValue": true,
+            "valueTag": "unlockedValue"
+          },
+          "propsData": {
+            "activeSelf": true,
+            "transform": {
+              "rotate": 0,
+              "anchorMin": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "anchorMax": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "pivot": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "anchoredPosition": {
+                "x": 0,
+                "y": 200
+              },
+              "sizeDelta": {
+                "x": 482,
+                "y": 100
+              }
+            },
+            "alpha": 100,
+            "text": {
+              "value": "Test",
+              "key": "",
+              "font": "Default",
+              "fontSize": 24,
+              "fontStyle": {
+                "bold": false,
+                "italic": false,
+                "underline": false
+              },
+              "color": "#ffffff",
+              "alignment": {
+                "h": "center",
+                "v": "middle"
+              },
+              "lineSpacing": 0,
+              "background": false,
+              "backgroundColor": "#e7b200",
+              "overflow": 0,
+              "backgroundRGBA": {
+                "r": 0,
+                "g": 0,
+                "b": 0,
+                "a": 0
+              },
+              "shadow": false,
+              "shadowColor": "#000000",
+              "shadowOffset": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          },
+          "ecaScripts": [],
+          "ecaProps": {
+            "HudLabelWidget": {},
+            "HudWidget": {},
+            "Entity": {},
+            "Component": {}
+          },
+          "_filters": [],
+          "_entityName": "Text",
+          "entityTagData": {
+            "tagPointers": []
+          },
+          "editorLockValue": false,
+          "editorVisibleValue": true
         }
-      },
-      "ecaScripts": [],
-      "ecaProps": {
-        "HudImageWidget": {},
-        "HudWidget": {},
-        "Entity": {},
-        "Component": {}
-      },
-      "_filters": [],
-      "_entityName": "Image",
-      "entityTagData": {
-        "tagPointers": []
-      }
-    },
-    {
-      "_tag": {
-        "type": "UITextEntity",
-        "resourceId": ""
-      },
-      "_entityId": "6xKA9hJO",
-      "children": [],
+      ],
       "prefabVariant": null,
       "activeValue": {
         "selfValue": true,
         "valueTag": "activeValue"
       },
-      "unlockedValue": null,
-      "editorLockValue": false,
-      "editorVisibleValue": true,
+      "unlockedValue": {
+        "selfValue": true,
+        "valueTag": "unlockedValue"
+      },
       "propsData": {
         "activeSelf": true,
         "transform": {
@@ -139,59 +234,29 @@
           },
           "anchoredPosition": {
             "x": 0,
-            "y": 200
+            "y": 0
           },
           "sizeDelta": {
-            "x": 482,
+            "x": 100,
             "y": 100
           }
         },
-        "alpha": 100,
-        "text": {
-          "value": "Test",
-          "key": "",
-          "font": "Default",
-          "fontSize": 24,
-          "fontStyle": {
-            "bold": false,
-            "italic": false,
-            "underline": false
-          },
-          "color": "#ffffff",
-          "alignment": {
-            "h": "center",
-            "v": "middle"
-          },
-          "lineSpacing": 0,
-          "background": false,
-          "backgroundColor": "#e7b200",
-          "overflow": 0,
-          "backgroundRGBA": {
-            "r": 0,
-            "g": 0,
-            "b": 0,
-            "a": 0
-          },
-          "shadow": false,
-          "shadowColor": "#000000",
-          "shadowOffset": {
-            "x": 1,
-            "y": 1
-          }
-        }
+        "alpha": 100
       },
       "ecaScripts": [],
       "ecaProps": {
-        "HudLabelWidget": {},
+        "HudEmptyWidget": {},
         "HudWidget": {},
         "Entity": {},
         "Component": {}
       },
       "_filters": [],
-      "_entityName": "Text",
+      "_entityName": "Holder ",
       "entityTagData": {
         "tagPointers": []
-      }
+      },
+      "editorLockValue": false,
+      "editorVisibleValue": true
     }
   ],
   "prefabVariant": null,
@@ -199,7 +264,10 @@
     "selfValue": true,
     "valueTag": "activeValue"
   },
-  "unlockedValue": null,
+  "unlockedValue": {
+    "selfValue": true,
+    "valueTag": "unlockedValue"
+  },
   "editorLockValue": false,
   "editorVisibleValue": true,
   "propsData": {
@@ -230,7 +298,11 @@
     "alpha": 100
   },
   "ecaScripts": [],
-  "ecaProps": {},
+  "ecaProps": {
+    "CustomHud": {},
+    "Entity": {},
+    "Component": {}
+  },
   "_filters": [],
   "_entityName": "Notification",
   "entityTagData": {

@@ -1,0 +1,18 @@
+{
+    "FBXName" : "wand",
+    "ImportSucceeded" : true,
+    "MaterialCount" : 1,
+    "MaterialDetail" : [
+    {
+        "Index" : 0,
+        "MaterialName" :  "mage_texture"
+    }
+    ],
+    "MeshCount" : 1,
+    "MeshDetail" : [
+    {
+        "MeshName" : "wand",
+        "MaterialIndex" : [0]
+    }
+    ]
+}

@@ -1,0 +1,66 @@
+{
+ "Name": "NeJf7T04.AutoCommon",
+ "UUID": "NeJf7T04.AutoCommon_LBwuerPP",
+ "ShareType": "Private",
+ "PackageType": "Custom",
+ "UseableType": "ClientServer",
+ "Platform": "Any",
+ "Version": "1.0.0",
+ "DataFormatVersion": 1,
+ "ResourceList": [
+  {
+   "UUID": "ah9bFe3V-avatar",
+   "Type": "GameObject",
+   "Path": "Assets\\Prefab\\chr107 With Animations.prefab",
+   "Data": "CjtOZUpmN1QwNC51aHExemhhODNiOC1seHZtZmVjOS15eDRtM2JiN3kxbS1jaHIxMDdfMC5+QEZGU0tJThIqTmVKZjdUMDQudGJ1b2dsdjhzOXEtbHh2bWdhNXItMHQzNmswajF2NjJmIAA4AA=="
+  },
+  {
+   "UUID": "ah9bFe3V-avatar",
+   "Type": "GameObject",
+   "Path": "Assets\\Prefab\\chr107 With Animations.prefab",
+   "Data": "CjtOZUpmN1QwNC51aHExemhhODNiOC1seHZtZmVjOS15eDRtM2JiN3kxbS1jaHIxMDdfMC5+QEZGU0tJThIqTmVKZjdUMDQudGJ1b2dsdjhzOXEtbHh2bWdhNXItMHQzNmswajF2NjJmIAA4AA=="
+  },
+  {
+   "UUID": "ah9bFe3V-avatar",
+   "Type": "GameObject",
+   "Path": "Assets\\Prefab\\chr107 With Animations.prefab",
+   "Data": "CjtOZUpmN1QwNC51aHExemhhODNiOC1seHZtZmVjOS15eDRtM2JiN3kxbS1jaHIxMDdfMC5+QEZGU0tJThIqTmVKZjdUMDQudGJ1b2dsdjhzOXEtbHh2bWdhNXItMHQzNmswajF2NjJmIAA4AA=="
+  },
+  {
+   "UUID": "HGyEm3wl-avatar",
+   "Type": "GameObject",
+   "Path": "Assets\\Prefab\\chr107 With Animations.prefab",
+   "Data": "CjtOZUpmN1QwNC51aHExemhhODNiOC1seHZtZmVjOS15eDRtM2JiN3kxbS1jaHIxMDdfMS5+QEZGU0tJThIqTmVKZjdUMDQudGJ1b2dsdjhzOXEtbHh2bWdhNXItMHQzNmswajF2NjJmIAA4AA=="
+  },
+  {
+   "UUID": "HGyEm3wl-avatar",
+   "Type": "GameObject",
+   "Path": "Assets\\Prefab\\chr107 With Animations.prefab",
+   "Data": "CjtOZUpmN1QwNC51aHExemhhODNiOC1seHZtZmVjOS15eDRtM2JiN3kxbS1jaHIxMDdfMS5+QEZGU0tJThIqTmVKZjdUMDQudGJ1b2dsdjhzOXEtbHh2bWdhNXItMHQzNmswajF2NjJmIAA4AA=="
+  },
+  {
+   "UUID": "HGyEm3wl-avatar",
+   "Type": "GameObject",
+   "Path": "Assets\\Prefab\\chr107 With Animations.prefab",
+   "Data": "CjtOZUpmN1QwNC51aHExemhhODNiOC1seHZtZmVjOS15eDRtM2JiN3kxbS1jaHIxMDdfMS5+QEZGU0tJThIqTmVKZjdUMDQudGJ1b2dsdjhzOXEtbHh2bWdhNXItMHQzNmswajF2NjJmIAA4AA=="
+  },
+  {
+   "UUID": "q7sIrLZd-avatar",
+   "Type": "GameObject",
+   "Path": "Assets\\Prefab\\chr107 With Animations.prefab",
+   "Data": "CjtOZUpmN1QwNC51aHExemhhODNiOC1seHZtZmVjOS15eDRtM2JiN3kxbS1jaHIxMDdfMi5+QEZGU0tJThIqTmVKZjdUMDQudGJ1b2dsdjhzOXEtbHh2bWdhNXItMHQzNmswajF2NjJmIAA4AA=="
+  },
+  {
+   "UUID": "q7sIrLZd-avatar",
+   "Type": "GameObject",
+   "Path": "Assets\\Prefab\\chr107 With Animations.prefab",
+   "Data": "CjtOZUpmN1QwNC51aHExemhhODNiOC1seHZtZmVjOS15eDRtM2JiN3kxbS1jaHIxMDdfMi5+QEZGU0tJThIqTmVKZjdUMDQudGJ1b2dsdjhzOXEtbHh2bWdhNXItMHQzNmswajF2NjJmIAA4AA=="
+  },
+  {
+   "UUID": "q7sIrLZd-avatar",
+   "Type": "GameObject",
+   "Path": "Assets\\Prefab\\chr107 With Animations.prefab",
+   "Data": "CjtOZUpmN1QwNC51aHExemhhODNiOC1seHZtZmVjOS15eDRtM2JiN3kxbS1jaHIxMDdfMi5+QEZGU0tJThIqTmVKZjdUMDQudGJ1b2dsdjhzOXEtbHh2bWdhNXItMHQzNmswajF2NjJmIAA4AA=="
+  }
+ ]
+}

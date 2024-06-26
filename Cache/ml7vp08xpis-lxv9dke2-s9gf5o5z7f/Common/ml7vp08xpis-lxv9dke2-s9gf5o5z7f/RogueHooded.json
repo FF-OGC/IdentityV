@@ -1,0 +1,62 @@
+{
+    "FBXName" : "RogueHooded",
+    "ImportSucceeded" : true,
+    "MaterialCount" : 1,
+    "MaterialDetail" : [
+    {
+        "Index" : 0,
+        "MaterialName" :  "rogue_texture"
+    }
+    ],
+    "MeshCount" : 12,
+    "MeshDetail" : [
+    {
+        "MeshName" : "Rogue_ArmLeft",
+        "MaterialIndex" : [0]
+    },
+    {
+        "MeshName" : "Rogue_ArmRight",
+        "MaterialIndex" : [0]
+    },
+    {
+        "MeshName" : "Rogue_Body",
+        "MaterialIndex" : [0]
+    },
+    {
+        "MeshName" : "Rogue_LegLeft",
+        "MaterialIndex" : [0]
+    },
+    {
+        "MeshName" : "Rogue_LegRight",
+        "MaterialIndex" : [0]
+    },
+    {
+        "MeshName" : "Rogue_Cape",
+        "MaterialIndex" : [0]
+    },
+    {
+        "MeshName" : "Knife_Offhand",
+        "MaterialIndex" : [0]
+    },
+    {
+        "MeshName" : "1H_Crossbow",
+        "MaterialIndex" : [0]
+    },
+    {
+        "MeshName" : "Throwable",
+        "MaterialIndex" : [0]
+    },
+    {
+        "MeshName" : "Knife",
+        "MaterialIndex" : [0]
+    },
+    {
+        "MeshName" : "2H_Crossbow",
+        "MaterialIndex" : [0]
+    },
+    {
+        "MeshName" : "Rogue_Head_Hooded",
+        "MaterialIndex" : [0]
+    }
+    ]
+}

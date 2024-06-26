@@ -11,6 +11,8 @@ import "Animation.fcc" as Animation
 import "./PlayerDefaultHUD.fcg" as PlayerDefaultHUD
 import "LevelObject.fcc" as LevelObject
 import "./GlobalRole.fcg" as GlobalRole
+import "AI.fcc" as AI
+import Resource from "EditorGenLib.fcc"
 
 graph PlayerHuman {
     
@@ -30,7 +32,8 @@ graph PlayerHuman {
         } else if phaseIndex == phaseEnum.IN_PROGRESS {
             DispatchEvent(Player_ChooseAbility,thisEntity,List<object>{AbilityEnum.RUN})
             // DisplayNameTag()
-        
+            TurnOffFiringBtn()
+            SwitchPresetCharacterType(thisEntity<Player>,globalEntity<Resource>.PlayerData)
         }
     }
 
@@ -115,6 +118,10 @@ graph PlayerHuman {
         _NameTag<TextEntity>.Color = #FF0000FF
         SetParent(thisEntity<Transform>, _NameTag<Transform>,true)
 
+    }
+
+    func TurnOffFiringBtn() {
+        SetDefaultHudSwitch(thisEntity<Player>,PlayerHudSwitchType.AttackHUD,CommonHudSwitchValue.Close)
     }
 
 

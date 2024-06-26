@@ -2,4 +2,4 @@
 ,,,,,,,,
 Ability_Enum,Name,Description,Icon,CD,Price,Tier,Script,Available
 ABILITY_SCAN,Scan,Scan the survivors,ICON_SCAN,10000,0,1,AbilityScan,TRUE
-ABILITY_TELE,Tele,Teleport to a survivor,ICON_TELE,3000,0,1,AbilityTele,TRUE
+ABILITY_TELE,Tele,Teleport to a survivor,ICON_TELE,30000,0,1,AbilityTele,TRUE

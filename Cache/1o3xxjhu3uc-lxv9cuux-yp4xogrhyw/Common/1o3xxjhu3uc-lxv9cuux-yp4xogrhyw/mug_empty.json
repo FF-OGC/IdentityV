@@ -1,0 +1,18 @@
+{
+    "FBXName" : "mug_empty",
+    "ImportSucceeded" : true,
+    "MaterialCount" : 1,
+    "MaterialDetail" : [
+    {
+        "Index" : 0,
+        "MaterialName" :  "barbarian_texture"
+    }
+    ],
+    "MeshCount" : 1,
+    "MeshDetail" : [
+    {
+        "MeshName" : "mug_empty",
+        "MaterialIndex" : [0]
+    }
+    ]
+}

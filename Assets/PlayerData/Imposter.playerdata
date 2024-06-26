@@ -1,0 +1,64 @@
+{
+  "_tag": {
+    "type": "UGCPlayerEntity"
+  },
+  "_entityId": "HHrgwDQY",
+  "children": [],
+  "prefabVariant": null,
+  "activeValue": {
+    "selfValue": true,
+    "valueTag": "activeValue"
+  },
+  "unlockedValue": {
+    "selfValue": true,
+    "valueTag": "unlockedValue"
+  },
+  "editorLockValue": false,
+  "editorVisibleValue": true,
+  "gender": 0,
+  "avatarRef": {
+    "fileId": "rhjn933ebnp-lxvmhhyb-fqyf2ny9h2j",
+    "filePath": "Assets\\Prefab\\chr107 With Animations.prefab",
+    "_tag": {
+      "type": "GFileRefer"
+    },
+    "fileType": "prefab"
+  },
+  "disableOtherAnimation": true,
+  "_preAnimClip": null,
+  "playerActionMap": {
+    "Run_F@Fist": {
+      "fileId": "uhq1zha83b8-lxvmfec9-yx4m3bb7y1m-move.Anim",
+      "filePath": "fab://Assets\\Model\\LadyDevimon\\chr107 With Animations.fbx\\move.anim",
+      "_tag": {
+        "type": "GFileRefer"
+      },
+      "fileType": "anim"
+    },
+    "Attack2@Fist": {
+      "fileId": "uhq1zha83b8-lxvmfec9-yx4m3bb7y1m-attack01.Anim",
+      "filePath": "fab://Assets\\Model\\LadyDevimon\\chr107 With Animations.fbx\\attack01.anim",
+      "_tag": {
+        "type": "GFileRefer"
+      },
+      "fileType": "anim"
+    },
+    "Attack1@Fist ": {
+      "fileId": "uhq1zha83b8-lxvmfec9-yx4m3bb7y1m-attack01.Anim",
+      "filePath": "fab://Assets\\Model\\LadyDevimon\\chr107 With Animations.fbx\\attack01.anim",
+      "_tag": {
+        "type": "GFileRefer"
+      },
+      "fileType": "anim"
+    },
+    "Stand_Idle@Fist": {
+      "fileId": "uhq1zha83b8-lxvmfec9-yx4m3bb7y1m-idle.Anim",
+      "filePath": "fab://Assets\\Model\\LadyDevimon\\chr107 With Animations.fbx\\idle.anim",
+      "_tag": {
+        "type": "GFileRefer"
+      },
+      "fileType": "anim"
+    }
+  }
+}
+//"{FE:{"v":"1.8.3021207","c":{"FF":4404},"s":100}

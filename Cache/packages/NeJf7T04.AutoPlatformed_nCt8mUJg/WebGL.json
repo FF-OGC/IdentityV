@@ -1,0 +1,18 @@
+{
+ "Name": "NeJf7T04.AutoPlatformed_nCt8mUJg",
+ "UUID": "NeJf7T04.AutoPlatformed_nCt8mUJg",
+ "ShareType": "Private",
+ "PackageType": "Custom",
+ "UseableType": "ClientServer",
+ "Platform": "Any",
+ "Version": "1.0.0",
+ "DataFormatVersion": 1,
+ "ResourceList": [
+  {
+   "UUID": "NeJf7T04.64retevnilo-lxvdasb2-ez2u5n0kzk",
+   "Type": "Texture2D",
+   "Path": "Assets\\Model\\Quirky Series Ultimate\\FREE\\Animations\\Sparrow_Animations.fbm\\T_Sparrow.png",
+   "Data": "UFZSAwAAAAALAAAAAAAAAAEAAAAAAAAABAAAABAAAAABAAAAAQAAAAEAAAAFAAAAEAAAAFBWUgMGAAAABAAAAAAAAAD//wAAAAAAAPrm1cVQUFBQ//8AAAAAAACRpKeCUFBQUP//AAAAAAAA8ssCQQUFVVX//wAAAAAAAPv3iBmqqlBQ//8AAAAAAAD65qiCeHh4eP//AAAAAAAA/fcDOalFqUX//wAAAAAAANjOLJMUFBQU//8AAAAAAABTvXS1RERERP//AAAAAAAAU70AAAAAAAA="
+  }
+ ]
+}

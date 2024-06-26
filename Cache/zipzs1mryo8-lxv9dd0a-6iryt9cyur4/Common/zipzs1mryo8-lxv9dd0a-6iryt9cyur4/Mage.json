@@ -1,0 +1,62 @@
+{
+    "FBXName" : "Mage",
+    "ImportSucceeded" : true,
+    "MaterialCount" : 1,
+    "MaterialDetail" : [
+    {
+        "Index" : 0,
+        "MaterialName" :  "mage_texture"
+    }
+    ],
+    "MeshCount" : 12,
+    "MeshDetail" : [
+    {
+        "MeshName" : "Mage_ArmLeft",
+        "MaterialIndex" : [0]
+    },
+    {
+        "MeshName" : "Mage_ArmRight",
+        "MaterialIndex" : [0]
+    },
+    {
+        "MeshName" : "Mage_Body",
+        "MaterialIndex" : [0]
+    },
+    {
+        "MeshName" : "Mage_Head",
+        "MaterialIndex" : [0]
+    },
+    {
+        "MeshName" : "Mage_LegLeft",
+        "MaterialIndex" : [0]
+    },
+    {
+        "MeshName" : "Mage_LegRight",
+        "MaterialIndex" : [0]
+    },
+    {
+        "MeshName" : "Mage_Cape",
+        "MaterialIndex" : [0]
+    },
+    {
+        "MeshName" : "Spellbook",
+        "MaterialIndex" : [0]
+    },
+    {
+        "MeshName" : "Spellbook_open",
+        "MaterialIndex" : [0]
+    },
+    {
+        "MeshName" : "1H_Wand",
+        "MaterialIndex" : [0]
+    },
+    {
+        "MeshName" : "2H_Staff",
+        "MaterialIndex" : [0]
+    },
+    {
+        "MeshName" : "Mage_Hat",
+        "MaterialIndex" : [0]
+    }
+    ]
+}

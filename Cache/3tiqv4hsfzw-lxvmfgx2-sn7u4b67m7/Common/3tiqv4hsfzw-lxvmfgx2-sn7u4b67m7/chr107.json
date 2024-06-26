@@ -1,0 +1,26 @@
+{
+    "FBXName" : "chr107",
+    "ImportSucceeded" : true,
+    "MaterialCount" : 3,
+    "MaterialDetail" : [
+    {
+        "Index" : 0,
+        "MaterialName" :  "chr107a01"
+    },
+    {
+        "Index" : 1,
+        "MaterialName" :  "chr107a02"
+    },
+    {
+        "Index" : 2,
+        "MaterialName" :  "chr107a01alpha"
+    }
+    ],
+    "MeshCount" : 1,
+    "MeshDetail" : [
+    {
+        "MeshName" : "chr107",
+        "MaterialIndex" : [0,1,2]
+    }
+    ]
+}

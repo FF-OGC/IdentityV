@@ -1,0 +1,66 @@
+{
+    "FBXName" : "Barbarian",
+    "ImportSucceeded" : true,
+    "MaterialCount" : 1,
+    "MaterialDetail" : [
+    {
+        "Index" : 0,
+        "MaterialName" :  "barbarian_texture"
+    }
+    ],
+    "MeshCount" : 13,
+    "MeshDetail" : [
+    {
+        "MeshName" : "Barbarian_ArmLeft",
+        "MaterialIndex" : [0]
+    },
+    {
+        "MeshName" : "Barbarian_ArmRight",
+        "MaterialIndex" : [0]
+    },
+    {
+        "MeshName" : "Barbarian_Body",
+        "MaterialIndex" : [0]
+    },
+    {
+        "MeshName" : "Barbarian_Head",
+        "MaterialIndex" : [0]
+    },
+    {
+        "MeshName" : "Barbarian_LegLeft",
+        "MaterialIndex" : [0]
+    },
+    {
+        "MeshName" : "Barbarian_LegRight",
+        "MaterialIndex" : [0]
+    },
+    {
+        "MeshName" : "Barbarian_Cape",
+        "MaterialIndex" : [0]
+    },
+    {
+        "MeshName" : "Barbarian_Round_Shield",
+        "MaterialIndex" : [0]
+    },
+    {
+        "MeshName" : "1H_Axe_Offhand",
+        "MaterialIndex" : [0]
+    },
+    {
+        "MeshName" : "1H_Axe",
+        "MaterialIndex" : [0]
+    },
+    {
+        "MeshName" : "2H_Axe",
+        "MaterialIndex" : [0]
+    },
+    {
+        "MeshName" : "Mug",
+        "MaterialIndex" : [0]
+    },
+    {
+        "MeshName" : "Barbarian_Hat",
+        "MaterialIndex" : [0]
+    }
+    ]
+}

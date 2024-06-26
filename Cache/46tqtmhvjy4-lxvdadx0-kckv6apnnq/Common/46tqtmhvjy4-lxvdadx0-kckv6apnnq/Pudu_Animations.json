@@ -1,0 +1,18 @@
+{
+    "FBXName" : "Pudu_Animations",
+    "ImportSucceeded" : true,
+    "MaterialCount" : 1,
+    "MaterialDetail" : [
+    {
+        "Index" : 0,
+        "MaterialName" :  "M_Pudu"
+    }
+    ],
+    "MeshCount" : 1,
+    "MeshDetail" : [
+    {
+        "MeshName" : "Mesh",
+        "MaterialIndex" : [0]
+    }
+    ]
+}

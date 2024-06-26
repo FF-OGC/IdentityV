@@ -64,7 +64,7 @@
           "entityTagData": {
             "tagPointers": []
           },
-          "tempIndex": 597,
+          "tempIndex": 230,
           "itemID": 331,
           "seParent": null,
           "ecaScripts": [
@@ -134,7 +134,7 @@
           "entityTagData": {
             "tagPointers": []
           },
-          "tempIndex": 598,
+          "tempIndex": 231,
           "itemID": 297,
           "seParent": null,
           "ecaScripts": [
@@ -207,7 +207,7 @@
           "entityTagData": {
             "tagPointers": []
           },
-          "tempIndex": 599,
+          "tempIndex": 232,
           "itemID": 117,
           "seParent": null,
           "ecaScripts": [
@@ -294,7 +294,7 @@
           "entityTagData": {
             "tagPointers": []
           },
-          "tempIndex": 600,
+          "tempIndex": 233,
           "itemID": 224,
           "seParent": null,
           "ecaScripts": [
@@ -391,7 +391,7 @@
           "entityTagData": {
             "tagPointers": []
           },
-          "tempIndex": 601,
+          "tempIndex": 234,
           "itemID": 224,
           "seParent": null,
           "ecaScripts": [
@@ -489,7 +489,7 @@
           "entityTagData": {
             "tagPointers": []
           },
-          "tempIndex": 602,
+          "tempIndex": 235,
           "itemID": 223,
           "seParent": null,
           "ecaScripts": [
@@ -585,7 +585,7 @@
           "entityTagData": {
             "tagPointers": []
           },
-          "tempIndex": 603,
+          "tempIndex": 236,
           "itemID": 224,
           "seParent": null,
           "ecaScripts": [
@@ -638,7 +638,10 @@
             "selfValue": false,
             "valueTag": "activeValue"
           },
-          "unlockedValue": null,
+          "unlockedValue": {
+            "selfValue": true,
+            "valueTag": "unlockedValue"
+          },
           "editorLockValue": false,
           "editorVisibleValue": true,
           "position": {
@@ -679,7 +682,7 @@
           "entityTagData": {
             "tagPointers": []
           },
-          "tempIndex": 604,
+          "tempIndex": 237,
           "itemID": 224,
           "seParent": null,
           "ecaScripts": [
@@ -825,12 +828,12 @@
   "_entityName": "Generator",
   "mainCameraTransfrom": {
     "position": {
-      "x": 1.7899408340454102,
-      "y": 8.879302024841309,
-      "z": 48.30573272705078
+      "x": 4.624390125274658,
+      "y": 7.055663108825684,
+      "z": 33.72537612915039
     },
     "rotation": {
-      "x": 6.999549865722656,
+      "x": 6.999550819396973,
       "y": 168.99880981445312,
       "z": 0
     }

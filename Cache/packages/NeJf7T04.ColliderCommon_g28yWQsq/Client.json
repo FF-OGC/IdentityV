@@ -1,0 +1,18 @@
+{
+ "Name": "NeJf7T04.ColliderCommon_g28yWQsq",
+ "UUID": "NeJf7T04.ColliderCommon_g28yWQsq",
+ "ShareType": "Private",
+ "PackageType": "Custom",
+ "UseableType": "ClientServer",
+ "Platform": "Any",
+ "Version": "1.0.0",
+ "DataFormatVersion": 1,
+ "ResourceList": [
+  {
+   "UUID": "fk76kuyijl4-lxviav56-7rgepkukxno-E5MtDoY7-collider",
+   "Type": "Collider",
+   "Path": "Assets\\Prefab\\Sparrow_Animations.prefab",
+   "Data": ""
+  }
+ ]
+}

@@ -254,7 +254,7 @@
               },
               "anchoredPosition": {
                 "x": 0,
-                "y": -47
+                "y": -100
               },
               "sizeDelta": {
                 "x": 200,
@@ -263,7 +263,7 @@
             },
             "alpha": 100,
             "text": {
-              "value": "Rescue\n",
+              "value": "Text here ....",
               "key": "",
               "font": "Default",
               "fontSize": 24,
@@ -309,6 +309,96 @@
           },
           "editorLockValue": false,
           "editorVisibleValue": true
+        },
+        {
+          "_tag": {
+            "type": "UITextEntity",
+            "resourceId": ""
+          },
+          "_entityId": "DkYAYMUb",
+          "children": [],
+          "prefabVariant": null,
+          "activeValue": {
+            "selfValue": true,
+            "valueTag": "activeValue"
+          },
+          "unlockedValue": {
+            "selfValue": true,
+            "valueTag": "unlockedValue"
+          },
+          "propsData": {
+            "activeSelf": true,
+            "transform": {
+              "rotate": 0,
+              "anchorMin": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "anchorMax": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "pivot": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "anchoredPosition": {
+                "x": 0,
+                "y": -40
+              },
+              "sizeDelta": {
+                "x": 200,
+                "y": 100
+              }
+            },
+            "alpha": 100,
+            "text": {
+              "value": "0%",
+              "key": "",
+              "font": "Default",
+              "fontSize": 30,
+              "fontStyle": {
+                "bold": false,
+                "italic": false,
+                "underline": false
+              },
+              "color": "#32FF00",
+              "alignment": {
+                "h": "center",
+                "v": "middle"
+              },
+              "lineSpacing": 0,
+              "background": false,
+              "backgroundColor": "#e7b200",
+              "overflow": 0,
+              "backgroundRGBA": {
+                "r": 0,
+                "g": 0,
+                "b": 0,
+                "a": 0
+              },
+              "shadow": false,
+              "shadowColor": "#000000",
+              "shadowOffset": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          },
+          "ecaScripts": [],
+          "ecaProps": {
+            "HudLabelWidget": {},
+            "HudWidget": {},
+            "Entity": {},
+            "Component": {}
+          },
+          "_filters": [],
+          "_entityName": "Text (1)",
+          "entityTagData": {
+            "tagPointers": []
+          },
+          "editorLockValue": false,
+          "editorVisibleValue": true
         }
       ],
       "prefabVariant": null,
@@ -338,7 +428,7 @@
           },
           "anchoredPosition": {
             "x": 0,
-            "y": 127
+            "y": -40
           },
           "sizeDelta": {
             "x": 100,
@@ -694,8 +784,8 @@
             "y": 0.5
           },
           "anchoredPosition": {
-            "x": 0,
-            "y": -59
+            "x": 400,
+            "y": -202
           },
           "sizeDelta": {
             "x": 100,

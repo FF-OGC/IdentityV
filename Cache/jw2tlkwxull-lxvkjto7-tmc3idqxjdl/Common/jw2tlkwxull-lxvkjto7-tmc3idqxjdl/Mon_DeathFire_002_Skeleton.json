@@ -1,0 +1,18 @@
+{
+    "FBXName" : "Mon_DeathFire_002_Skeleton",
+    "ImportSucceeded" : true,
+    "MaterialCount" : 1,
+    "MaterialDetail" : [
+    {
+        "Index" : 0,
+        "MaterialName" :  "Mon_DEATH_FIRE_002_MI"
+    }
+    ],
+    "MeshCount" : 1,
+    "MeshDetail" : [
+    {
+        "MeshName" : "Mon_DeathFire_002",
+        "MaterialIndex" : [0]
+    }
+    ]
+}
